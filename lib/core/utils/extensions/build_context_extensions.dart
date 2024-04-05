@@ -7,12 +7,12 @@ extension MediaQueryHelper on BuildContext {
   double get screenWidth => MediaQuery.of(this).size.width;
 
   double h(double percentage) {
-    var h = percentage / 844;
+    var h = percentage / 926;
     return MediaQuery.of(this).size.height * h;
   }
 
   double w(double percentage) {
-    var w = percentage / 390;
+    var w = percentage / 428;
     return MediaQuery.of(this).size.width * w;
   }
 

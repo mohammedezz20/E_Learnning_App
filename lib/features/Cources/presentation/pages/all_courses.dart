@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'course_details.dart';
 
-
-
 final List<Course> courses = [
-  Course(
+  const Course(
     id: 1,
     name: 'Introduction to Programming',
-    description: 'Learn the fundamentals of programming languages and concepts.',
+    description:
+        'Learn the fundamentals of programming languages and concepts.',
     price: 19.99,
     imageUrl: 'assets/course.png',
     mentorName: '',
@@ -18,7 +17,7 @@ final List<Course> courses = [
     rating: 5,
     reviews: [],
   ),
-  Course(
+  const Course(
     id: 2,
     name: 'Data Structures and Algorithms',
     description: 'Explore data structures and algorithms.',
@@ -32,7 +31,7 @@ final List<Course> courses = [
     rating: 4.5,
     reviews: [],
   ),
-  Course(
+  const Course(
     id: 3,
     name: 'Mobile App Development with Flutter',
     description: 'Build cross-platform mobile apps with Flutter.',
@@ -46,7 +45,7 @@ final List<Course> courses = [
     rating: 4.8,
     reviews: [],
   ),
-  Course(
+  const Course(
     id: 4,
     name: 'Web Development with React',
     description: 'Learn modern web development with React.js.',
@@ -60,7 +59,7 @@ final List<Course> courses = [
     rating: 4.7,
     reviews: [],
   ),
-  Course(
+  const Course(
     id: 5,
     name: 'Machine Learning Foundations',
     description: 'Get started with the basics of machine learning.',
@@ -74,7 +73,7 @@ final List<Course> courses = [
     rating: 4.9,
     reviews: [],
   ),
-  Course(
+  const Course(
     id: 6,
     name: 'Database Management Essentials',
     description: 'Learn essential concepts of database management.',
@@ -88,7 +87,7 @@ final List<Course> courses = [
     rating: 4.6,
     reviews: [],
   ),
-  Course(
+  const Course(
     id: 7,
     name: 'UI/UX Design Fundamentals',
     description: 'Master the basics of UI/UX design.',
@@ -102,7 +101,7 @@ final List<Course> courses = [
     rating: 4.7,
     reviews: [],
   ),
-  Course(
+  const Course(
     id: 8,
     name: 'Digital Marketing Strategies',
     description: 'Learn effective digital marketing strategies.',
@@ -116,7 +115,7 @@ final List<Course> courses = [
     rating: 4.8,
     reviews: [],
   ),
-  Course(
+  const Course(
     id: 9,
     name: 'Cybersecurity Fundamentals',
     description: 'Understand the basics of cybersecurity.',
@@ -130,7 +129,7 @@ final List<Course> courses = [
     rating: 4.6,
     reviews: [],
   ),
-  Course(
+  const Course(
     id: 10,
     name: 'Business Analytics Essentials',
     description: 'Learn essential analytics skills for business.',
@@ -147,21 +146,25 @@ final List<Course> courses = [
 ];
 
 class AllCourses extends StatelessWidget {
+  const AllCourses({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-      
         appBar: AppBar(
           backgroundColor: Colors.grey[200],
           elevation: 0,
-          title: Text('All Courses'),
+          title: const Text('All Courses'),
           actions: <Widget>[
             Padding(
-              padding: EdgeInsets.only(right: 20.0),
+              padding: const EdgeInsets.only(right: 20.0),
               child: Text(
                 "${courses.length} courses found",
-                style: TextStyle(fontSize: 16.0,fontWeight:FontWeight.bold,color: Colors.blue),
+                style: const TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue),
               ),
             ),
           ],
@@ -171,15 +174,13 @@ class AllCourses extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListView.builder(
-                    // shrinkWrap true, prevents the list from taking all the available space
-                    shrinkWrap: true,
-                    itemCount: courses.length,
-                    itemBuilder: (context, index) {
-                      // Pass the corresponding course to each CourseCard
-                      return CourseCard(course: courses[index]);
-                    },
-
-
+              // shrinkWrap true, prevents the list from taking all the available space
+              shrinkWrap: true,
+              itemCount: courses.length,
+              itemBuilder: (context, index) {
+                // Pass the corresponding course to each CourseCard
+                return CourseCard(course: courses[index]);
+              },
             ),
           ),
         ),
@@ -191,7 +192,7 @@ class AllCourses extends StatelessWidget {
 class CourseCard extends StatefulWidget {
   final Course course;
 
-  const CourseCard({required this.course});
+  const CourseCard({super.key, required this.course});
 
   @override
   _CourseCardState createState() => _CourseCardState();
@@ -218,7 +219,6 @@ class _CourseCardState extends State<CourseCard> {
               },
             ),
           ),
-
         );
       },
       child: Card(
@@ -226,8 +226,7 @@ class _CourseCardState extends State<CourseCard> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
-
-        margin: EdgeInsets.symmetric(vertical: 10.0),
+        margin: const EdgeInsets.symmetric(vertical: 10.0),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Stack(
@@ -243,60 +242,72 @@ class _CourseCardState extends State<CourseCard> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  SizedBox(width: 10.0),
+                  const SizedBox(width: 10.0),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                           children: [
                             Container(
-                              padding: EdgeInsets.all(5.0),
+                              padding: const EdgeInsets.all(5.0),
                               decoration: BoxDecoration(
                                 color: Colors.lightBlue[50],
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
                               child: Text(
                                 'Programming', // Replace 'Your Category' with the actual category
-                                style: TextStyle(fontSize: 10.0,fontWeight: FontWeight.bold, color: Colors.blue[700]),
+                                style: TextStyle(
+                                    fontSize: 10.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blue[700]),
                               ),
                             ),
                             IconButton(
-                              icon: isSaved? Icon(Icons.bookmark):Icon(Icons.bookmark_outline),
-                              color:  Colors.blue , // Change color to blue if isSaved is true
+                              icon: isSaved
+                                  ? const Icon(Icons.bookmark)
+                                  : const Icon(Icons.bookmark_outline),
+                              color: Colors
+                                  .blue, // Change color to blue if isSaved is true
                               onPressed: () {
                                 setState(() {
-                                  isSaved = !isSaved; // Toggle isSaved when the icon is pressed
+                                  isSaved =
+                                      !isSaved; // Toggle isSaved when the icon is pressed
                                 });
                               },
                             ),
                           ],
                         ),
-                        SizedBox(height: 5.0),
+                        const SizedBox(height: 5.0),
                         Text(
                           '${widget.course.name} - \$${widget.course.price}', // Display course name and price
-                          style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
+                          style: const TextStyle(
+                              fontSize: 14.0, fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(height: 5.0),
+                        const SizedBox(height: 5.0),
                         Row(
                           children: [
-                            Icon(Icons.star, size: 16.0, color: Colors.amber),
+                            const Icon(Icons.star,
+                                size: 16.0, color: Colors.amber),
                             Text(
                               '(${widget.course.rating})', // Display course rating
-                              style: TextStyle(fontSize: 14.0, color: Colors.amber),
+                              style: const TextStyle(
+                                  fontSize: 14.0, color: Colors.amber),
                             ),
-                            SizedBox(width: 5.0),
-                            Text(
+                            const SizedBox(width: 5.0),
+                            const Text(
                               '|', // Separator
-                              style: TextStyle(fontSize: 14.0, color: Colors.grey),
+                              style:
+                                  TextStyle(fontSize: 14.0, color: Colors.grey),
                             ),
-                            SizedBox(width: 5.0),
-                            Icon(Icons.people, size: 16.0, color: Colors.blue),
+                            const SizedBox(width: 5.0),
+                            const Icon(Icons.people,
+                                size: 16.0, color: Colors.blue),
                             Text(
                               ' ${widget.course.numRatings} students', // Display number of enrolled students
-                              style: TextStyle(fontSize: 14.0, color: Colors.blue),
+                              style: const TextStyle(
+                                  fontSize: 14.0, color: Colors.blue),
                             ),
                           ],
                         ),
@@ -305,7 +316,6 @@ class _CourseCardState extends State<CourseCard> {
                   ),
                 ],
               ),
-
             ],
           ),
         ),
@@ -313,4 +323,3 @@ class _CourseCardState extends State<CourseCard> {
     );
   }
 }
-
