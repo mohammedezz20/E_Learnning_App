@@ -2,6 +2,7 @@ import 'package:e_learning_app/config/themes/theme.dart';
 import 'package:e_learning_app/core/Cubit/langCubit/lang_cubit.dart';
 import 'package:e_learning_app/core/Cubit/themeCubit/theme_cubit.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
+import 'package:e_learning_app/features/Auth/presentation/pages/all_courses.dart';
 import 'package:e_learning_app/generated/l10n.dart';
 import 'package:e_learning_app/main_screen.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,7 @@ class MainApp extends StatelessWidget {
                 GlobalCupertinoLocalizations.delegate,
               ],
               supportedLocales: S.delegate.supportedLocales,
-                home: MyWidget()
+                home: AllCourses()
               );
             },
           );
