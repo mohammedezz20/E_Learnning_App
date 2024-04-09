@@ -1,4 +1,27 @@
 {
     "b1":"نغيير اللغة",
-    "b2":"نغيير الوضع"
+    "b2": "نغيير الوضع",
+    "profile": "الحساب",
+    "edit_profile": "تعديل الحساب",
+    "notifications": "الإشعارات",
+    "payment": "الدفع",
+    "security": "الأمان",
+    "language": "اللغة",
+    "dark_mode": "الوضع الليلي",
+    "privacy_policy": "سياسة الخصوصية",
+    "help_center": "مركز المساعدة",
+    "invite_friends": "دعوة الأصدقاء",
+    "logout": "تسجيل الخروج",
+    "english": "الانجليزية",
+    "arabic": "العربية",
+    "update": "تحديث",
+    "general_notifications": "الإشعارات العامة",
+    "sound": "الصوت",
+    "vibrate": "التنبيهات",
+    "special_offers": "العروض الخاصة",
+    "promo_discount": "الخصم والتخفيض",
+    "cashback": "الرصيد النقدي",
+    "app_updates": "تحديثات التطبيق",
+    "new_service_available": "خدمة جديدة متاحة",
+    "new_tips_available": "نصائح جديدة متاحة"
 }

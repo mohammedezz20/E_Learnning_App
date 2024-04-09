@@ -22,7 +22,37 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "app_updates": MessageLookupByLibrary.simpleMessage("App Updates"),
+        "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "b1": MessageLookupByLibrary.simpleMessage("change language"),
-        "b2": MessageLookupByLibrary.simpleMessage("change theme")
+        "b2": MessageLookupByLibrary.simpleMessage("change theme"),
+        "cashback": MessageLookupByLibrary.simpleMessage("Cashback"),
+        "dark_mode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
+        "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
+        "general_notifications":
+            MessageLookupByLibrary.simpleMessage("General Notifications"),
+        "help_center": MessageLookupByLibrary.simpleMessage("Help Center"),
+        "invite_friends":
+            MessageLookupByLibrary.simpleMessage("Invite Friends"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "new_service_available":
+            MessageLookupByLibrary.simpleMessage("New Service Available"),
+        "new_tips_available":
+            MessageLookupByLibrary.simpleMessage("New Tips Available"),
+        "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+        "payment": MessageLookupByLibrary.simpleMessage("Payment"),
+        "privacy_policy":
+            MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "promo_discount":
+            MessageLookupByLibrary.simpleMessage("Promo & Discount"),
+        "security": MessageLookupByLibrary.simpleMessage("Security"),
+        "sound": MessageLookupByLibrary.simpleMessage("Sound"),
+        "special_offers":
+            MessageLookupByLibrary.simpleMessage("Special Offers"),
+        "update": MessageLookupByLibrary.simpleMessage("Update"),
+        "vibrate": MessageLookupByLibrary.simpleMessage("Vibrate")
       };
 }
