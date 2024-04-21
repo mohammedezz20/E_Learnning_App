@@ -22,24 +22,42 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "add_new_card":
+            MessageLookupByLibrary.simpleMessage("اضافة بطاقة جديدة"),
         "app_updates": MessageLookupByLibrary.simpleMessage("تحديثات التطبيق"),
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "b1": MessageLookupByLibrary.simpleMessage("نغيير اللغة"),
         "b2": MessageLookupByLibrary.simpleMessage("نغيير الوضع"),
+        "biometric_id": MessageLookupByLibrary.simpleMessage("Biometric ID"),
+        "card_name": MessageLookupByLibrary.simpleMessage("اسم البطاقة"),
+        "card_number": MessageLookupByLibrary.simpleMessage("رقم البطاقة"),
         "cashback": MessageLookupByLibrary.simpleMessage("الرصيد النقدي"),
+        "change_password":
+            MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+        "change_pin": MessageLookupByLibrary.simpleMessage("تغيير PIN"),
+        "connected": MessageLookupByLibrary.simpleMessage("متصل"),
+        "cvv": MessageLookupByLibrary.simpleMessage("CVV"),
         "dark_mode": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
+        "disconnected": MessageLookupByLibrary.simpleMessage("غير متصل"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("تعديل الحساب"),
         "english": MessageLookupByLibrary.simpleMessage("الانجليزية"),
+        "expiry_date": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
+        "face_id": MessageLookupByLibrary.simpleMessage("Face ID"),
         "general_notifications":
             MessageLookupByLibrary.simpleMessage("الإشعارات العامة"),
+        "google_auth":
+            MessageLookupByLibrary.simpleMessage("Google Authenticator"),
         "help_center": MessageLookupByLibrary.simpleMessage("مركز المساعدة"),
         "invite_friends": MessageLookupByLibrary.simpleMessage("دعوة الأصدقاء"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "logout_sentence": MessageLookupByLibrary.simpleMessage(
+            "هل أنت متاكد من أنك تريد تسجيل الخروج ؟"),
         "new_service_available":
             MessageLookupByLibrary.simpleMessage("خدمة جديدة متاحة"),
         "new_tips_available":
             MessageLookupByLibrary.simpleMessage("نصائح جديدة متاحة"),
+        "no_cancel": MessageLookupByLibrary.simpleMessage("لا, الغاء"),
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
         "privacy_policy":
@@ -47,10 +65,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "profile": MessageLookupByLibrary.simpleMessage("الحساب"),
         "promo_discount":
             MessageLookupByLibrary.simpleMessage("الخصم والتخفيض"),
+        "remember_me": MessageLookupByLibrary.simpleMessage("تذكرني"),
         "security": MessageLookupByLibrary.simpleMessage("الأمان"),
         "sound": MessageLookupByLibrary.simpleMessage("الصوت"),
         "special_offers": MessageLookupByLibrary.simpleMessage("العروض الخاصة"),
         "update": MessageLookupByLibrary.simpleMessage("تحديث"),
-        "vibrate": MessageLookupByLibrary.simpleMessage("التنبيهات")
+        "vibrate": MessageLookupByLibrary.simpleMessage("التنبيهات"),
+        "yes_logout": MessageLookupByLibrary.simpleMessage("نعم, تسجيل الخروج")
       };
 }

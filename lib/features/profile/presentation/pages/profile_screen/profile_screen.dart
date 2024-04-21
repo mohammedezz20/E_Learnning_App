@@ -1,6 +1,4 @@
-import 'package:e_learning_app/config/themes/colors.dart';
-import 'package:e_learning_app/core/utils/app_images.dart';
-import 'package:e_learning_app/features/profile/presentation/widgets/profile_screen_body.dart';
+import 'package:e_learning_app/features/profile/presentation/pages/profile_screen/profile_screen_body.dart';
 import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 

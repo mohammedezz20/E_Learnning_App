@@ -4,6 +4,7 @@ class NotificationsOptionsItem extends StatelessWidget {
   const NotificationsOptionsItem({super.key, required this.title});
 
   final String title;
+  final bool isChecked = true;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,9 @@ class NotificationsOptionsItem extends StatelessWidget {
         activeTrackColor: const Color(0xff335ef7),
         inactiveTrackColor: const Color(0xffeeeeee),
         value: true,
-        onChanged: (value) {},
+        onChanged: (value) {
+          value = isChecked;
+        },
       ),
     );
   }

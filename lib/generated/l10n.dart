@@ -299,6 +299,166 @@ class S {
       args: [],
     );
   }
+
+  /// `Connected`
+  String get connected {
+    return Intl.message(
+      'Connected',
+      name: 'connected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Disconnected`
+  String get disconnected {
+    return Intl.message(
+      'Disconnected',
+      name: 'disconnected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Card`
+  String get add_new_card {
+    return Intl.message(
+      'Add New Card',
+      name: 'add_new_card',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Card Number`
+  String get card_number {
+    return Intl.message(
+      'Card Number',
+      name: 'card_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expiry Date`
+  String get expiry_date {
+    return Intl.message(
+      'Expiry Date',
+      name: 'expiry_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `CVV`
+  String get cvv {
+    return Intl.message(
+      'CVV',
+      name: 'cvv',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Card Name`
+  String get card_name {
+    return Intl.message(
+      'Card Name',
+      name: 'card_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remember Me`
+  String get remember_me {
+    return Intl.message(
+      'Remember Me',
+      name: 'remember_me',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Face ID`
+  String get face_id {
+    return Intl.message(
+      'Face ID',
+      name: 'face_id',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Biometric ID`
+  String get biometric_id {
+    return Intl.message(
+      'Biometric ID',
+      name: 'biometric_id',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Google Authenticator`
+  String get google_auth {
+    return Intl.message(
+      'Google Authenticator',
+      name: 'google_auth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Password`
+  String get change_password {
+    return Intl.message(
+      'Change Password',
+      name: 'change_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change PIN`
+  String get change_pin {
+    return Intl.message(
+      'Change PIN',
+      name: 'change_pin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to logout?`
+  String get logout_sentence {
+    return Intl.message(
+      'Are you sure you want to logout?',
+      name: 'logout_sentence',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes, Logout`
+  String get yes_logout {
+    return Intl.message(
+      'Yes, Logout',
+      name: 'yes_logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No, Cancel`
+  String get no_cancel {
+    return Intl.message(
+      'No, Cancel',
+      name: 'no_cancel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

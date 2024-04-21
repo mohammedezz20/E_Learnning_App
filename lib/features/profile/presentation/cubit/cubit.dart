@@ -1,13 +1,13 @@
 import 'package:e_learning_app/features/profile/data/models/menu_model.dart';
 import 'package:e_learning_app/features/profile/presentation/cubit/states.dart';
-import 'package:e_learning_app/features/profile/presentation/pages/edit_profile_screen.dart';
+import 'package:e_learning_app/features/profile/presentation/pages/edit_profile_screen/edit_profile_screen.dart';
 import 'package:e_learning_app/features/profile/presentation/pages/help_center_screen.dart';
 import 'package:e_learning_app/features/profile/presentation/pages/invite_friends_screen.dart';
 import 'package:e_learning_app/features/profile/presentation/pages/lanuage_screen.dart';
-import 'package:e_learning_app/features/profile/presentation/pages/notification_screen.dart';
-import 'package:e_learning_app/features/profile/presentation/pages/payment_screen.dart';
+import 'package:e_learning_app/features/profile/presentation/pages/notification/notification_screen.dart';
+import 'package:e_learning_app/features/profile/presentation/pages/payment/payment_screen.dart';
 import 'package:e_learning_app/features/profile/presentation/pages/privacy_policy_screen.dart';
-import 'package:e_learning_app/features/profile/presentation/pages/security_screen.dart';
+import 'package:e_learning_app/features/profile/presentation/pages/security/security_screen.dart';
 import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

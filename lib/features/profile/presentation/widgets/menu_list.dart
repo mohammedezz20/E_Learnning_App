@@ -1,4 +1,5 @@
 import 'package:e_learning_app/features/profile/presentation/cubit/cubit.dart';
+import 'package:e_learning_app/features/profile/presentation/pages/logout/logout_bottom_sheet.dart';
 import 'package:e_learning_app/features/profile/presentation/widgets/menu_item.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,14 @@ class MenuList extends StatelessWidget {
               if (index == menuList.length - 2) {
                 return MenuItem(menuModel: menuList[index], isDarkMode: true);
               } else if (index == menuList.length - 1) {
-                return MenuItem(menuModel: menuList[index], isDifferent: true);
+                return GestureDetector(
+                    onTap: () {
+                      showModalBottomSheet(
+                          context: context,
+                          builder: (context) => const LogoutBottomSheet());
+                    },
+                    child: MenuItem(
+                        menuModel: menuList[index], isDifferent: true));
               }
               return GestureDetector(
                   onTap: () {

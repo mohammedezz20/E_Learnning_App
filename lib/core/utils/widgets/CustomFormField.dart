@@ -1,4 +1,3 @@
-import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/core/utils/extensions/sized_box_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,6 +16,7 @@ class CustomFormField extends StatelessWidget {
   Color backgroundColor;
   double? border;
   double sizedBoxHeight;
+  double sizedBoxWidth;
   bool enabled;
 
   CustomFormField(
@@ -34,6 +34,7 @@ class CustomFormField extends StatelessWidget {
       this.onTapOutside,
       this.border,
       this.sizedBoxHeight = 0.0,
+      this.sizedBoxWidth = 0.0,
       this.enabled = true});
 
   @override
@@ -87,6 +88,7 @@ class CustomFormField extends StatelessWidget {
           ),
         ),
         sizedBoxHeight.h.sizedBoxHeight,
+        sizedBoxWidth.w.sizedBoxWidth,
       ],
     );
   }

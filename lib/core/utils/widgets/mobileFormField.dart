@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:phone_text_field/phone_text_field.dart';
 
 class MobileFormField extends StatelessWidget {
   const MobileFormField(

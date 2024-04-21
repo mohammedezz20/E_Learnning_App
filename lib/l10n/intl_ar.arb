@@ -23,5 +23,21 @@
     "cashback": "الرصيد النقدي",
     "app_updates": "تحديثات التطبيق",
     "new_service_available": "خدمة جديدة متاحة",
-    "new_tips_available": "نصائح جديدة متاحة"
+  "new_tips_available": "نصائح جديدة متاحة",
+  "connected": "متصل",
+  "disconnected": "غير متصل",
+  "add_new_card": "اضافة بطاقة جديدة",
+  "card_number": "رقم البطاقة",
+  "expiry_date": "تاريخ الانتهاء",
+  "cvv": "CVV",
+  "card_name": "اسم البطاقة",
+  "remember_me": "تذكرني",
+  "face_id": "Face ID",
+  "biometric_id": "Biometric ID",
+  "google_auth": "Google Authenticator",
+  "change_password": "تغيير كلمة المرور",
+  "change_pin": "تغيير PIN",
+  "logout_sentence": "هل أنت متاكد من أنك تريد تسجيل الخروج ؟",
+  "yes_logout": "نعم, تسجيل الخروج",
+  "no_cancel": "لا, الغاء"
 }

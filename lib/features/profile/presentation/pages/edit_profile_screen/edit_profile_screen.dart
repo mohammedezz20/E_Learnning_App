@@ -109,7 +109,7 @@ class EditProfileScreen extends StatelessWidget {
                 backgroundColor: const Color(0xff335ef7),
                 text: S.of(context).update,
                 width: double.infinity,
-              )
+              ),
             ],
           ),
         ),

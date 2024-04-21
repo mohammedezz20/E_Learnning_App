@@ -17,7 +17,8 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(
-      onPressed: () {},
+      padding: EdgeInsets.zero,
+      onPressed: onPressed,
       child: Container(
         width: width,
         padding: const EdgeInsets.symmetric(vertical: 20),

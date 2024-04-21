@@ -23,5 +23,21 @@
     "cashback": "Cashback",
     "app_updates": "App Updates",
     "new_service_available": "New Service Available",
-    "new_tips_available": "New Tips Available"
+  "new_tips_available": "New Tips Available",
+  "connected": "Connected",
+  "disconnected": "Disconnected",
+  "add_new_card": "Add New Card",
+  "card_number": "Card Number",
+  "expiry_date": "Expiry Date",
+  "cvv": "CVV",
+  "card_name": "Card Name",
+  "remember_me": "Remember Me",
+  "face_id": "Face ID",
+  "biometric_id": "Biometric ID",
+  "google_auth": "Google Authenticator",
+  "change_password": "Change Password",
+  "change_pin": "Change PIN",
+  "logout_sentence": "Are you sure you want to logout?",
+  "yes_logout": "Yes, Logout",
+  "no_cancel": "No, Cancel"
 }
