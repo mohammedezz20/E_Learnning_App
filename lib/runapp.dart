@@ -1,12 +1,10 @@
 import 'package:e_learning_app/config/themes/theme.dart';
 import 'package:e_learning_app/core/Cubit/langCubit/lang_cubit.dart';
 import 'package:e_learning_app/core/Cubit/themeCubit/theme_cubit.dart';
-import 'package:e_learning_app/core/cach_helper.dart';
-import 'package:e_learning_app/features/Cources/presentation/pages/all_courses.dart';
+import 'package:e_learning_app/features/profile/presentation/cubit/cubit.dart';
+import 'package:e_learning_app/features/profile/presentation/pages/profile_screen/profile_screen.dart';
 import 'package:e_learning_app/generated/l10n.dart';
-import 'package:e_learning_app/main_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,6 +24,7 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => LangCubit()..changeLang(false)),
+        BlocProvider(create: (context) => ProfileCubit()),
         BlocProvider(
             create: (context) => ThemeCubit()..changeappmode(isdark: isDark)),
       ],
@@ -67,7 +66,7 @@ class MainApp extends StatelessWidget {
                       GlobalCupertinoLocalizations.delegate,
                     ],
                     supportedLocales: S.delegate.supportedLocales,
-                    home: const AllCourses()),
+                    home: const ProfileScreen()),
               );
             },
           );
