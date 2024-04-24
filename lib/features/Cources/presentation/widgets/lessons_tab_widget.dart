@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -40,35 +39,56 @@ class Lessons extends StatelessWidget {
             children: [
               Text(
                 '15 lessons',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall
-                    ?.copyWith(fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.bold),
               ),
               Spacer(),
               TextButton(
                 onPressed: () {
                   // Handle "See All" button click
                 },
-                child: Text('See All',style: TextStyle(fontSize: 18,color: Color(0XFF24BAFF)),),
+                child: Text(
+                  'See All',
+                  style: TextStyle(fontSize: 18.sp, color: Color(0XFF24BAFF)),
+                ),
               ),
             ],
           ),
-          _buildSection('Section 1 - Introduction', CourseData.section1Lessons),
-          _buildSection('Section 2 - Advanced Techniques', CourseData.section2Lessons),
-          _buildSection('Section 3 - Projects', CourseData.section3Lessons),
+          _Section(
+            sectionTitle: 'Section 1 - Introduction',
+            lessons: CourseData.section1Lessons,
+          ),
+          _Section(
+            sectionTitle: 'Section 2 - Advanced Techniques',
+            lessons: CourseData.section2Lessons,
+          ),
+          _Section(
+            sectionTitle: 'Section 3 - Projects',
+            lessons: CourseData.section3Lessons,
+          ),
         ],
       ),
     );
   }
+}
 
-  Widget _buildSection(String sectionTitle, List<Lesson> lessons) {
+class _Section extends StatelessWidget {
+  final String sectionTitle;
+  final List<Lesson> lessons;
+
+  const _Section({
+    Key? key,
+    required this.sectionTitle,
+    required this.lessons,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           sectionTitle,
-          style: TextStyle(fontSize: 17,color: Colors.black),
+          style: TextStyle(fontSize: 17.sp, color: Colors.black),
         ),
         ListView.builder(
           shrinkWrap: true,
@@ -77,24 +97,27 @@ class Lessons extends StatelessWidget {
           itemBuilder: (context, index) {
             return ListTile(
               leading: Container(
-                width: 35.w,
-                height: 35.h,
+                width: 35.r,
+                height: 35.r,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: Color(0XFF24BAFF), width: 1.5),
+                  border: Border.all(color: Color(0XFF24BAFF), width: 1.5.r),
                 ),
                 child: Center(
                   child: Text(
                     '${index + 1}',
-                    style: TextStyle(fontSize: 20, color: Color(0XFF24BAFF)),
+                    style: TextStyle(fontSize: 20.sp, color: Color(0XFF24BAFF)),
                   ),
                 ),
               ),
-              title: Text(lessons[index].title,style: Theme.of(context)
-                  .textTheme
-                  .bodySmall
-                  ?.copyWith(fontWeight: FontWeight.bold),),
-              subtitle: Text(lessons[index].duration,style: Theme.of(context).textTheme.labelSmall,),
+              title: Text(
+                lessons[index].title,
+                style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(
+                lessons[index].duration,
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
               trailing: Icon(Icons.play_circle_fill, color: Color(0XFF24BAFF)),
             );
           },

@@ -18,10 +18,7 @@ class _ReviewsState extends State<Reviews> {
             Icon(Icons.star, color: Colors.amber),
             Text(
               ' 4.8 (4,479 reviews)',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall
-                  ?.copyWith(fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.bold),
             ),
             Spacer(),
             TextButton(
@@ -30,7 +27,7 @@ class _ReviewsState extends State<Reviews> {
               },
               child: Text(
                 'See All',
-                style: TextStyle(fontSize: 18, color: Color(0XFF24BAFF)),
+                style: TextStyle(fontSize: 18.sp, color: Color(0XFF24BAFF)),
               ),
             ),
           ],
@@ -48,51 +45,23 @@ class _ReviewsState extends State<Reviews> {
                   final reversedIndex = 5 - index; // Reversing the index
                   if (reversedIndex == 5) {
                     // Add tab for "All Reviews"
-                    return GestureDetector(
+                    return AllReviewsTab(
+                      isSelected: _selectedTabIndex == index,
                       onTap: () {
                         setState(() {
                           _selectedTabIndex = index;
                         });
                       },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                        margin: EdgeInsets.only(right: 8.0),
-                        decoration: BoxDecoration(
-                          color: _selectedTabIndex == index ? Color(0XFF24BAFF) :Colors.white,
-                          borderRadius: BorderRadius.circular(20.0),
-                          border: Border.all(color: Color(0XFF24BAFF)), // Blue border
-                        ),
-                        child: Text(
-                          'All Reviews',
-                          style: TextStyle(color: _selectedTabIndex == index ?Colors.white: Color(0XFF24BAFF), fontSize: 14), // Blue label
-                        ),
-                      ),
                     );
                   } else {
-                    return GestureDetector(
+                    return StarRatingTab(
+                      isSelected: _selectedTabIndex == index,
+                      rating: reversedIndex + 1,
                       onTap: () {
                         setState(() {
                           _selectedTabIndex = index;
                         });
                       },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                        margin: EdgeInsets.only(right: 8.0),
-                        decoration: BoxDecoration(
-                          color: _selectedTabIndex == index ? Color(0XFF24BAFF) : Colors.white, // White background
-                          borderRadius: BorderRadius.circular(20.0),
-                          border: Border.all(color: Color(0XFF24BAFF)), // Blue border
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              '${reversedIndex + 1} stars',
-                              style: TextStyle(color: _selectedTabIndex == index ?Colors.white: Color(0XFF24BAFF), fontSize: 14), // Blue label
-                            ),
-                          ],
-                        ),
-                      ),
                     );
                   }
                 },
@@ -102,19 +71,22 @@ class _ReviewsState extends State<Reviews> {
             // Add reviews based on selected tab
             // Here, you can generate reviews based on the selected tab
             // For simplicity, I'll just display some sample reviews
-            _buildReview(
-              'John Doe',
-              5,
+            ReviewItem(
+              reviewerName: 'John Doe',
+              rating: 5,
+              reviewText:
               'Great course! I learned a lot about Figma and improved my design skills.',
             ),
-            _buildReview(
-              'Jane Smith',
-              4,
+            ReviewItem(
+              reviewerName: 'Jane Smith',
+              rating: 4,
+              reviewText:
               'The course content was excellent, but I wish there were more interactive exercises.',
             ),
-            _buildReview(
-              'David Johnson',
-              3,
+            ReviewItem(
+              reviewerName: 'David Johnson',
+              rating: 3,
+              reviewText:
               'Decent course, but some sections were a bit confusing. Could use more explanations.',
             ),
           ],
@@ -122,25 +94,109 @@ class _ReviewsState extends State<Reviews> {
       ],
     );
   }
+}
 
-  Widget _buildReview(String reviewerName, int rating, String reviewText) {
+class AllReviewsTab extends StatelessWidget {
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const AllReviewsTab({
+    Key? key,
+    required this.isSelected,
+    required this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 8.0.r, vertical: 4.0.r),
+        margin: EdgeInsets.only(right: 8.0.r),
+        decoration: BoxDecoration(
+          color: isSelected ? Color(0XFF24BAFF) : Colors.white,
+          borderRadius: BorderRadius.circular(20.0.r),
+          border: Border.all(color: Color(0XFF24BAFF), width: 1.5.r), // Blue border
+        ),
+        child: Text(
+          'All Reviews',
+          style: TextStyle(
+              color: isSelected ? Colors.white : Color(0XFF24BAFF),
+              fontSize: 14.sp), // Blue label
+        ),
+      ),
+    );
+  }
+}
+
+class StarRatingTab extends StatelessWidget {
+  final bool isSelected;
+  final int rating;
+  final VoidCallback onTap;
+
+  const StarRatingTab({
+    Key? key,
+    required this.isSelected,
+    required this.rating,
+    required this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 8.0.r, vertical: 4.0.r),
+        margin: EdgeInsets.only(right: 8.0.r),
+        decoration: BoxDecoration(
+          color: isSelected ? Color(0XFF24BAFF) : Colors.white,
+          borderRadius: BorderRadius.circular(20.0.r),
+          border: Border.all(color: Color(0XFF24BAFF), width: 1.5.r), // Blue border
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              '$rating stars',
+              style: TextStyle(
+                  color: isSelected ? Colors.white : Color(0XFF24BAFF),
+                  fontSize: 14.sp), // Blue label
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ReviewItem extends StatelessWidget {
+  final String reviewerName;
+  final int rating;
+  final String reviewText;
+
+  const ReviewItem({
+    Key? key,
+    required this.reviewerName,
+    required this.rating,
+    required this.reviewText,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(
         backgroundImage: const AssetImage(
             'assets/mentor-image.jpg'), // Replace 'assets/mentor_image.jpg' with the actual path to the mentor's image
-        radius: 25.w,
+        radius: 25.r,
       ),
       title: Row(
         children: [
           Text(
             reviewerName,
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall
-                ?.copyWith(fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.bold),
           ),
           Spacer(),
-          _buildRatingWidget(rating),
+          RatingWidget(rating: rating),
           SizedBox(width: 5.w),
         ],
       ),
@@ -150,20 +206,30 @@ class _ReviewsState extends State<Reviews> {
           SizedBox(height: 4.h),
           Text(
             reviewText,
-            style: Theme.of(context).textTheme.labelSmall,
+            style: TextStyle(fontSize: 16.sp, color: Colors.black26),
           ),
         ],
       ),
     );
   }
+}
 
-  Widget _buildRatingWidget(int rating) {
+class RatingWidget extends StatelessWidget {
+  final int rating;
+
+  const RatingWidget({
+    Key? key,
+    required this.rating,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
+      padding: EdgeInsets.symmetric(horizontal: 6.0.r, vertical: 2.0.r),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: Colors.blue, width: 1.0),
-        borderRadius: BorderRadius.circular(10.0),
+        border: Border.all(color: Colors.blue, width: 1.0.r),
+        borderRadius: BorderRadius.circular(10.0.r),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
