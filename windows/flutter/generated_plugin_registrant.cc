@@ -10,8 +10,8 @@
 #include <permission_handler_windows/permission_handler_windows_plugin.h>
 
 void RegisterPlugins(flutter::PluginRegistry* registry) {
-    FileSelectorWindowsRegisterWithRegistrar(
-            registry->GetRegistrarForPlugin("FileSelectorWindows"));
-    PermissionHandlerWindowsPluginRegisterWithRegistrar(
-            registry->GetRegistrarForPlugin("PermissionHandlerWindowsPlugin"));
+  FileSelectorWindowsRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("FileSelectorWindows"));
+  PermissionHandlerWindowsPluginRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("PermissionHandlerWindowsPlugin"));
 }
