@@ -1,8 +1,11 @@
 import 'package:e_learning_app/core/utils/extensions/build_context_extensions.dart';
-import 'package:e_learning_app/features/Cources/presentation/widgets/about_tab_widget.dart';
+import 'package:e_learning_app/features/Cources/presentation/widgets/lessons_tab_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../widgets/about_tab_widget.dart'; // Import the AboutTab widget
+import '../widgets/review_tab_widget.dart'; // Import the Review class
 
 class Course {
   final int id; // Unique identifier for the course
@@ -16,7 +19,7 @@ class Course {
   final List<String> tools; // List of tools required for the course
   final double rating;
   final int numRatings;
-  final List<Review> reviews;
+  final List reviews;
 
   const Course({
     required this.id,
@@ -34,30 +37,17 @@ class Course {
   });
 }
 
-class Review {
-  final String reviewerName;
-  final String reviewerImageUrl;
-  final double rating;
-  final String text;
-
-  const Review({
-    required this.reviewerName,
-    required this.reviewerImageUrl,
-    required this.rating,
-    required this.text,
-  });
-}
-
 class CourseDetails extends StatefulWidget {
   final Course course;
   final bool isSaved;
   final Function(bool) onSaveChanged;
 
-  const CourseDetails(
-      {super.key,
-      required this.course,
-      required this.isSaved,
-      required this.onSaveChanged});
+  const CourseDetails({
+    Key? key, // Add key parameter
+    required this.course,
+    required this.isSaved,
+    required this.onSaveChanged,
+  }) : super(key: key);
 
   @override
   _CourseDetailsState createState() => _CourseDetailsState();
@@ -147,8 +137,8 @@ class _CourseDetailsState extends State<CourseDetails> {
                                         .textTheme
                                         .labelSmall
                                         ?.copyWith(
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.blue[600]),
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.blue[600]),
                                   ),
                                 ),
                                 SizedBox(width: context.screenWidth * 0.1),
@@ -160,8 +150,8 @@ class _CourseDetailsState extends State<CourseDetails> {
                                       .textTheme
                                       .labelSmall
                                       ?.copyWith(
-                                          fontWeight: FontWeight.bold,
-                                          color: const Color(0xffFD9D17)),
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color(0xffFD9D17)),
                                 ),
                               ],
                             ),
@@ -218,7 +208,7 @@ class _CourseDetailsState extends State<CourseDetails> {
                     indicatorWeight: 4.h,
 
                     indicatorColor:
-                        Colors.blue, // Set the color of the indicator to blue
+                    Colors.blue, // Set the color of the indicator to blue
 
                     tabs: const [
                       Tab(text: 'About'),
@@ -229,12 +219,12 @@ class _CourseDetailsState extends State<CourseDetails> {
                   const SizedBox(height: 10.0),
                   // Content for each tab
                   SizedBox(
-                    height: 250.h, // Adjust height according to content
-                    child: const TabBarView(
+                    height: 250, // Use a fixed pixel value for predictable layout
+                    child: TabBarView(
                       children: [
                         AboutTab(),
-                        Center(child: Text('Lessons section')),
-                        Center(child: Text('Reviews section')),
+                        Lessons(),
+                        Reviews(),
                       ],
                     ),
                   ),
