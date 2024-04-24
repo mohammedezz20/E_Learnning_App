@@ -1,6 +1,7 @@
 import 'package:e_learning_app/config/themes/theme.dart';
 import 'package:e_learning_app/core/Cubit/langCubit/lang_cubit.dart';
 import 'package:e_learning_app/core/Cubit/themeCubit/theme_cubit.dart';
+import 'package:e_learning_app/features/Cources/presentation/pages/all_courses.dart';
 import 'package:e_learning_app/features/profile/presentation/cubit/cubit.dart';
 import 'package:e_learning_app/features/profile/presentation/pages/profile_screen/profile_screen.dart';
 import 'package:e_learning_app/generated/l10n.dart';
@@ -66,7 +67,7 @@ class MainApp extends StatelessWidget {
                       GlobalCupertinoLocalizations.delegate,
                     ],
                     supportedLocales: S.delegate.supportedLocales,
-                    home: const ProfileScreen()),
+                    home: const AllCourses()),
               );
             },
           );
