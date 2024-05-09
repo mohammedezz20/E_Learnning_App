@@ -9,24 +9,19 @@ class LangCubit extends Cubit<LangState> {
   LangCubit() : super(LangInitial());
   static LangCubit get(context) => BlocProvider.of(context);
 
+  bool isArabic = false;
+  var selectedLanguage;
 
-bool isArabic=false;
-var selectedLanguage;
-
-changeLang(bool arabic){
-  
-  if(arabic)
-  {
-    selectedLanguage='ar';
-    isArabic=arabic;
+  changeLang(bool arabic) {
+    if (arabic) {
+      selectedLanguage = 'ar';
+      isArabic = arabic;
       emit(ChangeAppLanguageArabicState());
-  }else{
-      selectedLanguage='en';
-    isArabic=arabic;
+    } else {
+      selectedLanguage = 'en';
+      isArabic = arabic;
       emit(ChangeAppLanguageEnglishState());
+    }
+    CachHelper.saveData(key: 'isArabic', value: arabic);
   }
-  CachHelper.saveData(key: 'isArabic', value: arabic);
- 
-
-}
 }
