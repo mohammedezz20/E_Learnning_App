@@ -27,6 +27,11 @@ dependencies:
   image_picker: ^1.0.8
   smooth_page_indicator: ^1.1.0
   page_transition: ^2.1.0
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^1.0.0
+  flutter_rating_bar: ^4.0.1
+  curved_navigation_bar: ^1.0.3
+  google_fonts: ^6.1.0
 
 dev_dependencies:
   flutter_test:
