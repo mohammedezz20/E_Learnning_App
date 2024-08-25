@@ -116,7 +116,7 @@ class _Section extends StatelessWidget {
               ),
               subtitle: Text(
                 lessons[index].duration,
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               trailing: Icon(Icons.play_circle_fill, color: Color(0XFF24BAFF)),
             );
