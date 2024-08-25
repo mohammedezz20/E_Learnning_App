@@ -39,5 +39,6 @@
   "change_pin": "Change PIN",
   "logout_sentence": "Are you sure you want to logout?",
   "yes_logout": "Yes, Logout",
-  "no_cancel": "No, Cancel"
+  "no_cancel": "No, Cancel",
+  "Login": "Login"
 }

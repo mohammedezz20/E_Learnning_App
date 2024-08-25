@@ -12,7 +12,7 @@ class ProfileScreenBody extends StatelessWidget {
     var pickedImage;
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        padding: EdgeInsets.symmetric(horizontal: 20.h, vertical: 16.w),
         child: Column(
           children: [
             const Center(

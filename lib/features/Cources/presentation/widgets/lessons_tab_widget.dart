@@ -29,6 +29,8 @@ class CourseData {
 }
 
 class Lessons extends StatelessWidget {
+  const Lessons({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -39,16 +41,20 @@ class Lessons extends StatelessWidget {
             children: [
               Text(
                 '15 lessons',
-                style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 20.sp,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
               ),
-              Spacer(),
+              const Spacer(),
               TextButton(
                 onPressed: () {
                   // Handle "See All" button click
                 },
                 child: Text(
                   'See All',
-                  style: TextStyle(fontSize: 18.sp, color: Color(0XFF24BAFF)),
+                  style: TextStyle(
+                      fontSize: 18.sp, color: const Color(0XFF24BAFF)),
                 ),
               ),
             ],
@@ -76,10 +82,10 @@ class _Section extends StatelessWidget {
   final List<Lesson> lessons;
 
   const _Section({
-    Key? key,
+    super.key,
     required this.sectionTitle,
     required this.lessons,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +98,7 @@ class _Section extends StatelessWidget {
         ),
         ListView.builder(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: lessons.length,
           itemBuilder: (context, index) {
             return ListTile(
@@ -101,24 +107,30 @@ class _Section extends StatelessWidget {
                 height: 35.r,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: Color(0XFF24BAFF), width: 1.5.r),
+                  border:
+                      Border.all(color: const Color(0XFF24BAFF), width: 1.5.r),
                 ),
                 child: Center(
                   child: Text(
                     '${index + 1}',
-                    style: TextStyle(fontSize: 20.sp, color: Color(0XFF24BAFF)),
+                    style: TextStyle(
+                        fontSize: 20.sp, color: const Color(0XFF24BAFF)),
                   ),
                 ),
               ),
               title: Text(
                 lessons[index].title,
-                style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 20.sp,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
               ),
               subtitle: Text(
                 lessons[index].duration,
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
-              trailing: Icon(Icons.play_circle_fill, color: Color(0XFF24BAFF)),
+              trailing:
+                  const Icon(Icons.play_circle_fill, color: Color(0XFF24BAFF)),
             );
           },
         ),

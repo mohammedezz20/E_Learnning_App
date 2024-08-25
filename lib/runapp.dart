@@ -39,7 +39,6 @@ class MainApp extends StatelessWidget {
                 designSize: const Size(428, 926),
                 minTextAdapt: true,
                 splitScreenMode: true,
-                // Use builder only if you need to use library outside ScreenUtilInit context
                 builder: (_, child) {
                   return MaterialApp(
                     debugShowCheckedModeBanner: false,
