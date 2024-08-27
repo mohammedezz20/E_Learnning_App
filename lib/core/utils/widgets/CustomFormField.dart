@@ -86,6 +86,7 @@ class CustomFormField extends StatelessWidget {
             suffixIcon: suffix,
             prefixIcon: prefix,
           ),
+        
         ),
         sizedBoxHeight.h.sizedBoxHeight,
         sizedBoxWidth.w.sizedBoxWidth,
