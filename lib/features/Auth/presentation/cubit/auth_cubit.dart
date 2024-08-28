@@ -49,7 +49,6 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:e_learning_app/features/Auth/domain/repositories/auth_repository.dart';
-import 'package:flutter/material.dart';
 
 part 'auth_state.dart';
 
@@ -58,12 +57,7 @@ class AuthCubit extends Cubit<AuthState> {
   final AuthRepository userRepository;
 
   bool isChecked = false;
-  Map userData = {};
-  TextEditingController signInEmailController = TextEditingController();
-  TextEditingController signInPasswordController = TextEditingController();
 
-   TextEditingController signUpEmailController = TextEditingController();
-  TextEditingController signUpPasswordController = TextEditingController();
   bool isPasswordVisible = true;
 
   void changePassVisibility() {
@@ -94,7 +88,8 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
 
-   signIn() async {
+   signIn(
+   ) async {
     // emit(AuthLoginLoadingState());
     // final response = await userRepository.signIn(
     //   email: signInEmailController.text,
@@ -108,8 +103,6 @@ class AuthCubit extends Cubit<AuthState> {
     //TODO manage sign in states
   }
 
-
-  
    signUp() async {
     // emit(AuthLoginLoadingState());
     // final response = await userRepository.signIn(
@@ -123,6 +116,7 @@ class AuthCubit extends Cubit<AuthState> {
 
     //TODO manage sign up states
   }
+
 
 }
 
