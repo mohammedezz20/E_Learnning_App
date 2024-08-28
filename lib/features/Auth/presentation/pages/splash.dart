@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
 
-import 'onBoarding.dart';
+import 'on_boarding.dart';
 
 class CustomCircleProgressIndicator extends StatefulWidget {
   const CustomCircleProgressIndicator({Key? key}) : super(key: key);

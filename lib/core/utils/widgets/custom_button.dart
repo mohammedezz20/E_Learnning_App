@@ -7,10 +7,14 @@ class CustomButton extends StatelessWidget {
       required this.backgroundColor,
       required this.width,
       required this.text,
+      this.height,
+      this.padding,
       this.onPressed});
 
   final Color backgroundColor;
   final double width;
+  final double? height;
+  final double? padding;
   final String text;
   final void Function()? onPressed;
 
@@ -20,8 +24,9 @@ class CustomButton extends StatelessWidget {
       padding: EdgeInsets.zero,
       onPressed: onPressed,
       child: Container(
+        height:height,
         width: width,
-        padding: const EdgeInsets.symmetric(vertical: 20),
+        padding:  EdgeInsets.symmetric(vertical:padding?? 20),
         decoration: BoxDecoration(
           color: backgroundColor,
           borderRadius: BorderRadius.circular(30),
