@@ -1,3 +1,4 @@
+import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,7 +13,7 @@ class RemeberMe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return    Padding(
-        padding: const EdgeInsets.fromLTRB(0, 5, 0, 15),
+        padding:  EdgeInsets.fromLTRB(0, 5, 0, 30.h),
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -26,7 +27,7 @@ class RemeberMe extends StatelessWidget {
               ),
                SizedBox(height: 100.h,),
                Text(
-                "Remember me",
+               S.of(context).remember_me,
                 style: TextStyle(
                   fontSize: 18.0.sp,
                       fontWeight: FontWeight.w500,

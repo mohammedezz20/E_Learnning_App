@@ -23,7 +23,7 @@ class _startState extends State<start> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => login()),
+              MaterialPageRoute(builder: (context) => Login()),
             );
           },
         ),
@@ -213,7 +213,7 @@ class _startState extends State<start> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => login()),
+                                        builder: (context) => Login()),
                                   );
                                 },
                               ),
@@ -240,7 +240,7 @@ class _startState extends State<start> {
                                       ..onTap = () => Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => signUp()),
+                                            builder: (context) => SignUp()),
                                       ),
                                     style: TextStyle(
                                       fontSize: 16,

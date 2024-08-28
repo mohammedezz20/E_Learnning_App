@@ -1,5 +1,4 @@
 import 'package:e_learning_app/config/themes/colors.dart';
-import 'package:e_learning_app/features/Auth/presentation/pages/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,7 +23,7 @@ class TextButtonAuthAccount extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
            Text(
-            '$text? ',
+            text,
             style: TextStyle(
                 fontSize: 15.sp,
                 color: const Color(0xff939393),
@@ -35,7 +34,7 @@ class TextButtonAuthAccount extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>  signUp(),
+                  builder: (context) =>  navigationScreen,
                 ),
               )
             },
