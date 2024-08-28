@@ -159,8 +159,10 @@ class Login extends StatelessWidget {
                             ),
                           ),
                         ),
+                        
+                        
                         Center(
-                          child:DontHaveAnAccountWidget(
+                          child:TextButtonAuthAccount(
                             size: MediaQuery.of(context).size,
                             text: 'Don\'t have an account',
                             textButton: 'Sign-up',
