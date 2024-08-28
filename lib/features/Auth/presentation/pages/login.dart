@@ -37,10 +37,7 @@ class Login extends StatelessWidget {
              ?  const Color(0xfffafafa)
              :  const Color(0xff1f222a),),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => ( SignUp())),
-            );
+             Navigator.pop(context);
           },
         ),
       ),

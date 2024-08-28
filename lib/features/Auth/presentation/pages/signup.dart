@@ -38,12 +38,8 @@ class SignUp  extends StatelessWidget {
              :  const Color(0xff1f222a),
           
           ),
-          //onPressed: () => Navigator.of(context).pop(),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Login()),
-            );
+           Navigator.of(context).pop();
           },
         ),
       ),
