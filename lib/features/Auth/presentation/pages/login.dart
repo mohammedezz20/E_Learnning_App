@@ -5,7 +5,9 @@ import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
 import 'package:e_learning_app/features/Auth/domain/repositories/auth_repository.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
 import 'package:e_learning_app/features/Auth/presentation/pages/signup.dart';
+import 'package:e_learning_app/features/Auth/presentation/widgets/dont_have_an_account.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/remeber_me_custom_widget.dart';
+import 'package:e_learning_app/features/Auth/presentation/widgets/socialButton.dart';
 import 'package:e_learning_app/home_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -96,8 +98,8 @@ class Login extends StatelessWidget {
                                   labelText: 'Password',
                                   suffix: GestureDetector(
                                   child:watchCubit.isPasswordVisible
-                                       ? const Icon(Icons.visibility)
-                                       : const Icon(Icons.visibility_off),
+                                       ? const Icon(Icons.visibility_off)
+                                       : const Icon(Icons.visibility),
                                        onTap: (){
                                       readCubit.changePassVisibility();
                                       },
@@ -105,12 +107,7 @@ class Login extends StatelessWidget {
                                   keyboardType: TextInputType.visiblePassword,
                                   validator: (value) {
                                    return watchCubit.passwordValidator(value);
-                                  },
-                                  
-                                  // onTapSuffix: () {
-                                  //   cubit.changePassVisibility();
-                                  // },
-                                  
+                                  },                      
                                   )
                               ),
                             ],
@@ -122,7 +119,6 @@ class Login extends StatelessWidget {
                         readCubit.rememberUserCheck(value);
                       },
                      ),      
-                     
                        Padding(
                           padding: EdgeInsets.fromLTRB(0, 0, 0, 20.h),
                         child: CustomButton(
@@ -143,7 +139,6 @@ class Login extends StatelessWidget {
                               },
                   
                         ),),
-                     
                         // Padding(
                         //   padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
                         //   child: SizedBox(
@@ -225,134 +220,41 @@ class Login extends StatelessWidget {
                               padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
                               child: Row(
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(20.0),
-                                    child: Ink(
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                        BorderRadius.circular(10),
-                                      ),
-                                      child: InkWell(
-                                        onTap: () {
-                                          print("go to facebook");
-                                        },
-                                        child: Container(
-                                            height: 40,
-                                            width: 55,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(10),
-                                                border: Border.all(
-                                                    color: Colors
-                                                        .grey.shade300)),
-                                            child: Image.asset(
-                                              'assets/facebook.png',
-                                            )),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(20.0),
-                                    child: Ink(
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                        BorderRadius.circular(10),
-                                      ),
-                                      child: InkWell(
-                                        onTap: () {
+                                  SocialButton(
+                                    assetPath: 'assets/facebook.png', 
+                                    onTap: (){
+                                      print('go to face book');
+                                    }),
+                                  SocialButton(
+                                    assetPath: 'assets/google.png',
+                                     onTap:  () {
                                           print("go to google");
-                                        },
-                                        child: Container(
-                                            height: 40,
-                                            width: 55,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(10),
-                                                border: Border.all(
-                                                    color: Colors
-                                                        .grey.shade300)),
-                                            child: Image.asset(
-                                              'assets/google.png',
-                                            )),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(20.0),
-                                    child: Ink(
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                        BorderRadius.circular(10),
-                                      ),
-                                      child: InkWell(
-                                        onTap: () {
+                                        },),
+                                  SocialButton(
+                                    assetPath: 'assets/apple.png',
+                                     onTap: () {
                                           print("go to apple");
-                                        },
-                                        child: Container(
-                                            height: 40,
-                                            width: 55,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(10),
-                                                border: Border.all(
-                                                    color: Colors
-                                                        .grey.shade300)),
-                                            child: Image.asset(
-                                              'assets/apple.png',
-                                            )),
-                                      ),
-                                    ),
-                                  ),
+                                        },),
                                 ],
                               ),
                             ),
                           ],
                         ),
                         Center(
-                          child: Container(
-                            padding: EdgeInsets.all(20),
-                            child: RichText(
-                              text: TextSpan(children: [
-                                TextSpan(
-                                  text: "Don\'t have an account?",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: " Sign up",
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => signUp()),
-                                    ),
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.blue,
-                                  ),
-                                ),
-                              ]),
-                            ),
-                          ),
-                        )
+                          child:DontHaveAnAccountWidget(
+                            size: MediaQuery.of(context).size,
+                          )
+                   )
                       ])),
             ),
           ],
         ),
       ),
     );
- 
       },
-      
       )
     );
-    
   }
-
 }
 
 
