@@ -7,7 +7,6 @@ import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart'
 import 'package:e_learning_app/features/Auth/presentation/pages/signup.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/dont_have_an_account.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/remeber_me_custom_widget.dart';
-import 'package:e_learning_app/features/Auth/presentation/widgets/socialButton.dart';
 import 'package:e_learning_app/home_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -15,14 +14,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Login extends StatelessWidget {
-   GlobalKey<FormState> signInFormKey = GlobalKey();
+   final GlobalKey<FormState> signInFormKey = GlobalKey();
     Login({super.key});
   @override
   Widget build(BuildContext context) {
     return BlocProvider(create: (context)=>AuthCubit(AuthRepository()),
     child: BlocConsumer<AuthCubit,AuthState>(
       listener: (context,state){
-
       },
       builder: (context,state){
             var readCubit=context.read<AuthCubit>();
@@ -31,7 +29,6 @@ class Login extends StatelessWidget {
         appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
-          //onPressed: () => Navigator.of(context).pop(),
           onPressed: () {
             Navigator.push(
               context,
@@ -59,7 +56,6 @@ class Login extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               )),
-                        
                         Form(
                           key: signInFormKey,
                           child: Column(
@@ -69,13 +65,16 @@ class Login extends StatelessWidget {
                                  width: double.infinity,
                                 child: CustomFormField(
                                   sizedBoxHeight: 20,
+                                      hintTextFontSize: 25.0.sp,
+                                   outLineBorderColor: AppColor.loginOptionBorder,
+                                  focusedBorderColor: AppColor.buttonColor,
                                     backgroundColor: !CachHelper.getData(key: 'isDark')
                                    ? const Color(0xfffafafa)
                                    : const Color(0xff1f222a),
                                   border:9.0,
                                   prefix:const Icon( Icons.email),
                                   controller: watchCubit.signInEmailController,
-                                  labelText: 'Email',
+                                  hintText: 'Email',
                                   keyboardType: TextInputType.emailAddress,
                                   validator: (value) {
                                     return watchCubit.emailValidator(value);
@@ -89,13 +88,15 @@ class Login extends StatelessWidget {
                                   sizedBoxHeight: 20,
                                   controller:watchCubit.signInPasswordController,
                                   border: 9.0,
-
+                                  hintTextFontSize: 25.0.sp,
+                                  outLineBorderColor: AppColor.loginOptionBorder,
+                                  focusedBorderColor: AppColor.buttonColor,
                                   backgroundColor: !CachHelper.getData(key: 'isDark')
                                    ? const Color(0xfffafafa)
                                    : const Color(0xff1f222a),
                                    isPassword: watchCubit.isPasswordVisible,
                                   prefix:const Icon(Icons.lock_rounded),
-                                  labelText: 'Password',
+                                  hintText: 'Password',
                                   suffix: GestureDetector(
                                   child:watchCubit.isPasswordVisible
                                        ? const Icon(Icons.visibility_off)
@@ -139,29 +140,7 @@ class Login extends StatelessWidget {
                               },
                   
                         ),),
-                        // Padding(
-                        //   padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-                        //   child: SizedBox(
-                        //     width: MediaQuery.of(context).size.width,
-                        //     height: 50,
-                        //     child: MaterialButton(
-                        //       color:AppColor.buttonColor,
-                        //       shape: RoundedRectangleBorder(
-                        //         borderRadius: BorderRadius.circular(30.0),
-                        //       ),
-                        //       child: Text(
-                        //         'Sign in',
-                        //         style: TextStyle(
-                        //             color: Colors.white, fontSize: 22),
-                        //       ),
-                        //       onPressed: () {
-                        //         if (_formkey.currentState!.validate()) {
-                        //           print('form submiitted');
-                        //         }
-                        //       },
-                        //     ),
-                        //   ),
-                        // ),
+                 
                         Center(
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),
@@ -172,7 +151,7 @@ class Login extends StatelessWidget {
                                   ..onTap =
                                       () => print("go to sign up screen"),
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 16.sp,
                                   fontWeight: FontWeight.w500,
                                   color: Colors.blue,
                                 ),
@@ -181,68 +160,11 @@ class Login extends StatelessWidget {
                           ),
                         ),
                         Center(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 1),
-                            child: Row(
-                              children: [
-                                Flexible(
-                                  child: Container(
-                                    height: 2,
-                                    color: Colors.grey[300],
-                                  ),
-                                ),
-                                const Padding(
-                                  padding:
-                                  EdgeInsets.symmetric(horizontal: 16),
-                                  child: Text(
-                                    'or continue with',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  child: Container(
-                                    height: 2,
-                                    color: Colors.grey[300],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                              child: Row(
-                                children: [
-                                  SocialButton(
-                                    assetPath: 'assets/facebook.png', 
-                                    onTap: (){
-                                      print('go to face book');
-                                    }),
-                                  SocialButton(
-                                    assetPath: 'assets/google.png',
-                                     onTap:  () {
-                                          print("go to google");
-                                        },),
-                                  SocialButton(
-                                    assetPath: 'assets/apple.png',
-                                     onTap: () {
-                                          print("go to apple");
-                                        },),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        Center(
                           child:DontHaveAnAccountWidget(
                             size: MediaQuery.of(context).size,
+                            text: 'Don\'t have an account',
+                            textButton: 'Sign-up',
+                            navigationScreen:const signUp(),
                           )
                    )
                       ])),
