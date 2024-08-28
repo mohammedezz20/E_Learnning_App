@@ -72,6 +72,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Special Offers"),
         "update": MessageLookupByLibrary.simpleMessage("Update"),
         "vibrate": MessageLookupByLibrary.simpleMessage("Vibrate"),
-        "yes_logout": MessageLookupByLibrary.simpleMessage("Yes, Logout")
+        "yes_logout": MessageLookupByLibrary.simpleMessage("Yes, Logout"),
+
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "login to your account": MessageLookupByLibrary.simpleMessage("Login to your\n account"),
+        "sign in": MessageLookupByLibrary.simpleMessage("Sign in"),
+        "sign up": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "forgot the password?": MessageLookupByLibrary.simpleMessage("Forgot the password?"),
+        "don\'t have an account?": MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "create your account": MessageLookupByLibrary.simpleMessage("Create your\n account"),
+        "already have an account ?": MessageLookupByLibrary.simpleMessage("Already have an account ?"),
       };
 }
