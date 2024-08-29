@@ -2,7 +2,7 @@ import 'package:e_learning_app/config/themes/colors.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/core/utils/widgets/CustomFormField.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
-import 'package:e_learning_app/features/Auth/domain/repositories/auth_repository.dart';
+import 'package:e_learning_app/features/Auth/domain/repositories/auth_repo_impl.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/text_button_auth_account.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/remeber_me_custom_widget.dart';

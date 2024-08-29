@@ -48,7 +48,7 @@
 // }
 
 import 'package:bloc/bloc.dart';
-import 'package:e_learning_app/features/Auth/domain/repositories/auth_repository.dart';
+import 'package:e_learning_app/features/Auth/domain/repositories/auth_repo_impl.dart';
 
 part 'auth_state.dart';
 
