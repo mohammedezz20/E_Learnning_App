@@ -1,8 +1,9 @@
 import 'package:e_learning_app/config/themes/colors.dart';
+import 'package:e_learning_app/core/Get%20it/auth_locator.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/core/utils/widgets/CustomFormField.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
-import 'package:e_learning_app/features/Auth/domain/repositories/auth_repo_impl.dart';
+import 'package:e_learning_app/features/Auth/data/repositories/auth_repo_impl.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/text_button_auth_account.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/remeber_me_custom_widget.dart';
@@ -17,12 +18,12 @@ import 'login.dart';
 class SignUp  extends StatelessWidget {
    final GlobalKey<FormState> _signUpFormKey = GlobalKey();
    
-  final TextEditingController signUpEmailController = TextEditingController();
-   final TextEditingController signUpPasswordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+   final TextEditingController passwordController = TextEditingController();
     SignUp({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create: (context)=>AuthCubit(AuthRepository()),
+    return BlocProvider(create: (context)=>AuthCubit(getIt.get<AuthRepository>()),
     child: BlocConsumer<AuthCubit,AuthState>(
       listener: (context,state){
       },
@@ -82,7 +83,7 @@ class SignUp  extends StatelessWidget {
                                  : const Color(0xff1f222a),
                                 border:9.0,
                                 prefix:const Icon( Icons.email),
-                                controller: signUpEmailController,
+                                controller: emailController,
                                 hintText: S.of(context).email,
                                 keyboardType: TextInputType.emailAddress,
                                 validator: (value) {
@@ -95,7 +96,7 @@ class SignUp  extends StatelessWidget {
                               child:
                               CustomFormField(
                                 sizedBoxHeight: 20,
-                                controller:signUpPasswordController,
+                                controller:passwordController,
                                 border: 9.0,
                                 hintTextFontSize: 25.0.sp,
                                 outLineBorderColor: AppColor.loginOptionBorder,
@@ -137,7 +138,10 @@ class SignUp  extends StatelessWidget {
                           text: S.of(context).sign_in,
                           onPressed: () {
                               if (_signUpFormKey.currentState!.validate()) {
-                                readCubit.signIn();
+                                // readCubit.signUp(
+                                //   email: emailController.text,
+                                //   pass: passwordController.text
+                                // );
                                  Navigator.push(
                                context,
                                MaterialPageRoute(
