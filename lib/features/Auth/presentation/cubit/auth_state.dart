@@ -16,3 +16,13 @@ class AuthLoginErrorState extends AuthState{
 }
 class AuthLoginSuccessState extends AuthState{}
 
+class FetchUserDataLoadingState extends AuthState{}
+class FetchUserDataErrorState extends AuthState{
+  final String errorMessage;
+  FetchUserDataErrorState({required this.errorMessage});
+}
+class FetchUserDataSuccessState extends AuthState{
+  final UserModel userModel;
+  FetchUserDataSuccessState(this.userModel);
+}
+

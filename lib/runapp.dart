@@ -71,7 +71,7 @@ class MainApp extends StatelessWidget {
                       GlobalCupertinoLocalizations.delegate,
                     ],
                     supportedLocales: S.delegate.supportedLocales,
-                    home:  onBoarding()),
+                    home:  Login()),
               );
             },
           );

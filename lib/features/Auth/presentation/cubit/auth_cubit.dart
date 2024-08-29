@@ -48,7 +48,8 @@
 // }
 
 import 'package:bloc/bloc.dart';
-import 'package:e_learning_app/features/Auth/domain/repositories/auth_repo_impl.dart';
+import 'package:e_learning_app/features/Auth/data/models/user_model.dart';
+import 'package:e_learning_app/features/Auth/data/repositories/auth_repo_impl.dart';
 
 part 'auth_state.dart';
 
@@ -73,6 +74,7 @@ class AuthCubit extends Cubit<AuthState> {
     return null;
   }
 
+
   String? emailValidator(value) {
     if (value!.isEmpty) {
       return 'Please enter your Email';
@@ -88,35 +90,50 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
 
-   signIn(
+
+  Future<void> signIn({
+      required String email,
+      required String pass,
+   }
    ) async {
-    // emit(AuthLoginLoadingState());
-    // final response = await userRepository.signIn(
-    //   email: signInEmailController.text,
-    //   password: signInPasswordController.text,
-    // );
-    // response.fold(
-    //   (errMessage) => emit(AuthLoginErrorState(errorMessage: errMessage)),
-    //   (signInModel) => emit(AuthLoginSuccessState()),
-    // );
+    emit(AuthLoginLoadingState());
+    final response = await userRepository.signIn(
+      email:  email,  
+      password: pass
+    );
+    response.fold(
+      (errMessage) => emit(AuthLoginErrorState(errorMessage: errMessage)),
+      (signInModel) => emit(AuthLoginSuccessState()),
+    );
 
     //TODO manage sign in states
   }
 
-   signUp() async {
-    // emit(AuthLoginLoadingState());
-    // final response = await userRepository.signIn(
-    //   email: signInEmailController.text,
-    //   password: signInPasswordController.text,
-    // );
-    // response.fold(
-    //   (errMessage) => emit(AuthLoginErrorState(errorMessage: errMessage)),
-    //   (signInModel) => emit(AuthLoginSuccessState()),
-    // );
+  Future<void> signUp({
+    required String email,
+    required String pass,
+   }) async {
+    emit(AuthLoginLoadingState());
+    final response = await userRepository.signUp(
+      email: email,
+      password:pass,
+    );
+    response.fold(
+      (errMessage) => emit(AuthLoginErrorState(errorMessage: errMessage)),
+      (signInModel) => emit(AuthLoginSuccessState()),
+    );
 
     //TODO manage sign up states
   }
 
+  Future<void> getUserData({required String token})async{
+    emit(FetchUserDataLoadingState());
+     final response = await userRepository.getUserProfile();
+      response.fold(
+      (errMessage) => emit(FetchUserDataErrorState(errorMessage: errMessage)),
+      (signInModel) => emit(FetchUserDataSuccessState(signInModel)),
+    );
 
+  }
 }
 
