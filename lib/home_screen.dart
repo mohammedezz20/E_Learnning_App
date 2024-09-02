@@ -1,8 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:e_learning_app/popular_recommended.dart';
 import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:e_app/popular_recommended.dart';
 
 import 'all_category_courses.dart';
 import 'category_courses.dart';
