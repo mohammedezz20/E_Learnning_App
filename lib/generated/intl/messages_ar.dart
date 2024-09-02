@@ -71,6 +71,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "special_offers": MessageLookupByLibrary.simpleMessage("العروض الخاصة"),
         "update": MessageLookupByLibrary.simpleMessage("تحديث"),
         "vibrate": MessageLookupByLibrary.simpleMessage("التنبيهات"),
-        "yes_logout": MessageLookupByLibrary.simpleMessage("نعم, تسجيل الخروج")
+        "yes_logout": MessageLookupByLibrary.simpleMessage("نعم, تسجيل الخروج"),
+         
+        "email":MessageLookupByLibrary.simpleMessage("البريد الالكترونى"),
+        "password":MessageLookupByLibrary.simpleMessage("كلمه السر"),
+        "login to your account":MessageLookupByLibrary.simpleMessage("تسجيل الدخول إلى حسابك"),
+        "sign in":MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "sign up":MessageLookupByLibrary.simpleMessage("اشتراك"),
+        "forgot the password?":MessageLookupByLibrary.simpleMessage("نسيت كلمه السر؟"),
+        "don\'t have an account?":MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+        "create your account":MessageLookupByLibrary.simpleMessage("انشاء حسابك"),
+        "already have an account ?":MessageLookupByLibrary.simpleMessage("هل لديك حساب بالفعل؟"),
+
       };
 }

@@ -459,6 +459,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Already have an account ?l`
+  String get already_have_an_account {
+    return Intl.message(
+      'Already have an account ?',
+      name: 'already have an account ?',
+      desc: '',
+      args: [],
+    );
+  }
+
+    /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+    /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+    /// `Login to Your Account`
+  String get login_to_your_account {
+    return Intl.message(
+      'Login to your\n account',
+      name: 'login to your account',
+      desc: '',
+      args: [],
+    );
+  }
+
+    /// `Sign in`
+  String get sign_in {
+    return Intl.message(
+      'Sign in',
+      name: 'sign in',
+      desc: '',
+      args: [],
+    );
+  }
+
+     /// `Sign up`
+  String get sign_up {
+    return Intl.message(
+      'Sign up',
+      name: 'sign up',
+      desc: '',
+      args: [],
+    );
+  }
+
+    /// `Forgot the password?`
+  String get forgot_the_password {
+    return Intl.message(
+      'Forgot the password?',
+      name: 'forgot the password?',
+      desc: '',
+      args: [],
+    );
+  }
+
+    /// `Don\'t have an account?`
+  String get dont_have_an_account{
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'don\'t have an account?',
+      desc: '',
+      args: [],
+    );
+  }  
+
+    /// `create Your account`
+  String get create_your_account{
+    return Intl.message(
+      'Create your\n account',
+      name: 'create your account',
+      desc: '',
+      args: [],
+    );
+  }  
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

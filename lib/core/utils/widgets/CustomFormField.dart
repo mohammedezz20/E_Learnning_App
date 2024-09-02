@@ -14,10 +14,13 @@ class CustomFormField extends StatelessWidget {
   String? Function(String?)? validator;
   Function(PointerDownEvent)? onTapOutside;
   Color backgroundColor;
+  Color? outLineBorderColor;
+  Color?focusedBorderColor;
   double? border;
   double sizedBoxHeight;
   double sizedBoxWidth;
   bool enabled;
+  final double? hintTextFontSize;
 
   CustomFormField(
       {super.key,
@@ -31,11 +34,16 @@ class CustomFormField extends StatelessWidget {
       this.maxLines = 1,
       this.validator,
       this.backgroundColor = Colors.white,
+      this.outLineBorderColor,
+      this.focusedBorderColor,
       this.onTapOutside,
       this.border,
       this.sizedBoxHeight = 0.0,
       this.sizedBoxWidth = 0.0,
-      this.enabled = true});
+      this.enabled = true,
+      this.hintTextFontSize,
+      
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -55,13 +63,15 @@ class CustomFormField extends StatelessWidget {
             hintStyle: Theme.of(context)
                 .textTheme
                 .bodySmall!
-                .copyWith(color: const Color(0xffAAAAAA)),
+                .copyWith(
+                  fontSize: hintTextFontSize,
+                  color: const Color(0xffAAAAAA)),
             fillColor: backgroundColor,
             filled: true,
             enabled: enabled,
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(border ?? 10),
-              borderSide: BorderSide(color: backgroundColor),
+              borderSide: BorderSide(color:focusedBorderColor?? backgroundColor),
             ),
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(border ?? 10),
@@ -69,7 +79,7 @@ class CustomFormField extends StatelessWidget {
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(border ?? 10),
-              borderSide: BorderSide(color: backgroundColor),
+              borderSide: BorderSide(color:outLineBorderColor?? backgroundColor),
             ),
             focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(border ?? 10),
@@ -86,6 +96,7 @@ class CustomFormField extends StatelessWidget {
             suffixIcon: suffix,
             prefixIcon: prefix,
           ),
+        
         ),
         sizedBoxHeight.h.sizedBoxHeight,
         sizedBoxWidth.w.sizedBoxWidth,

@@ -1,5 +1,4 @@
 import 'package:e_learning_app/features/Auth/presentation/pages/signup.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -18,13 +17,10 @@ class _startState extends State<start> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          //onPressed: () => Navigator.of(context).pop(),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => login()),
-            );
+            Navigator.of(context).pop();
+
           },
         ),
       ),
@@ -213,7 +209,7 @@ class _startState extends State<start> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => login()),
+                                        builder: (context) => Login()),
                                   );
                                 },
                               ),
@@ -240,7 +236,7 @@ class _startState extends State<start> {
                                       ..onTap = () => Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => signUp()),
+                                            builder: (context) => SignUp()),
                                       ),
                                     style: TextStyle(
                                       fontSize: 16,

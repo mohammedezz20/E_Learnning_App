@@ -1,4 +1,8 @@
+import 'package:e_learning_app/config/themes/colors.dart';
+import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
+import 'package:e_learning_app/features/Auth/presentation/pages/start.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class onBoarding extends StatefulWidget {
@@ -46,11 +50,11 @@ class _SliderPageState extends State<onBoarding> {
             padding: const EdgeInsets.all(16.0),
             child: Text(
               _descriptions[_currentPageIndex],
-              style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 35.sp, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(height: 60),
+          SizedBox(height: 60.h),
           Center(
             child: SmoothPageIndicator(
               controller: _controller,
@@ -58,35 +62,35 @@ class _SliderPageState extends State<onBoarding> {
               effect: ExpandingDotsEffect(
                 activeDotColor: Colors.blue,
                 dotColor: Colors.grey.shade300,
-                dotHeight: 12,
-                dotWidth: 12,
-                spacing: 8,
+                dotHeight: 12.h,
+                dotWidth: 12.w,
+                spacing: 8.sp,
                 expansionFactor: 4,
               ),
             ),
           ),
-          SizedBox(height: 60),
+          SizedBox(height: MediaQuery.of(context).size.height/15),
+         
           Container(
+            padding: EdgeInsets.all(15.0.sp),
+            child:CustomButton(
+            backgroundColor: AppColor.buttonColor,
+            height: 65.h,
+            padding: 0,
             width: double.infinity,
-            height: 80,
-            padding: EdgeInsets.all(16.0),
-            child: ElevatedButton(
-              onPressed: () {
-                _nextPage();
-              },
-              child: Text(
-                'Next',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 25,
+            text: 'Next',
+           onPressed: (){
+                if(_currentPageIndex==_imagePaths.length-1){
+                Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>  const start(),
                 ),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-              ),
-            ),
-          ),
+              );
+              }
+             _nextPage();
+           },
+           ), ),
         ],
       ),
     );
@@ -102,7 +106,9 @@ class _SliderPageState extends State<onBoarding> {
   void _nextPage() {
     setState(() {
       _currentPageIndex = (_currentPageIndex + 1) % _imagePaths.length;
-      _controller.nextPage(duration: Duration(milliseconds: 500), curve: Curves.ease);
+      _controller.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.ease);
+   
     });
+
   }
 }

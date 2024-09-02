@@ -1,4 +1,5 @@
 import 'package:e_learning_app/bloc_observer.dart';
+import 'package:e_learning_app/core/Get%20it/auth_locator.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/runapp.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ Future<void> main() async {
     WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   await di.init();
+  setupLocator();
   await CachHelper.init();
   bool isLogin = CachHelper.getData(key: 'isLogin') ?? false;
   bool isArabic = CachHelper.getData(key: 'isArabic') ?? false;
