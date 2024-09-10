@@ -1,5 +1,5 @@
 import 'package:e_learning_app/bloc_observer.dart';
-import 'package:e_learning_app/core/Get%20it/auth_locator.dart';
+import 'package:e_learning_app/core/Get%20it/setup_locator.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/runapp.dart';
 import 'package:flutter/material.dart';
