@@ -47,7 +47,7 @@ ThemeData lighttheme = ThemeData(
       color: Colors.black,
     ),
     bodySmall: TextStyle(
-      fontSize: 16,
+      fontSize: 10,
       fontWeight: FontWeight.w400,
       color: Colors.black,
     ),
@@ -56,6 +56,7 @@ ThemeData lighttheme = ThemeData(
       fontWeight: FontWeight.w500,
       color: AppColor.darkBackgroundColor,
     ),
+ 
   ),
   iconTheme: const IconThemeData(color: AppColor.darkBackgroundColor),
 );

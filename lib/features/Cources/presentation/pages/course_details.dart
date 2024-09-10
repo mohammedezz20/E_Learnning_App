@@ -1,44 +1,15 @@
 import 'package:e_learning_app/core/utils/extensions/build_context_extensions.dart';
-import 'package:e_learning_app/features/Cources/presentation/widgets/lessons_tab_widget.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:e_learning_app/features/Cources/domain/entities/all_courses_entity.dart';
+import 'package:e_learning_app/features/Cources/presentation/widgets/about%20course%20widgets/lessons_tab_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../widgets/about_tab_widget.dart'; // Import the AboutTab widget
-import '../widgets/review_tab_widget.dart'; // Import the Review class
+import '../widgets/about course widgets/about_tab_widget.dart'; // Import the AboutTab widget
+import '../widgets/about course widgets/review_tab_widget.dart'; // Import the Review class
 
-class Course {
-  final int id; // Unique identifier for the course
-  final String name;
-  final String description;
-  final double price;
-  final String imageUrl;
-  final String mentorName;
-  final String mentorTitle;
-  final String mentorImageUrl;
-  final List<String> tools; // List of tools required for the course
-  final double rating;
-  final int numRatings;
-  final List reviews;
-
-  const Course({
-    required this.id,
-    required this.name,
-    required this.description,
-    required this.price,
-    required this.imageUrl,
-    required this.mentorName,
-    required this.mentorTitle,
-    required this.mentorImageUrl,
-    required this.tools,
-    required this.rating,
-    required this.numRatings,
-    required this.reviews,
-  });
-}
 
 class CourseDetails extends StatefulWidget {
-  final Course course;
+  final CourseEntity course;
   final bool isSaved;
   final Function(bool) onSaveChanged;
 
