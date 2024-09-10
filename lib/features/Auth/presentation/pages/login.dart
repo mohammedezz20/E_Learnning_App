@@ -1,5 +1,5 @@
 import 'package:e_learning_app/config/themes/colors.dart';
-import 'package:e_learning_app/core/Get%20it/auth_locator.dart';
+import 'package:e_learning_app/core/Get%20it/setup_locator.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/core/utils/widgets/CustomFormField.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
