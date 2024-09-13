@@ -29,6 +29,7 @@ class CourseEntityAdapter extends TypeAdapter<CourseEntity> {
       rating: fields[10] as double,
       numRatings: fields[11] as int,
       reviews: (fields[12] as List).cast<dynamic>(),
+      isSaved: fields[13] as bool,
     );
   }
 
@@ -59,7 +60,9 @@ class CourseEntityAdapter extends TypeAdapter<CourseEntity> {
       ..writeByte(11)
       ..write(obj.numRatings)
       ..writeByte(12)
-      ..write(obj.reviews);
+      ..write(obj.reviews)
+      ..writeByte(13)
+      ..write(obj.isSaved);
   }
 
   @override

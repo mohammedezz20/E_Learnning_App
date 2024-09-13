@@ -28,6 +28,8 @@ class CourseEntity {
   final int numRatings;
  @HiveField(12)
   final List reviews;
+   @HiveField(13)
+   final bool isSaved;
   
   const CourseEntity({
     required this.id,
@@ -42,5 +44,6 @@ class CourseEntity {
     required this.rating,
     required this.numRatings,
     required this.reviews,
+    required this.isSaved,
   });
 }
