@@ -29,6 +29,8 @@ class CourseData {
 }
 
 class Lessons extends StatelessWidget {
+  const Lessons({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
