@@ -15,6 +15,7 @@ class CourseModel extends CourseEntity{
     required super.rating,
     required super.numRatings,
     required super.reviews,
+    required super.isSaved,
   });
   
   factory CourseModel.fromJson(Map<String, dynamic> json) {
