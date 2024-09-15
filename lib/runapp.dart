@@ -5,7 +5,6 @@ import 'package:e_learning_app/features/Auth/presentation/pages/login.dart';
 import 'package:e_learning_app/features/Auth/presentation/pages/on_boarding.dart';
 import 'package:e_learning_app/features/Auth/presentation/pages/signup.dart';
 import 'package:e_learning_app/features/Auth/presentation/pages/start.dart';
-import 'package:e_learning_app/features/Cources/presentation/pages/all_courses.dart';
 import 'package:e_learning_app/features/profile/presentation/cubit/cubit.dart';
 import 'package:e_learning_app/features/profile/presentation/pages/profile_screen/profile_screen.dart';
 import 'package:e_learning_app/generated/l10n.dart';
