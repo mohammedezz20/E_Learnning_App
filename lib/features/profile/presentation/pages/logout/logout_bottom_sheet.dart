@@ -55,6 +55,9 @@ class LogoutBottomSheet extends StatelessWidget {
               children: [
                 Expanded(
                   child: CustomButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     backgroundColor: const Color(0xff35383f),
                     text: S.of(context).no_cancel,
                     width: double.infinity,
@@ -63,6 +66,9 @@ class LogoutBottomSheet extends StatelessWidget {
                 const SizedBox(width: 10),
                 Expanded(
                   child: CustomButton(
+                    onPressed: (){
+                      // TODO: Implement logout logic here.
+                    },
                     backgroundColor: const Color(0xff335ef7),
                     text: S.of(context).yes_logout,
                     width: double.infinity,
