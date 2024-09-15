@@ -46,8 +46,9 @@
   "sign in":"تسجيل الدخول",
   "sign up":"اشتراك",
   "forgot the password?":"نسيت كلمه السر؟",
-  "don\'t have an account?":"ليس لديك حساب؟",
+  "do not have an account?":"ليس لديك حساب؟",
   "create Your account":"انشاء حسابك",
   "already have an account ?":"هل لديك حساب بالفعل؟",
+  "all courses":"كل الدورات"
 
 }

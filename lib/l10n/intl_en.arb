@@ -40,13 +40,16 @@
   "logout_sentence": "Are you sure you want to logout?",
   "yes_logout": "Yes, Logout",
   "no_cancel": "No, Cancel",
+  "new word": "New Word",
   "email": "Email",
   "password": "Password",
   "login to Your Account": "Login to Your Account",
   "sign in": "Sign in",
    "sign up": "Sign up",
   "forgot the password?": "Forgot the password?",
-  "don\'t have an account?": "Don\'t have an account?",
-  "create Your account": Create Your account",
+  "do not have an account?": "Don\\'t have an account?",
+  "create Your account": "Create Your account",
   "already have an account ?": "Already have an account ?",
+  "all courses": "All Courses"
+  
 }

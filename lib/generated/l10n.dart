@@ -534,7 +534,7 @@ class S {
   String get dont_have_an_account{
     return Intl.message(
       'Don\'t have an account?',
-      name: 'don\'t have an account?',
+      name: 'do not have an account?',
       desc: '',
       args: [],
     );
