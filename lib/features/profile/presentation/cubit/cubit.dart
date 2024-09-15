@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:country_picker/country_picker.dart';
 import 'package:e_learning_app/features/profile/data/models/menu_model.dart';
 import 'package:e_learning_app/features/profile/presentation/cubit/states.dart';
 import 'package:e_learning_app/features/profile/presentation/pages/edit_profile_screen/edit_profile_screen.dart';
@@ -13,10 +16,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../../core/utils/widgets/ImageUtil.dart';
+
 class ProfileCubit extends Cubit<ProfileStates> {
   ProfileCubit() : super(ProfileInitialState());
 
   static ProfileCubit get(context) => BlocProvider.of(context);
+  final nameController = TextEditingController(text: 'Andrew Ainsley');
+  final usernameController = TextEditingController(text: 'Andrew');
+  final emailController =
+      TextEditingController(text: 'andrew_ainsley@yourdomain.com');
+  final dateOfBirthController = TextEditingController(text: '01/01/1995');
+  final mobileController = TextEditingController(text: '1234567890');
+  final jobController = TextEditingController(text: 'Student');
+  File? pickedImage;
   List<Widget> screens = [
     EditProfileScreen(),
     const NotificationScreen(),
@@ -27,6 +40,8 @@ class ProfileCubit extends Cubit<ProfileStates> {
     const HelpCenterScreen(),
     const InviteFriendsScreen(),
   ];
+  String country = 'Egypt';
+  String gender = 'Male';
 
   List<MenuModel> getMenuList(BuildContext context) {
     return [
@@ -47,5 +62,35 @@ class ProfileCubit extends Cubit<ProfileStates> {
           title: S.of(context).logout,
           icon: FontAwesomeIcons.arrowRightFromBracket),
     ];
+  }
+
+  selectCountry(Country c) {
+    country = c.name;
+    emit(SelectCountryState());
+  }
+
+  void pickImageFromGallery() async {
+    File? temp = await ImageUtil.galleryImage();
+    if (temp != null) {
+      pickedImage = temp;
+      emit(PickImageSuccessState());
+    } else {
+      emit(PickImageErrorState());
+    }
+  }
+
+  void pickImageFromCamera() async {
+    File? temp = await ImageUtil.cameraImage();
+    if (temp != null) {
+      pickedImage = temp;
+      emit(PickImageSuccessState());
+    } else {
+      emit(PickImageErrorState());
+    }
+  }
+
+  changeGender(String value) {
+    gender = value;
+    emit(ChangeGenderState());
   }
 }

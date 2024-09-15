@@ -11,24 +11,6 @@ class ProfileScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(S.of(context).profile),
         elevation: 0,
-        // actions: [
-        //   IconButton(
-        //     onPressed: () {},
-        //     icon: Container(
-        //       padding: const EdgeInsets.all(2),
-        //       decoration: BoxDecoration(
-        //         shape: BoxShape.circle,
-        //         border: Border.all(color: AppColor.darkBackgroundColor),
-        //         color: Colors.white,
-        //       ),
-        //       child: const Icon(
-        //         Icons.more_horiz,
-        //         size: 22,
-        //         color: AppColor.darkBackgroundColor,
-        //       ),
-        //     ),
-        //   ),
-        // ],
       ),
       body: const ProfileScreenBody(),
     );
