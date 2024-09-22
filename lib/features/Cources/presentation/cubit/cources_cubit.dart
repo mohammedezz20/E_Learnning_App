@@ -4,10 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'cources_state.dart';
 
-class CoursesCubit extends Cubit<CourcesState> {
-  CoursesCubit({required this.coursesUseCase}) : super(CourcesInitial());
+class CoursesCubit extends Cubit<CoursesState> {
+  CoursesCubit({required this.coursesUseCase}) : super(CoursesInitial());
   static CoursesCubit get(context)=>BlocProvider.of(context);
-    final CourseUsecase coursesUseCase; 
+    final CourseUseCase coursesUseCase; 
 
   
   // late bool isSaved;

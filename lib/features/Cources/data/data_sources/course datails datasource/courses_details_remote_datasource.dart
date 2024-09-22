@@ -9,7 +9,7 @@
 // //  CourseDetailsEntity courseDetails fetchCourses()async {
 //   //    await  DioHelper.get(
 //   //       url: EndPoint.allCourses,
-//   //       token:LoginSuccessState.loginEntity?.token,
+//   //       token:
 //   //     ).then((value) {
 //   //      fillCoursesList(value);
 //   // });
