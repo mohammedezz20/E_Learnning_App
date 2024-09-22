@@ -1,3 +1,4 @@
+import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -30,7 +31,7 @@ class _ReviewsState extends State<Reviews> {
           children: [
             const Icon(Icons.star, color: Colors.amber),
             Text(
-              ' 4.8 (4,479 reviews)',
+              ' 4.8 (4,479 ${S.of(context).reviews})',
               style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.bold),
             ),
             const Spacer(),
@@ -39,7 +40,7 @@ class _ReviewsState extends State<Reviews> {
                 // Handle "See All" button click
               },
               child: Text(
-                'See All',
+                S.of(context).see_all,
                 style: TextStyle(fontSize: 18.sp, color: Color(0XFF24BAFF)),
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:e_learning_app/features/Cources/presentation/pages/ins%20profile/pages/ins_profile.dart';
 import 'package:e_learning_app/features/Cources/presentation/widgets/user_view_widget.dart';
+import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -44,7 +45,7 @@ class AboutTab extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.03,
         ),
         Text(
-          'Course Details',
+          S.of(context).course_details,
           style: Theme.of(context)
               .textTheme
               .bodySmall

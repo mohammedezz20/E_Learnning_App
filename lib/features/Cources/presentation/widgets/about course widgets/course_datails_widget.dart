@@ -1,6 +1,7 @@
 import 'package:e_learning_app/core/utils/extensions/build_context_extensions.dart';
 import 'package:e_learning_app/features/Cources/domain/entities/all_courses_entity.dart';
 import 'package:e_learning_app/features/Cources/presentation/widgets/about%20course%20widgets/course_data.dart';
+import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class CourseDatailsWidget extends StatelessWidget {
@@ -41,7 +42,7 @@ class CourseDatailsWidget extends StatelessWidget {
                       const Icon(Icons.people,
                           size: 20.0, color: Colors.blue),
                       Text(
-                        ' ${ course.numRatings} students', // Display number of enrolled students
+                        ' ${ course.numRatings} ${S.of(context).student}', // Display number of enrolled students
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium
@@ -51,7 +52,7 @@ class CourseDatailsWidget extends StatelessWidget {
                       const Icon(Icons.watch_later,
                           size: 20.0, color: Colors.blue),
                       Text(
-                        ' 25 hours', // Display number of hours
+                        ' 25 ${S.of(context).hours}', // Display number of hours
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium

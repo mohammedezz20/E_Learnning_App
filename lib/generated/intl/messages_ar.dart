@@ -22,8 +22,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "about": MessageLookupByLibrary.simpleMessage("حول"),
         "add_new_card":
             MessageLookupByLibrary.simpleMessage("اضافة بطاقة جديدة"),
+        "all_courses": MessageLookupByLibrary.simpleMessage("كل الدورات"),
+        "all_reviews": MessageLookupByLibrary.simpleMessage("كل المراجعات"),
+        "already_have_account":
+            MessageLookupByLibrary.simpleMessage("هل لديك حساب بالفعل؟"),
         "app_updates": MessageLookupByLibrary.simpleMessage("تحديثات التطبيق"),
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "b1": MessageLookupByLibrary.simpleMessage("نغيير اللغة"),
@@ -36,29 +41,46 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "change_pin": MessageLookupByLibrary.simpleMessage("تغيير PIN"),
         "connected": MessageLookupByLibrary.simpleMessage("متصل"),
+        "course_details": MessageLookupByLibrary.simpleMessage("تفاصيل الدورة"),
+        "courses": MessageLookupByLibrary.simpleMessage("الدورات"),
+        "courses_found":
+            MessageLookupByLibrary.simpleMessage("الدورات الموجوده"),
+        "create_account": MessageLookupByLibrary.simpleMessage("انشاء حسابك"),
         "cvv": MessageLookupByLibrary.simpleMessage("CVV"),
         "dark_mode": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
         "disconnected": MessageLookupByLibrary.simpleMessage("غير متصل"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("تعديل الحساب"),
+        "email": MessageLookupByLibrary.simpleMessage("البريد الالكترونى"),
         "english": MessageLookupByLibrary.simpleMessage("الانجليزية"),
+        "enroll": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "expiry_date": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
         "face_id": MessageLookupByLibrary.simpleMessage("Face ID"),
+        "forgot_password":
+            MessageLookupByLibrary.simpleMessage("نسيت كلمه السر؟"),
         "general_notifications":
             MessageLookupByLibrary.simpleMessage("الإشعارات العامة"),
         "google_auth":
             MessageLookupByLibrary.simpleMessage("Google Authenticator"),
         "help_center": MessageLookupByLibrary.simpleMessage("مركز المساعدة"),
+        "hours": MessageLookupByLibrary.simpleMessage("ساعات"),
         "invite_friends": MessageLookupByLibrary.simpleMessage("دعوة الأصدقاء"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "lessons": MessageLookupByLibrary.simpleMessage("الدروس"),
+        "login_to_Account":
+            MessageLookupByLibrary.simpleMessage("تسجيل الدخول إلى حسابك"),
         "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "logout_sentence": MessageLookupByLibrary.simpleMessage(
             "هل أنت متاكد من أنك تريد تسجيل الخروج ؟"),
+        "message": MessageLookupByLibrary.simpleMessage("رسالة"),
         "new_service_available":
             MessageLookupByLibrary.simpleMessage("خدمة جديدة متاحة"),
         "new_tips_available":
             MessageLookupByLibrary.simpleMessage("نصائح جديدة متاحة"),
         "no_cancel": MessageLookupByLibrary.simpleMessage("لا, الغاء"),
+        "not_have_account":
+            MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+        "password": MessageLookupByLibrary.simpleMessage("كلمه السرى"),
         "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
@@ -66,22 +88,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "promo_discount":
             MessageLookupByLibrary.simpleMessage("الخصم والتخفيض"),
         "remember_me": MessageLookupByLibrary.simpleMessage("تذكرني"),
+        "reviews": MessageLookupByLibrary.simpleMessage("المراجعات"),
         "security": MessageLookupByLibrary.simpleMessage("الأمان"),
+        "see_all": MessageLookupByLibrary.simpleMessage("اظهار الكل"),
+        "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "sign_up": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "sound": MessageLookupByLibrary.simpleMessage("الصوت"),
         "special_offers": MessageLookupByLibrary.simpleMessage("العروض الخاصة"),
+        "student": MessageLookupByLibrary.simpleMessage("طلاب"),
         "update": MessageLookupByLibrary.simpleMessage("تحديث"),
         "vibrate": MessageLookupByLibrary.simpleMessage("التنبيهات"),
-        "yes_logout": MessageLookupByLibrary.simpleMessage("نعم, تسجيل الخروج"),
-         
-        "email":MessageLookupByLibrary.simpleMessage("البريد الالكترونى"),
-        "password":MessageLookupByLibrary.simpleMessage("كلمه السر"),
-        "login to your account":MessageLookupByLibrary.simpleMessage("تسجيل الدخول إلى حسابك"),
-        "sign in":MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
-        "sign up":MessageLookupByLibrary.simpleMessage("اشتراك"),
-        "forgot the password?":MessageLookupByLibrary.simpleMessage("نسيت كلمه السر؟"),
-        "don\'t have an account?":MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
-        "create your account":MessageLookupByLibrary.simpleMessage("انشاء حسابك"),
-        "already have an account ?":MessageLookupByLibrary.simpleMessage("هل لديك حساب بالفعل؟"),
-
+        "website": MessageLookupByLibrary.simpleMessage("الموقع"),
+        "word": MessageLookupByLibrary.simpleMessage("كلمه"),
+        "yes_logout": MessageLookupByLibrary.simpleMessage("نعم, تسجيل الخروج")
       };
 }

@@ -460,17 +460,9 @@ class S {
     );
   }
 
-  /// `Already have an account ?l`
-  String get already_have_an_account {
-    return Intl.message(
-      'Already have an account ?',
-      name: 'already have an account ?',
-      desc: '',
-      args: [],
-    );
-  }
+  // skipped getter for the 'new word' key
 
-    /// `Email`
+  /// `Email`
   String get email {
     return Intl.message(
       'Email',
@@ -480,7 +472,7 @@ class S {
     );
   }
 
-    /// `Password`
+  /// `Password`
   String get password {
     return Intl.message(
       'Password',
@@ -490,65 +482,225 @@ class S {
     );
   }
 
-    /// `Login to Your Account`
-  String get login_to_your_account {
+  /// `Word`
+  String get word {
     return Intl.message(
-      'Login to your\n account',
-      name: 'login to your account',
+      'Word',
+      name: 'word',
       desc: '',
       args: [],
     );
   }
 
-    /// `Sign in`
+  /// `Login to Your Account`
+  String get login_to_Account {
+    return Intl.message(
+      'Login to Your Account',
+      name: 'login_to_Account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account ?`
+  String get already_have_account {
+    return Intl.message(
+      'Already have an account ?',
+      name: 'already_have_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in`
   String get sign_in {
     return Intl.message(
       'Sign in',
-      name: 'sign in',
+      name: 'sign_in',
       desc: '',
       args: [],
     );
   }
 
-     /// `Sign up`
+  /// `Sign up`
   String get sign_up {
     return Intl.message(
       'Sign up',
-      name: 'sign up',
+      name: 'sign_up',
       desc: '',
       args: [],
     );
   }
 
-    /// `Forgot the password?`
-  String get forgot_the_password {
+  /// `Forgot the password?`
+  String get forgot_password {
     return Intl.message(
       'Forgot the password?',
-      name: 'forgot the password?',
+      name: 'forgot_password',
       desc: '',
       args: [],
     );
   }
 
-    /// `Don\'t have an account?`
-  String get dont_have_an_account{
+  /// `Don\'t have an account?`
+  String get not_have_account {
     return Intl.message(
-      'Don\'t have an account?',
-      name: 'do not have an account?',
+      'Don\\\'t have an account?',
+      name: 'not_have_account',
       desc: '',
       args: [],
     );
-  }  
+  }
 
-    /// `create Your account`
-  String get create_your_account{
+  /// `Create Your account`
+  String get create_account {
     return Intl.message(
-      'Create your\n account',
-      name: 'create your account',
+      'Create Your account',
+      name: 'create_account',
       desc: '',
       args: [],
     );
-  }  
+  }
+
+  /// `All Courses`
+  String get all_courses {
+    return Intl.message(
+      'All Courses',
+      name: 'all_courses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Courses Found`
+  String get courses_found {
+    return Intl.message(
+      'Courses Found',
+      name: 'courses_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About`
+  String get about {
+    return Intl.message(
+      'About',
+      name: 'about',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lessons`
+  String get lessons {
+    return Intl.message(
+      'Lessons',
+      name: 'lessons',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reviews`
+  String get reviews {
+    return Intl.message(
+      'Reviews',
+      name: 'reviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enroll`
+  String get enroll {
+    return Intl.message(
+      'Enroll',
+      name: 'enroll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Message`
+  String get message {
+    return Intl.message(
+      'Message',
+      name: 'message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `website`
+  String get website {
+    return Intl.message(
+      'website',
+      name: 'website',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Courses`
+  String get courses {
+    return Intl.message(
+      'Courses',
+      name: 'courses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Students`
+  String get student {
+    return Intl.message(
+      'Students',
+      name: 'student',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All Reviews`
+  String get all_reviews {
+    return Intl.message(
+      'All Reviews',
+      name: 'all_reviews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See All`
+  String get see_all {
+    return Intl.message(
+      'See All',
+      name: 'see_all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Course Details`
+  String get course_details {
+    return Intl.message(
+      'Course Details',
+      name: 'course_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hours`
+  String get hours {
+    return Intl.message(
+      'Hours',
+      name: 'hours',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

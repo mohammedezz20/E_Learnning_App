@@ -56,7 +56,7 @@ class Login extends StatelessWidget {
                            Padding(
                             padding: EdgeInsets.fromLTRB(0, 20.h, 0, 40.h),
                             child:  Text(
-                                  S.of(context).login_to_your_account,
+                                  S.of(context).login_to_Account,
                                   style: TextStyle(
                                     fontSize: 40.0.sp,
                                     fontWeight: FontWeight.bold,
@@ -155,7 +155,7 @@ class Login extends StatelessWidget {
                               padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),
                               child: RichText(
                                 text: TextSpan(
-                                  text: S.of(context).forgot_the_password,
+                                  text: S.of(context).forgot_password,
                                   recognizer: TapGestureRecognizer()
                                     ..onTap =
                                         () => print("go to sign up screen"),
@@ -173,7 +173,7 @@ class Login extends StatelessWidget {
                           Center(
                             child:TextButtonAuthAccount(
                               size: MediaQuery.of(context).size,
-                              text: S.of(context).dont_have_an_account,
+                              text: S.of(context).not_have_account,
                               textButton: S.of(context).sign_up,
                               navigationScreen: SignUp(),
                             )
