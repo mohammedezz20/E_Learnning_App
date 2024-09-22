@@ -1,4 +1,5 @@
 import 'package:e_learning_app/features/Cources/presentation/pages/message%20instructor/pages/message_screen.dart';
+import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,7 +36,7 @@ class InsContactWidget extends StatelessWidget {
                                       ),
                                     );
                                       },
-                                      child: Text('Message',
+                                      child: Text(S.of(context).message,
                                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                          color: Colors.white),
                                       ),
@@ -62,7 +63,7 @@ class InsContactWidget extends StatelessWidget {
                                   Row(
                                     mainAxisAlignment:MainAxisAlignment.center,
                                     children: [
-                                      Text('Website',
+                                      Text(S.of(context).website,
                                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                         color: Colors.blue
                                         ),

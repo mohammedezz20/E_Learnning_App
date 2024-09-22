@@ -4,6 +4,7 @@ import 'package:e_learning_app/features/Cources/domain/entities/all_courses_enti
 import 'package:e_learning_app/features/Cources/presentation/cubit/cources_cubit.dart';
 import 'package:e_learning_app/features/Cources/presentation/pages/courses_tabs_widget.dart';
 import 'package:e_learning_app/features/Cources/presentation/widgets/about%20course%20widgets/course_datails_widget.dart';
+import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,7 +36,7 @@ class CourseDetailsScreen extends StatelessWidget{
   });
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<CoursesCubit,CourcesState>(
+    return BlocConsumer<CoursesCubit,CoursesState>(
         listener: (context,state){},
         builder: (context,state){
     return SafeArea(
@@ -80,7 +81,7 @@ class CourseDetailsScreen extends StatelessWidget{
                 backgroundColor: AppColor.blueColor,
               ),
               child: Text(
-                'Enroll - \$${course.price}',
+                '${S.of(context).enroll} - \$${course.price}',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: Colors.white, fontWeight: FontWeight.bold),
               ),

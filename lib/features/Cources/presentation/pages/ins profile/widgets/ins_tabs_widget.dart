@@ -1,6 +1,7 @@
 import 'package:e_learning_app/features/Cources/presentation/pages/ins%20profile/widgets/about%20taps/ins_courses_tap.dart';
 import 'package:e_learning_app/features/Cources/presentation/pages/ins%20profile/widgets/about%20taps/ins_reviews_taps.dart';
 import 'package:e_learning_app/features/Cources/presentation/widgets/about%20course%20widgets/review_tab_widget.dart';
+import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,10 +24,10 @@ class AboutInsTabs extends StatelessWidget {
            indicatorColor:
            Colors.blue, // Set the color of the indicator to blue
 
-           tabs: const [
-             Tab(text: 'Courses'),
-             Tab(text: 'Students'),
-             Tab(text: 'Reviews'),
+           tabs:  [
+             Tab(text: S.of(context).courses),
+             Tab(text: S.of(context).student),
+             Tab(text: S.of(context).reviews),
            ],
          ),
          const SizedBox(height: 10.0),

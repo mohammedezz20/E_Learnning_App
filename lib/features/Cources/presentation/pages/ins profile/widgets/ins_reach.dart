@@ -1,3 +1,4 @@
+import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,7 +16,7 @@ class UserData extends StatelessWidget {
                                 fontSize: 24.sp,
                               ),
                             ),
-                            Text('Courses',
+                            Text(S.of(context).courses,
                                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                                  fontSize: 15.sp,
                                 ),
@@ -32,7 +33,7 @@ class UserData extends StatelessWidget {
 
                               ),
                             ),
-                            Text('Student',
+                            Text(S.of(context).student,
                                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                                     fontSize: 15.sp,
 
@@ -50,7 +51,7 @@ class UserData extends StatelessWidget {
                                  fontSize: 22.sp,
                               ),
                             ),
-                            Text('Reviews',
+                            Text(S.of(context).reviews,
                                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
                               fontSize: 15.sp,
 
