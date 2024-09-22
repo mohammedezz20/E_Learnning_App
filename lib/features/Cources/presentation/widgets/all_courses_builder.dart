@@ -9,7 +9,7 @@ class CoursesBuilder extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CoursesCubit,CourcesState>(builder: (context,state){
+    return BlocBuilder<CoursesCubit,CoursesState>(builder: (context,state){
         return  AllCoursesListView(context1: context,
         course:AllCoursesLocalData.courses,//replace it with list of courses from API      
         );

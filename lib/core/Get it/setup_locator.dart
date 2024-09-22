@@ -12,8 +12,8 @@ void setupLocator(){
   getIt.registerSingleton<AuthRepository>(AuthRepository
     (remoteDataSource: RemoteDataSource(),localDataSource: LocalDataSource()));
 
-  getIt.registerSingleton<CourseUsecase>(CourseUsecase
-    ( courseRepo: CoursesRepository(coursesRemoteDataSource: CoursesRemoteDatasourceImpl(), 
-    coursesLocalDatasource: CoursesLocalDatasourceImpl())));
+  getIt.registerSingleton<CourseUseCase>(CourseUseCase
+    ( courseRepo: CoursesRepository(coursesRemoteDataSource: CoursesRemoteDataSourceImpl(), 
+    coursesLocalDatasource: CoursesLocalDataSourceImpl())));
 
 }

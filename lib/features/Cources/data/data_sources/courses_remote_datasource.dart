@@ -4,10 +4,10 @@ import 'package:e_learning_app/core/utils/hive_constants.dart';
 import 'package:e_learning_app/features/Cources/data/models/all_courses_model.dart';
 import 'package:e_learning_app/features/Cources/domain/entities/all_courses_entity.dart';
 
-abstract class CoursesRmoteDataSourse{
+abstract class CoursesRemoteDataSource{
   Future <List<CourseEntity>>fetchCourses();
 }
-class CoursesRemoteDatasourceImpl extends CoursesRmoteDataSourse{
+class CoursesRemoteDataSourceImpl extends CoursesRemoteDataSource{
   List<CourseEntity>coursesList=[];
   @override
   Future<List<CourseEntity>> fetchCourses()async {
