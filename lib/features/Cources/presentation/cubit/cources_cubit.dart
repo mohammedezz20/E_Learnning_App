@@ -1,8 +1,27 @@
-import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
+import 'package:e_learning_app/features/Cources/domain/entities/all_courses_entity.dart';
+import 'package:e_learning_app/features/Cources/domain/use_cases/all_courses_usecase.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'cources_state.dart';
 
-class CourcesCubit extends Cubit<CourcesState> {
-  CourcesCubit() : super(CourcesInitial());
+class CoursesCubit extends Cubit<CoursesState> {
+  CoursesCubit({required this.coursesUseCase}) : super(CoursesInitial());
+  static CoursesCubit get(context)=>BlocProvider.of(context);
+    final CourseUseCase coursesUseCase; 
+
+  
+  // late bool isSaved;
+  // changeSaveTap(bool value){
+  //  isSaved=value;
+  //  emit( ChangeIsSavedState(isSaved: isSaved));
+  // }
+
+  Future<void>fetchAllCourses()async{
+    emit(GetAllCoursesLoadingState());
+    final resault=await coursesUseCase.call();
+    resault.fold(
+       (error)=>emit(GetAllCoursesErrorState(error:error.toString() )),
+       (courses)=>emit(GetAllCoursesSuccessState(courses: courses)),
+       );
+  }
 }

@@ -1,5 +1,6 @@
-import 'package:e_learning_app/core/utils/extensions/build_context_extensions.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:e_learning_app/features/Cources/presentation/pages/ins%20profile/pages/ins_profile.dart';
+import 'package:e_learning_app/features/Cources/presentation/widgets/user_view_widget.dart';
+import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,44 +24,28 @@ class AboutTab extends StatelessWidget {
         SizedBox(
           height: 15.h,
         ),
-        Row(
-          children: [
-            CircleAvatar(
-              backgroundImage: const AssetImage(
-                  'assets/mentor-image.jpg'), // Replace 'assets/mentor_image.jpg' with the actual path to the mentor's image
-              radius: 25.w,
-            ),
-            SizedBox(width: context.screenWidth * 0.08),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'John Doe',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodySmall
-                      ?.copyWith(fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  'Software Engineer',
-                  style: Theme.of(context).textTheme.labelSmall,
-                ),
-              ],
-            ),
-            const Spacer(),
-            IconButton(
-              padding: EdgeInsets.zero,
-              icon: const Icon(Icons.chat_outlined),
-              color: Colors.blue,
-              onPressed: () {},
-            ),
-          ],
+       
+        InkWell(
+          onTap: () {
+              Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context){ 
+              return const InsProfile();
+              
+              }
+          ),
+        );
+   
+          },
+          child:const UserViewWidget()
         ),
+       
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.03,
         ),
         Text(
-          'Course Details',
+          S.of(context).course_details,
           style: Theme.of(context)
               .textTheme
               .bodySmall

@@ -1,3 +1,4 @@
+import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,6 +30,8 @@ class CourseData {
 }
 
 class Lessons extends StatelessWidget {
+  const Lessons({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -38,7 +41,7 @@ class Lessons extends StatelessWidget {
           Row(
             children: [
               Text(
-                '15 lessons',
+                '15 ${S.of(context).lessons}',
                 style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.bold),
               ),
               Spacer(),
@@ -47,7 +50,7 @@ class Lessons extends StatelessWidget {
                   // Handle "See All" button click
                 },
                 child: Text(
-                  'See All',
+                  '${S.of(context).see_all}',
                   style: TextStyle(fontSize: 18.sp, color: Color(0XFF24BAFF)),
                 ),
               ),

@@ -1,9 +1,23 @@
+import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Reviews extends StatefulWidget {
+  const Reviews({super.key});
+  
+  // final String userName;
+  // final String userImage;
+  // final String userComment;
+  // final int rating;
+  // const Reviews({super.key,
+  // required this.userName, 
+  // required this.userImage,
+  // required this.userComment,
+  // required this.rating});
+
   @override
   _ReviewsState createState() => _ReviewsState();
+
 }
 
 class _ReviewsState extends State<Reviews> {
@@ -15,18 +29,18 @@ class _ReviewsState extends State<Reviews> {
       children: [
         Row(
           children: [
-            Icon(Icons.star, color: Colors.amber),
+            const Icon(Icons.star, color: Colors.amber),
             Text(
-              ' 4.8 (4,479 reviews)',
+              ' 4.8 (4,479 ${S.of(context).reviews})',
               style: TextStyle(fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.bold),
             ),
-            Spacer(),
+            const Spacer(),
             TextButton(
               onPressed: () {
                 // Handle "See All" button click
               },
               child: Text(
-                'See All',
+                S.of(context).see_all,
                 style: TextStyle(fontSize: 18.sp, color: Color(0XFF24BAFF)),
               ),
             ),
@@ -36,7 +50,7 @@ class _ReviewsState extends State<Reviews> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
+            SizedBox(
               height: 35.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -71,19 +85,19 @@ class _ReviewsState extends State<Reviews> {
             // Add reviews based on selected tab
             // Here, you can generate reviews based on the selected tab
             // For simplicity, I'll just display some sample reviews
-            ReviewItem(
+            const ReviewItem(
               reviewerName: 'John Doe',
               rating: 5,
               reviewText:
               'Great course! I learned a lot about Figma and improved my design skills.',
             ),
-            ReviewItem(
+            const ReviewItem(
               reviewerName: 'Jane Smith',
               rating: 4,
               reviewText:
               'The course content was excellent, but I wish there were more interactive exercises.',
             ),
-            ReviewItem(
+            const ReviewItem(
               reviewerName: 'David Johnson',
               rating: 3,
               reviewText:

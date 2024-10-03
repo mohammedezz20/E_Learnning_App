@@ -1,5 +1,5 @@
 import 'package:e_learning_app/config/themes/colors.dart';
-import 'package:e_learning_app/core/Get%20it/auth_locator.dart';
+import 'package:e_learning_app/core/Get%20it/setup_locator.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/core/utils/widgets/CustomFormField.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
@@ -57,7 +57,7 @@ class SignUp  extends StatelessWidget {
                         Padding(
                           padding:  EdgeInsets.fromLTRB(0, 20.w, 0, 40.h),
                           child: Text(
-                                S.of(context).create_your_account,
+                                S.of(context).create_account,
                                 style: TextStyle(
                                   fontSize: 40.0.sp,
                                   fontWeight: FontWeight.bold,
@@ -156,7 +156,7 @@ class SignUp  extends StatelessWidget {
                                      Center(
                         child:TextButtonAuthAccount(
                           size: MediaQuery.of(context).size,
-                          text: S.of(context).already_have_an_account,
+                          text: S.of(context).already_have_account,
                           textButton: S.of(context).sign_in,
                           navigationScreen: Login(),
                         )
