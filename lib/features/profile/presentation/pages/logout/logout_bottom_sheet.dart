@@ -2,7 +2,6 @@ import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
 import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class LogoutBottomSheet extends StatelessWidget {
   const LogoutBottomSheet({super.key});
@@ -66,7 +65,7 @@ class LogoutBottomSheet extends StatelessWidget {
                 const SizedBox(width: 10),
                 Expanded(
                   child: CustomButton(
-                    onPressed: (){
+                    onPressed: () {
                       // TODO: Implement logout logic here.
                     },
                     backgroundColor: const Color(0xff335ef7),

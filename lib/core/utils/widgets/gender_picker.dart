@@ -11,7 +11,9 @@ class GenderPickerContainer extends StatelessWidget {
   final Color backgroundColor;
 
   final String selectedValue;
+
   final void Function(String) onChanged;
+
   @override
   Widget build(BuildContext context) {
     return Container(

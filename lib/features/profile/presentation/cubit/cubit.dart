@@ -42,7 +42,6 @@ class ProfileCubit extends Cubit<ProfileStates> {
   ];
   String country = 'Egypt';
   String gender = 'Male';
-
   List<MenuModel> getMenuList(BuildContext context) {
     return [
       MenuModel(title: S.of(context).edit_profile, icon: FontAwesomeIcons.user),
