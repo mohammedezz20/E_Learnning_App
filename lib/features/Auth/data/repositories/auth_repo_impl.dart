@@ -1,8 +1,10 @@
 import 'package:dartz/dartz.dart';
+import 'package:e_learning_app/core/error_handling.dart';
 import 'package:e_learning_app/features/Auth/data/datasources/auth_datasource.dart';
 import 'package:e_learning_app/features/Auth/data/datasources/auth_local_datasource.dart';
 import 'package:e_learning_app/features/Auth/data/models/sign_up_model.dart';
 import 'package:e_learning_app/features/Auth/data/models/user_model.dart';
+import 'package:e_learning_app/features/Auth/domain/entities/user_entity.dart';
 import 'package:e_learning_app/features/Auth/domain/repositories/auth_repo.dart';
 
 class AuthRepository implements IAuthRepo{
@@ -28,13 +30,16 @@ class AuthRepository implements IAuthRepo{
   }
 
   @override
-  Future<Either<String, SignUpModel>> signUp({
-     required String email,
-    required String password,
+   Future<Either<Failure, UserDataEntity>> signUp({
+   required SignUpModel signUpModel,
   })
    async {
-    //TODO implement sign up
-    throw UnimplementedError();
+     try{
+       final response = await remoteDataSource.signUp(signUpModel: signUpModel);
+       return right(response);
+     }catch(e){
+       return left(ServerFailure(message:e.toString()));
+     }
   }
 
  @override
