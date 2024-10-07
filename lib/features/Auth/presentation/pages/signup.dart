@@ -3,7 +3,8 @@ import 'package:e_learning_app/core/Get%20it/setup_locator.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/core/utils/widgets/CustomFormField.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
-import 'package:e_learning_app/features/Auth/data/repositories/auth_repo_impl.dart';
+import 'package:e_learning_app/features/Auth/data/models/sign_up_model.dart';
+import 'package:e_learning_app/features/Auth/domain/usecases/signup_use_case.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/text_button_auth_account.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/remeber_me_custom_widget.dart';
@@ -12,7 +13,6 @@ import 'package:e_learning_app/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'login.dart';
 
 class SignUp  extends StatelessWidget {
@@ -23,7 +23,7 @@ class SignUp  extends StatelessWidget {
     SignUp({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create: (context)=>AuthCubit(getIt.get<AuthRepository>()),
+    return BlocProvider(create: (context)=>AuthCubit(getIt.get<SignUpUseCase>()),
     child: BlocConsumer<AuthCubit,AuthState>(
       listener: (context,state){
       },
@@ -138,10 +138,16 @@ class SignUp  extends StatelessWidget {
                           text: S.of(context).sign_in,
                           onPressed: () {
                               if (_signUpFormKey.currentState!.validate()) {
-                                // readCubit.signUp(
-                                //   email: emailController.text,
-                                //   pass: passwordController.text
-                                // );
+                                readCubit.signUp(
+                                 signUpModel: SignUpModel(
+                                   email: emailController.text,
+                                   password: passwordController.text,
+                                    firstName: '',
+                                    lastName: '',
+                                    grade: 0, 
+                                    teacherId: '',
+                                 )
+                                );
                                  Navigator.push(
                                context,
                                MaterialPageRoute(

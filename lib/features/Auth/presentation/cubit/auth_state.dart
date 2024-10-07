@@ -9,12 +9,15 @@ class AuthChangePassVisibilityState extends AuthState{}
 class AuthRememberUserState extends AuthState{}
 
 
-class AuthLoginLoadingState extends AuthState{}
-class AuthLoginErrorState extends AuthState{
+class AuthSignUpLoadingState extends AuthState{}
+class AuthSignUpErrorState extends AuthState{
   final String errorMessage;
-  AuthLoginErrorState({required this.errorMessage});
+  AuthSignUpErrorState({required this.errorMessage});
 }
-class AuthLoginSuccessState extends AuthState{}
+class AuthSignUpSuccessState extends AuthState{
+  final UserDataEntity userData;
+  AuthSignUpSuccessState({required this.userData});
+}
 
 class FetchUserDataLoadingState extends AuthState{}
 class FetchUserDataErrorState extends AuthState{

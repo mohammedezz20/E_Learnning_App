@@ -3,7 +3,7 @@ import 'package:e_learning_app/core/Get%20it/setup_locator.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/core/utils/widgets/CustomFormField.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
-import 'package:e_learning_app/features/Auth/data/repositories/auth_repo_impl.dart';
+import 'package:e_learning_app/features/Auth/domain/usecases/signup_use_case.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
 import 'package:e_learning_app/features/Auth/presentation/pages/signup.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/text_button_auth_account.dart';
@@ -23,7 +23,7 @@ class Login extends StatelessWidget {
     Login({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create: (context)=>AuthCubit(getIt.get<AuthRepository>()),
+    return BlocProvider(create: (context)=>AuthCubit(getIt.get<SignUpUseCase>()),
     child: BlocConsumer<AuthCubit,AuthState>(
       listener: (context,state){
       },
