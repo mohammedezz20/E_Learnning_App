@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:e_learning_app/core/error_handling.dart';
 import 'package:e_learning_app/features/Auth/data/datasources/auth_datasource.dart';
 import 'package:e_learning_app/features/Auth/data/datasources/auth_local_datasource.dart';
+import 'package:e_learning_app/features/Auth/data/models/sign_in_model.dart';
 import 'package:e_learning_app/features/Auth/data/models/sign_up_model.dart';
 import 'package:e_learning_app/features/Auth/data/models/user_model.dart';
 import 'package:e_learning_app/features/Auth/domain/entities/user_entity.dart';
@@ -15,20 +16,17 @@ class AuthRepository implements IAuthRepo{
   AuthRepository({required this.remoteDataSource,required this.localDataSource});
 
   @override
-  Future<Either<String,UserModel>>signIn({
-    required String email,
-    required String password,
-  }){
-    //TODO Post data to API & save token
-        throw UnimplementedError();
-
+ Future<Either<Failure, UserDataEntity>> signIn({
+    required SignInModel signInModel
+  })async{
+    try{
+       final response = await remoteDataSource.signIn(signInModel: signInModel);
+       return right(response);
+     }catch(e){
+       return left(ServerFailure(message:e.toString()));
+     }
   }
   
-  @override
-  void saveUserData(){
-    //TODO save to cach helper
-  }
-
   @override
    Future<Either<Failure, UserDataEntity>> signUp({
    required SignUpModel signUpModel,
@@ -48,6 +46,10 @@ class AuthRepository implements IAuthRepo{
         throw UnimplementedError();
   }
 
+  @override
+  void saveUserData(){
+    //TODO save to cach helper
+  }
 
 
 

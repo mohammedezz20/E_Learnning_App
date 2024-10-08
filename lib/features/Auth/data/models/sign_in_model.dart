@@ -1,9 +1,27 @@
 class SignInModel {
-  final String message;
-  final String token;
+  final String email;
+  final String teacherId;
+  final String password;
 
-  SignInModel({required this.message, required this.token});
+  SignInModel({
+    required this.email,
+    required this.teacherId,
+    required this.password,
+  });
 
-   //TODO fromJson
+  factory SignInModel.fromJson(Map<String, dynamic> json) {
+    return SignInModel(
+      email: json['email'],
+      teacherId: json['teacherId'],
+      password: json['password'],
+    );
+  }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'email': email,
+      'teacherId': teacherId,
+      'password': password,
+    };
+  }
 }
