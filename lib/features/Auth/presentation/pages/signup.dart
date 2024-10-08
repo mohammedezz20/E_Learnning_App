@@ -4,6 +4,7 @@ import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/core/utils/widgets/CustomFormField.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
 import 'package:e_learning_app/features/Auth/data/models/sign_up_model.dart';
+import 'package:e_learning_app/features/Auth/domain/usecases/sign_in_use_case.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/signup_use_case.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/text_button_auth_account.dart';
@@ -23,7 +24,7 @@ class SignUp  extends StatelessWidget {
     SignUp({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create: (context)=>AuthCubit(getIt.get<SignUpUseCase>()),
+    return BlocProvider(create: (context)=>AuthCubit(getIt.get<SignUpUseCase>(),getIt.get<SignInUseCase>()),
     child: BlocConsumer<AuthCubit,AuthState>(
       listener: (context,state){
       },

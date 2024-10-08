@@ -1,6 +1,7 @@
   import 'package:e_learning_app/features/Auth/data/datasources/auth_datasource.dart';
 import 'package:e_learning_app/features/Auth/data/datasources/auth_local_datasource.dart';
 import 'package:e_learning_app/features/Auth/data/repositories/auth_repo_impl.dart';
+import 'package:e_learning_app/features/Auth/domain/usecases/sign_in_use_case.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/signup_use_case.dart';
 import 'package:e_learning_app/features/Cources/data/data_sources/courses_local_datasource.dart';
 import 'package:e_learning_app/features/Cources/data/data_sources/courses_remote_datasource.dart';
@@ -10,8 +11,15 @@ import 'package:get_it/get_it.dart';
 
 final getIt=GetIt.instance;
 void setupLocator(){
+   getIt.registerSingleton<AuthRepository>(AuthRepository
+    (remoteDataSource: RemoteDataSource(), localDataSource: LocalDataSource()),);
+
   getIt.registerSingleton<SignUpUseCase>(SignUpUseCase
-    (authRepo: AuthRepository(remoteDataSource: RemoteDataSource(), localDataSource: LocalDataSource())),);
+    (authRepo: getIt.get<AuthRepository>()),);
+
+  getIt.registerSingleton<SignInUseCase>(SignInUseCase
+    (authRepo: getIt.get<AuthRepository>()),);
+
 
   getIt.registerSingleton<CourseUseCase>(CourseUseCase
     ( courseRepo: CoursesRepository(coursesRemoteDataSource: CoursesRemoteDataSourceImpl(), 

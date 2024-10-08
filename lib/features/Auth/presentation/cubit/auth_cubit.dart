@@ -1,13 +1,17 @@
 import 'package:bloc/bloc.dart';
+import 'package:e_learning_app/features/Auth/data/models/sign_in_model.dart';
 import 'package:e_learning_app/features/Auth/data/models/sign_up_model.dart';
 import 'package:e_learning_app/features/Auth/data/models/user_model.dart';
 import 'package:e_learning_app/features/Auth/domain/entities/user_entity.dart';
+import 'package:e_learning_app/features/Auth/domain/usecases/sign_in_use_case.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/signup_use_case.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit(this.signUpUseCase) : super(AuthInitial());
+  AuthCubit(this.signUpUseCase, this.signInUseCase) : super(AuthInitial());
   final SignUpUseCase signUpUseCase;
+  final SignInUseCase signInUseCase;
+
 
   bool isChecked = false;
 
@@ -42,23 +46,16 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> signIn({
-      required String email,
-      required String pass,
+  required SignInModel signInModel
    }
    ) async {
-    // emit(AuthLoginLoadingState());
-    // final response = await userRepository.signIn(
-    //   email:  email,  
-    //   password: pass
-    // );
-    // response.fold(
-    //   (errMessage) => emit(AuthLoginErrorState(errorMessage: errMessage)),
-    //   (signInModel) => emit(AuthLoginSuccessState()),
-    // );
-
-    //TODO manage sign in states
+    emit(AuthSignInLoadingState());
+    final response = await signInUseCase.call(signInModel);
+    response.fold(
+      (errMessage) => emit(AuthSignInErrorState(errorMessage: errMessage.toString())),
+      (userData) => emit(AuthSignInSuccessState(userData:userData )),
+    );
   }
-
   Future<void> signUp({
     required SignUpModel signUpModel,
    }) async {
@@ -66,7 +63,7 @@ class AuthCubit extends Cubit<AuthState> {
     final response = await signUpUseCase.call(signUpModel);
     response.fold(
       (errMessage) => emit(AuthSignUpErrorState(errorMessage: errMessage.toString())),
-      (signUpModel) => emit(AuthSignUpSuccessState(userData:signUpModel )),
+      (userData) => emit(AuthSignUpSuccessState(userData:userData )),
     );
   }
 

@@ -19,6 +19,18 @@ class AuthSignUpSuccessState extends AuthState{
   AuthSignUpSuccessState({required this.userData});
 }
 
+
+class AuthSignInLoadingState extends AuthState{}
+class AuthSignInErrorState extends AuthState{
+  final String errorMessage;
+  AuthSignInErrorState({required this.errorMessage});
+}
+class AuthSignInSuccessState extends AuthState{
+  final UserDataEntity userData;
+  AuthSignInSuccessState({required this.userData});
+}
+
+
 class FetchUserDataLoadingState extends AuthState{}
 class FetchUserDataErrorState extends AuthState{
   final String errorMessage;
