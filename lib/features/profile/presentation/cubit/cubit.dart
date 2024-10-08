@@ -31,7 +31,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
   final jobController = TextEditingController(text: 'Student');
   File? pickedImage;
   List<Widget> screens = [
-    EditProfileScreen(),
+    const EditProfileScreen(),
     const NotificationScreen(),
     const PaymentScreen(),
     const SecurityScreen(),

@@ -16,12 +16,12 @@ class SwitchThemeMode extends StatelessWidget {
         visible: isDarkMode,
         child: Switch(
           thumbIcon: cubit.isDark
-              ? const MaterialStatePropertyAll(
+              ? const WidgetStatePropertyAll(
                   Icon(
                     FontAwesomeIcons.solidMoon,
                   ),
                 )
-              : const MaterialStatePropertyAll(
+              : const WidgetStatePropertyAll(
                   Icon(
                     FontAwesomeIcons.solidSun,
                     color: Color(0xff000000),

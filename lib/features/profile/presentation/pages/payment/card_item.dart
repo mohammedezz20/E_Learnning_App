@@ -26,7 +26,7 @@ class CardItem extends StatelessWidget {
               padding: const EdgeInsets.only(left: 21, right: 42, top: 16),
               child: ListTile(
                 contentPadding: EdgeInsets.zero,
-                title: Text(
+                title: const Text(
                   'Name card',
                   style: TextStyle(
                     fontSize: 16,
@@ -34,7 +34,7 @@ class CardItem extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                subtitle: Text(
+                subtitle: const Text(
                   'Syah Bandi',
                   style: TextStyle(
                     fontSize: 20,

@@ -53,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "logout_sentence": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to logout?"),
+        "my_courses": MessageLookupByLibrary.simpleMessage("My Courses"),
         "new_service_available":
             MessageLookupByLibrary.simpleMessage("New Service Available"),
         "new_tips_available":

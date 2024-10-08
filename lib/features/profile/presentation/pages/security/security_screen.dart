@@ -42,12 +42,12 @@ class SecurityScreen extends StatelessWidget {
             child: Column(
               children: [
                 CustomButton(
-                    backgroundColor: Color(0xff35383f),
+                    backgroundColor: const Color(0xff35383f),
                     width: double.infinity,
                     text: S.of(context).change_pin,
                     onPressed: () {}),
                 CustomButton(
-                    backgroundColor: Color(0xff35383f),
+                    backgroundColor: const Color(0xff35383f),
                     width: double.infinity,
                     text: S.of(context).change_password,
                     onPressed: () {}),

@@ -25,6 +25,7 @@ dependencies:
   permission_handler: ^11.3.1
   device_info_plus: ^10.1.0
   image_picker: ^1.0.8
+  percent_indicator: ^4.2.3
 
 dev_dependencies:
   flutter_test:

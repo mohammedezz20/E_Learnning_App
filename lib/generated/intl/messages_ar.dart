@@ -53,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "logout_sentence": MessageLookupByLibrary.simpleMessage(
             "هل أنت متاكد من أنك تريد تسجيل الخروج ؟"),
+        "my_courses": MessageLookupByLibrary.simpleMessage("محاضراتي"),
         "new_service_available":
             MessageLookupByLibrary.simpleMessage("خدمة جديدة متاحة"),
         "new_tips_available":

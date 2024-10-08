@@ -5,6 +5,6 @@ class PrivacyPolicyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Privacy Policy Screen'));
+    return const Center(child: Text('Privacy Policy Screen'));
   }
 }

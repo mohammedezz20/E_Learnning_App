@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -455,6 +456,16 @@ class S {
     return Intl.message(
       'No, Cancel',
       name: 'no_cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Courses`
+  String get my_courses {
+    return Intl.message(
+      'My Courses',
+      name: 'my_courses',
       desc: '',
       args: [],
     );

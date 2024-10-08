@@ -36,10 +36,10 @@ class _ChatItemCardState extends State<ChatItemCard> {
                   color: widget.chatItem.chatType == ChatType.error
                       ? Colors.red.withOpacity(0.5)
                       : widget.chatItem.chat == 0
-                          ? Color(0xff3f68f9)
+                          ? const Color(0xff3f68f9)
                           : CachHelper.getData(key: 'isDark')
                               ? const Color(0xff35383f)
-                              : Color(0xfff5f5f5),
+                              : const Color(0xfff5f5f5),
                   borderRadius: widget.chatItem.chatType == ChatType.error
                       ? const BorderRadius.all(Radius.circular(30))
                       : widget.chatItem.chat == 0
