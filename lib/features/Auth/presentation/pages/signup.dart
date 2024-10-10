@@ -8,7 +8,7 @@ import 'package:e_learning_app/features/Auth/domain/usecases/sign_in_use_case.da
 import 'package:e_learning_app/features/Auth/domain/usecases/signup_use_case.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/text_button_auth_account.dart';
-import 'package:e_learning_app/features/Auth/presentation/widgets/remeber_me_custom_widget.dart';
+import 'package:e_learning_app/features/Auth/presentation/widgets/login%20widgets/remeber_me_custom_widget.dart';
 import 'package:e_learning_app/generated/l10n.dart';
 import 'package:e_learning_app/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -125,7 +125,7 @@ class SignUp  extends StatelessWidget {
                           ],
                         ),
                       ),
-                   RemeberMe(
+                   RememberMe(
                     value: watchCubit.isChecked,
                     onChanged: (value){
                       readCubit.rememberUserCheck(value);
@@ -165,7 +165,7 @@ class SignUp  extends StatelessWidget {
                           size: MediaQuery.of(context).size,
                           text: S.of(context).already_have_account,
                           textButton: S.of(context).sign_in,
-                          navigationScreen: Login(),
+                          navigationScreen: const LoginScreen(),
                         )
                      )
                   

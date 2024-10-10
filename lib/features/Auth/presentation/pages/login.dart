@@ -1,38 +1,37 @@
 import 'package:e_learning_app/config/themes/colors.dart';
 import 'package:e_learning_app/core/Get%20it/setup_locator.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
-import 'package:e_learning_app/core/utils/widgets/CustomFormField.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
 import 'package:e_learning_app/features/Auth/data/models/sign_in_model.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/sign_in_use_case.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/signup_use_case.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
-import 'package:e_learning_app/features/Auth/presentation/pages/ResetPassword/forget_password_screen.dart';
 import 'package:e_learning_app/features/Auth/presentation/pages/signup.dart';
+import 'package:e_learning_app/features/Auth/presentation/widgets/login%20widgets/forget_pass_text.dart';
+import 'package:e_learning_app/features/Auth/presentation/widgets/login%20widgets/login_form.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/text_button_auth_account.dart';
-import 'package:e_learning_app/features/Auth/presentation/widgets/remeber_me_custom_widget.dart';
+import 'package:e_learning_app/features/Auth/presentation/widgets/login%20widgets/remeber_me_custom_widget.dart';
 import 'package:e_learning_app/generated/l10n.dart';
 import 'package:e_learning_app/home_screen.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Login extends StatelessWidget {
-   final GlobalKey<FormState> signInFormKey = GlobalKey();
+class LoginScreen extends StatelessWidget {
+
+    const LoginScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+  final GlobalKey<FormState> signInFormKey = GlobalKey();
    final TextEditingController emailController = TextEditingController();
    final TextEditingController passwordController = TextEditingController();
 
-    Login({super.key});
-  @override
-  Widget build(BuildContext context) {
     return BlocProvider(create: (context)=>AuthCubit(getIt.get<SignUpUseCase>(),getIt.get<SignInUseCase>()),
     child: BlocConsumer<AuthCubit,AuthState>(
       listener: (context,state){
       },
-      builder: (context1,state){
-            var readCubit=context1.read<AuthCubit>();
-            var watchCubit=context1.watch<AuthCubit>();
+      builder: (context,state){
+            var readCubit=context.read<AuthCubit>();
         return Scaffold(
         appBar: AppBar(
         leading: IconButton(
@@ -41,7 +40,7 @@ class Login extends StatelessWidget {
              ?  const Color(0xfffafafa)
              :  const Color(0xff1f222a),),
           onPressed: () {
-             Navigator.pop(context1);
+             Navigator.pop(context);
           },
         ),
       ),
@@ -59,82 +58,25 @@ class Login extends StatelessWidget {
                            Padding(
                             padding: EdgeInsets.fromLTRB(0, 20.h, 0, 40.h),
                             child:  Text(
-                                  S.of(context1).login_to_Account,
+                                  S.of(context).login_to_Account,
                                   style: TextStyle(
                                     fontSize: 40.0.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 )),
-                          Form(
-                            key: signInFormKey,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                   width: double.infinity,
-                                  child: CustomFormField(
-                                    sizedBoxHeight: 20,
-                                        hintTextFontSize: 25.0.sp,
-                                     outLineBorderColor: AppColor.loginOptionBorder,
-                                    focusedBorderColor: AppColor.buttonColor,
-                                      backgroundColor: !CachHelper.getData(key: 'isDark')
-                                     ? const Color(0xfffafafa)
-                                     : const Color(0xff1f222a),
-                                    border:9.0,
-                                    prefix:const Icon( Icons.email),
-                                    controller: emailController,
-                                    hintText: S.of(context1).email,
-                                    keyboardType: TextInputType.emailAddress,
-                                    validator: (value) {
-                                      return watchCubit.emailValidator(value);
-                                    },
-                                  ),
-                                ),
-                                SizedBox(
-                                    width: double.infinity,
-                                  child:
-                                  CustomFormField(
-                                    sizedBoxHeight: 20,
-                                    controller:passwordController,
-                                    border: 9.0,
-                                    hintTextFontSize: 25.0.sp,
-                                    outLineBorderColor: AppColor.loginOptionBorder,
-                                    focusedBorderColor: AppColor.buttonColor,
-                                    backgroundColor: !CachHelper.getData(key: 'isDark')
-                                     ? const Color(0xfffafafa)
-                                     : const Color(0xff1f222a),
-                                     isPassword: watchCubit.isPasswordVisible,
-                                    prefix:const Icon(Icons.lock_rounded),
-                                    hintText:  S.of(context1).password,
-                                    suffix: GestureDetector(
-                                    child:watchCubit.isPasswordVisible
-                                         ? const Icon(Icons.visibility_off)
-                                         : const Icon(Icons.visibility),
-                                         onTap: (){
-                                        readCubit.changePassVisibility();
-                                        },
-                                    ),
-                                    keyboardType: TextInputType.visiblePassword,
-                                    validator: (value) {
-                                     return watchCubit.passwordValidator(value);
-                                    },                      
-                                    )
-                                ),
-                              ],
-                            ),
-                          ),
-                          RemeberMe(
-                        value: watchCubit.isChecked,
+                         const SizedBox(height: 50,),
+                         LoginForm( context1: context, readCubit: readCubit, signInFormKey: signInFormKey,),
+                          RememberMe(value: readCubit.isChecked,
                         onChanged: (value){
                           readCubit.rememberUserCheck(value);
                         },
                        ),      
                           Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 20.h),
+                            padding: EdgeInsets.fromLTRB(0, MediaQuery.of(context).size.height/7 , 0, 20.h),
                           child: CustomButton(
                             backgroundColor: AppColor.buttonColor,
-                             width:MediaQuery.of(context1).size.width,
-                              text:S.of(context1).sign_in,
+                             width:MediaQuery.of(context).size.width,
+                              text:S.of(context).sign_in,
                               onPressed: () {
                                   if (signInFormKey.currentState!.validate()) {
                                     readCubit.signIn(
@@ -145,7 +87,7 @@ class Login extends StatelessWidget {
                                      ) 
                                     );
                                      Navigator.push(
-                                   context1,
+                                   context,
                                    MaterialPageRoute(
                                      builder: (context) =>  HomeScreen(),
                                    ),
@@ -155,40 +97,12 @@ class Login extends StatelessWidget {
                                 },
                     
                           ),),
-                   
-                          Center(
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),
-                              child: RichText(
-                                text: TextSpan(
-                                  text: S.of(context1).forgot_password,
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap =() =>    Navigator.push(
-                                        context1,
-                                        MaterialPageRoute(
-                                          builder: (context){ 
-                                            return   BlocProvider.value(
-                                           value: context1.read<AuthCubit>(),
-                                           child:const ForgetPasswordScreen()
-                                          );}
-                                        ),
-                                      ),
-                                  style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.blue,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          
-                          
+                       ForgetPassText(context1:context),   
                           Center(
                             child:TextButtonAuthAccount(
-                              size: MediaQuery.of(context1).size,
-                              text: S.of(context1).not_have_account,
-                              textButton: S.of(context1).sign_up,
+                              size: MediaQuery.of(context).size,
+                              text: S.of(context).not_have_account,
+                              textButton: S.of(context).sign_up,
                               navigationScreen: SignUp(),
                             )
                      )
@@ -204,6 +118,3 @@ class Login extends StatelessWidget {
     );
   }
 }
-
-
-
