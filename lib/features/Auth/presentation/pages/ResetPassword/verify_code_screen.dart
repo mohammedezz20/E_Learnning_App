@@ -5,7 +5,7 @@ import 'package:e_learning_app/features/Auth/presentation/pages/ResetPassword/ne
 import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/app_bar.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/verify_code_form_field.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/verify_code_timer.dart';
-import 'package:e_learning_app/features/Auth/presentation/widgets/reset_pass_image.dart';
+import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/reset_pass_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
