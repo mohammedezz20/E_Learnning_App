@@ -5,7 +5,8 @@ import 'package:e_learning_app/core/utils/widgets/CustomFormField.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/app_bar.dart';
-import 'package:e_learning_app/features/Auth/presentation/widgets/reset_pass_image.dart';
+import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/confirmation_dialog.dart';
+import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/reset_pass_image.dart';
 import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -121,6 +122,10 @@ class NewPasswordScreen extends StatelessWidget {
                             ),
                            CustomButton(
                                 onPressed: (){
+                                      showDialog(
+                                      context: context,
+                                      builder: (context) => ConfirmCheckDialogContent(),
+                                 );
                                   // if(formkey6.currentState!.validate()) {
                                   //   A.resetPass(
                                   //     context: context
