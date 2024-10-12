@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AuthControllers {
+class AuthFormModel {
   final TextEditingController? emailController;
   final TextEditingController? passwordController;
   final TextEditingController? firstNameController;
   final TextEditingController? lastNameController;
   final GlobalKey? authFormKey;
 
-  AuthControllers({
+  AuthFormModel({
     this.emailController,
     this.passwordController,
     this.firstNameController,
