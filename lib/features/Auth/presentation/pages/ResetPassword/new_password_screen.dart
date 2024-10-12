@@ -4,6 +4,7 @@ import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/core/utils/widgets/CustomFormField.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
+import 'package:e_learning_app/features/Auth/presentation/pages/finger%20print/finger_print_screen.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/app_bar.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/confirmation_dialog.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/reset_pass_image.dart';
@@ -11,13 +12,15 @@ import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:local_auth/local_auth.dart';
 
 class NewPasswordScreen extends StatelessWidget {
    NewPasswordScreen({super.key});
     final oldPassController = TextEditingController();
     final newPassController = TextEditingController();
     final formKey = GlobalKey<FormState>();
+      final BiometricAuthService biometricAuthService = BiometricAuthService();
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit,AuthState>(
@@ -33,9 +36,9 @@ class NewPasswordScreen extends StatelessWidget {
           //   }
           // }
         },
-       builder: (context,state){
-          var watchCubit=context.watch<AuthCubit>();
-          var readCubit=context.read<AuthCubit>();
+       builder: (context1,state){
+          var watchCubit=context1.watch<AuthCubit>();
+          var readCubit=context1.read<AuthCubit>();
           return Scaffold(
             backgroundColor: AppColor.lightBackgroundColor,
             body:  SafeArea(
@@ -55,7 +58,7 @@ class NewPasswordScreen extends StatelessWidget {
                             ),
                             Text(
                                 'Enter New Password',
-                                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                style: Theme.of(context1).textTheme.bodySmall?.copyWith(
                                     fontSize: 20
                                 )
                             ),
@@ -76,7 +79,7 @@ class NewPasswordScreen extends StatelessWidget {
                                    : const Color(0xff1f222a),
                                    isPassword: watchCubit.isPasswordVisible,
                                   prefix:const Icon(Icons.lock_rounded),
-                                  hintText:  S.of(context).password,
+                                  hintText:  S.of(context1).password,
                                   suffix: GestureDetector(
                                   child:watchCubit.isPasswordVisible
                                        ? const Icon(Icons.visibility_off)
@@ -103,7 +106,7 @@ class NewPasswordScreen extends StatelessWidget {
                                    : const Color(0xff1f222a),
                                    isPassword: watchCubit.isPasswordVisible,
                                   prefix:const Icon(Icons.lock_rounded),
-                                  hintText:  S.of(context).password,
+                                  hintText:  S.of(context1).password,
                                   suffix: GestureDetector(
                                   child:watchCubit.isPasswordVisible
                                        ? const Icon(Icons.visibility_off)
@@ -121,11 +124,40 @@ class NewPasswordScreen extends StatelessWidget {
                               height: 15,
                             ),
                            CustomButton(
-                                onPressed: (){
-                                      showDialog(
-                                      context: context,
-                                      builder: (context) => ConfirmCheckDialogContent(),
-                                 );
+                                onPressed: () async {
+                                  Navigator.push(
+                        context1,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return BlocProvider.value(
+                              value: context1.read<AuthCubit>(),
+                              child: FingerprintAuthScreen(),
+                            );
+                          },
+                        ),
+                      );
+                              //  bool isAuthenticated = await biometricAuthService.authenticateWithBiometrics();
+                              //  if (isAuthenticated) {
+                              //    // Successfully authenticated
+                              //    ScaffoldMessenger.of(context).showSnackBar(
+                              //      const SnackBar(
+                              //        content: Text('Authentication Successful!'),
+                              //      ),
+                              //    );
+                              //  } else {
+                              //    // Authentication failed
+                              //    ScaffoldMessenger.of(context).showSnackBar(
+                              //      const SnackBar(
+                              //        content: Text('Authentication Failed!'),
+                              //      ),
+                              //    );
+                              //  }
+                                //       showDialog(
+                                //       context: context,
+                                //       builder: (context) => ConfirmCheckDialogContent(),
+                                //  );
+
+
                                   // if(formkey6.currentState!.validate()) {
                                   //   A.resetPass(
                                   //     context: context
@@ -149,3 +181,29 @@ class NewPasswordScreen extends StatelessWidget {
     );
   }
 }
+
+class BiometricAuthService {
+  final LocalAuthentication auth = LocalAuthentication();
+
+  Future<bool> authenticateWithBiometrics() async {
+    bool isBiometricSupported = await auth.isDeviceSupported();
+    bool canCheckBiometrics = await auth.canCheckBiometrics;
+
+    if (isBiometricSupported && canCheckBiometrics) {
+      try {
+        return await auth.authenticate(
+          localizedReason: 'Authenticate using your fingerprint',
+          options: const AuthenticationOptions(
+            useErrorDialogs: true,
+            stickyAuth: true,
+          ),
+        );
+      } catch (e) {
+        print("Error: $e");
+        return false;
+      }
+    }
+    return false;
+  }
+}
+

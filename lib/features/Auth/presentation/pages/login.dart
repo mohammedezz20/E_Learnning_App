@@ -3,6 +3,7 @@ import 'package:e_learning_app/core/Get%20it/setup_locator.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_snack_bar.dart';
+import 'package:e_learning_app/features/Auth/data/models/auth_controllers_model.dart';
 import 'package:e_learning_app/features/Auth/data/models/sign_in_model.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/sign_in_use_case.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/signup_use_case.dart';
@@ -19,12 +20,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatelessWidget {
-    const LoginScreen({super.key});
+   final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+     LoginScreen({super.key});
   @override
   Widget build(BuildContext context) {
   final GlobalKey<FormState> signInFormKey = GlobalKey();
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
+  
 
     return BlocProvider(create: (context)=>AuthCubit(getIt.get<SignUpUseCase>(),getIt.get<SignInUseCase>()),
     child: BlocConsumer<AuthCubit,AuthState>(
@@ -72,7 +74,13 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                 )),
                          const SizedBox(height: 50,),
-                         LoginForm(readCubit: readCubit, signInFormKey: signInFormKey, emailController: emailController,passwordController: passwordController,),
+                         LoginForm(readCubit: readCubit,
+                          authControllers:AuthFormModel(
+                            emailController: emailController,
+                            passwordController: passwordController,
+                            authFormKey: signInFormKey,
+                          ),
+                         ),
                           RememberMe(value: readCubit.isChecked,
                         onChanged: (value){
                           readCubit.rememberUserCheck(value);

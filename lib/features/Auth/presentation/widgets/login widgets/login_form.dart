@@ -1,6 +1,7 @@
 import 'package:e_learning_app/config/themes/colors.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/core/utils/widgets/CustomFormField.dart';
+import 'package:e_learning_app/features/Auth/data/models/auth_controllers_model.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
 import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -8,15 +9,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginForm extends StatefulWidget {
   final AuthCubit readCubit;
-  final GlobalKey<FormState> signInFormKey;
-  final TextEditingController emailController;
-  final TextEditingController passwordController;
+  final AuthFormModel authControllers;
+
 
   const LoginForm({
     super.key,
     required this.readCubit,
-    required this.signInFormKey,
-    required this.emailController, required this.passwordController
+    required this.authControllers,
   });
 
   @override
@@ -24,20 +23,20 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  @override
-  void initState() {
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  // }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: widget.signInFormKey,
+      key: widget.authControllers.authFormKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -53,7 +52,7 @@ class _LoginFormState extends State<LoginForm> {
                   : const Color(0xff1f222a),
               border: 9.0,
               prefix: const Icon(Icons.email),
-              controller: widget.emailController,
+              controller: widget.authControllers.emailController!,
               hintText: S.of(context).email,
               keyboardType: TextInputType.emailAddress,
               validator: (value) {
@@ -65,7 +64,7 @@ class _LoginFormState extends State<LoginForm> {
             width: double.infinity,
             child: CustomFormField(
               sizedBoxHeight: 20,
-              controller: widget.passwordController,
+              controller: widget.authControllers.passwordController!,
               border: 9.0,
               hintTextFontSize: 25.0.sp,
               outLineBorderColor: AppColor.loginOptionBorder,
@@ -81,9 +80,7 @@ class _LoginFormState extends State<LoginForm> {
                     ? const Icon(Icons.visibility_off)
                     : const Icon(Icons.visibility),
                 onTap: () {
-                  setState(() {
                     widget.readCubit.changePassVisibility();
-                  });
                 },
               ),
               keyboardType: TextInputType.visiblePassword,
