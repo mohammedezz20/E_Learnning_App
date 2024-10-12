@@ -30,15 +30,15 @@ class AuthCubit extends Cubit<AuthState> {
     return null;
   }
 
-
-  String? emailValidator(value) {
-    if (value!.isEmpty) {
-      return 'Please enter your Email';
-    } else if (!RegExp(r'^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$').hasMatch(value)) {
-      return 'Please enter a valid email address';
-    }
-    return null;
+String? authValidator(String? value, String label) {
+  if (value!.isEmpty || (!label.contains('email address') && !label.contains('name'))) {
+    return 'Please enter your $label';
+  } else if (label.contains('email address') && !RegExp(r'^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$').hasMatch(value)) {
+    return 'Please enter a valid $label';
   }
+  return null;
+}
+
 
   void rememberUserCheck(value) {
     isChecked = value;
