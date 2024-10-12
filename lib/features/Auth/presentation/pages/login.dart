@@ -2,6 +2,7 @@ import 'package:e_learning_app/config/themes/colors.dart';
 import 'package:e_learning_app/core/Get%20it/setup_locator.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
+import 'package:e_learning_app/core/utils/widgets/custom_snack_bar.dart';
 import 'package:e_learning_app/features/Auth/data/models/sign_in_model.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/sign_in_use_case.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/signup_use_case.dart';
@@ -18,17 +19,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatelessWidget {
-
     const LoginScreen({super.key});
   @override
   Widget build(BuildContext context) {
   final GlobalKey<FormState> signInFormKey = GlobalKey();
-   final TextEditingController emailController = TextEditingController();
-   final TextEditingController passwordController = TextEditingController();
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
 
     return BlocProvider(create: (context)=>AuthCubit(getIt.get<SignUpUseCase>(),getIt.get<SignInUseCase>()),
     child: BlocConsumer<AuthCubit,AuthState>(
       listener: (context,state){
+        if(state is AuthSignInSuccessState){
+          CachHelper.saveData(key:'isLogin', value: true).then((value) {
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+          });
+        }else if (state is AuthSignInErrorState){
+          showSnackBar(context: context, message: state.errorMessage,);
+        }
       },
       builder: (context,state){
             var readCubit=context.read<AuthCubit>();
@@ -65,7 +72,7 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                 )),
                          const SizedBox(height: 50,),
-                         LoginForm( context1: context, readCubit: readCubit, signInFormKey: signInFormKey,),
+                         LoginForm(readCubit: readCubit, signInFormKey: signInFormKey, emailController: emailController,passwordController: passwordController,),
                           RememberMe(value: readCubit.isChecked,
                         onChanged: (value){
                           readCubit.rememberUserCheck(value);
@@ -81,18 +88,10 @@ class LoginScreen extends StatelessWidget {
                                   if (signInFormKey.currentState!.validate()) {
                                     readCubit.signIn(
                                      signInModel: SignInModel(
-                                       email: emailController.text,
-                                      teacherId:'123',
-                                      password: passwordController.text,
+                                      email:emailController.text,
+                                      password:passwordController.text,
                                      ) 
                                     );
-                                     Navigator.push(
-                                   context,
-                                   MaterialPageRoute(
-                                     builder: (context) =>  HomeScreen(),
-                                   ),
-                                   );
-                                    print('form submiitted');
                                   }
                                 },
                     

@@ -1,18 +1,18 @@
+import 'package:e_learning_app/core/utils/api_constants.dart';
+
 class SignInModel {
   final String email;
-  final String teacherId;
+  String teacherId=APIConstants.testTeacherId;
   final String password;
 
   SignInModel({
     required this.email,
-    required this.teacherId,
     required this.password,
   });
 
   factory SignInModel.fromJson(Map<String, dynamic> json) {
     return SignInModel(
       email: json['email'],
-      teacherId: json['teacherId'],
       password: json['password'],
     );
   }

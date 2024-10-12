@@ -7,16 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginForm extends StatefulWidget {
-  // final AuthCubit watchCubit;
   final AuthCubit readCubit;
-  final BuildContext context1;
   final GlobalKey<FormState> signInFormKey;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
 
   const LoginForm({
     super.key,
-    // required this.watchCubit,
     required this.readCubit,
-    required this.context1, required this.signInFormKey,
+    required this.signInFormKey,
+    required this.emailController, required this.passwordController
   });
 
   @override
@@ -24,21 +24,13 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  late TextEditingController emailController;
-  late TextEditingController passwordController;
-
   @override
   void initState() {
     super.initState();
-    // widget.signInFormKey = GlobalKey();
-    emailController = TextEditingController();
-    passwordController = TextEditingController();
   }
 
   @override
   void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
     super.dispose();
   }
 
@@ -61,11 +53,11 @@ class _LoginFormState extends State<LoginForm> {
                   : const Color(0xff1f222a),
               border: 9.0,
               prefix: const Icon(Icons.email),
-              controller: emailController,
-              hintText: S.of(widget.context1).email,
+              controller: widget.emailController,
+              hintText: S.of(context).email,
               keyboardType: TextInputType.emailAddress,
               validator: (value) {
-                return widget.readCubit.emailValidator(value);
+                return widget.readCubit.authValidator(value,'email address');
               },
             ),
           ),
@@ -73,7 +65,7 @@ class _LoginFormState extends State<LoginForm> {
             width: double.infinity,
             child: CustomFormField(
               sizedBoxHeight: 20,
-              controller: passwordController,
+              controller: widget.passwordController,
               border: 9.0,
               hintTextFontSize: 25.0.sp,
               outLineBorderColor: AppColor.loginOptionBorder,
@@ -83,7 +75,7 @@ class _LoginFormState extends State<LoginForm> {
                   : const Color(0xff1f222a),
               isPassword: widget.readCubit.isPasswordVisible,
               prefix: const Icon(Icons.lock_rounded),
-              hintText: S.of(widget.context1).password,
+              hintText: S.of(context).password,
               suffix: GestureDetector(
                 child: widget.readCubit.isPasswordVisible
                     ? const Icon(Icons.visibility_off)
