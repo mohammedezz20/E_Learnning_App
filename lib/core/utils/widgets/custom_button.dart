@@ -9,12 +9,13 @@ class CustomButton extends StatelessWidget {
       required this.text,
       this.height,
       this.padding,
-      this.onPressed});
+      this.onPressed, this.textColor});
 
   final Color backgroundColor;
   final double width;
   final double? height;
   final double? padding;
+  final Color? textColor;
   final String text;
   final void Function()? onPressed;
 
@@ -37,7 +38,7 @@ class CustomButton extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .titleSmall!
-              .copyWith(fontWeight: FontWeight.w500, color: Colors.white),
+              .copyWith(fontWeight: FontWeight.w500, color:textColor?? Colors.white),
         ),
       ),
     );
