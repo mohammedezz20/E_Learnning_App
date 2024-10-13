@@ -26,6 +26,7 @@ class SignUp  extends StatelessWidget {
    final TextEditingController lastNameController = TextEditingController();
    final TextEditingController emailController = TextEditingController();
    final TextEditingController passwordController = TextEditingController();
+   final TextEditingController confirmPasswordController = TextEditingController();
    SignUp({super.key});
   @override
   Widget build(BuildContext context) {
@@ -56,7 +57,6 @@ class SignUp  extends StatelessWidget {
           color: CachHelper.getData(key: 'isDark')
              ?  const Color(0xfffafafa)
              :  const Color(0xff1f222a),
-          
           ),
           onPressed: () {
            Navigator.of(context).pop();
@@ -91,6 +91,7 @@ class SignUp  extends StatelessWidget {
                  lastNameController:  lastNameController,
                  emailController: emailController,
                  passwordController: passwordController,
+                 confirmPasswordController: confirmPasswordController,
                  authFormKey: signUpFormKey
                ),
                ),

@@ -42,7 +42,7 @@ class _SignUpFormState extends State<SignUpForm> {
                      border:9.0,
                      prefix:const Icon( Icons.person_outline_rounded),  
                      controller: widget.authControllers.firstNameController!,
-                     hintText: S.of(context).email,
+                     hintText: S.of(context).first_name,
                      keyboardType: TextInputType.emailAddress,
                      validator: (value) {
                        return widget.readCubit.authValidator(value,'first name');
@@ -65,7 +65,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       : const Color(0xff1f222a),
                       isPassword:false,
                      prefix:const Icon(Icons.person_outline_rounded),
-                     hintText: S.of(context).password,
+                     hintText: S.of(context).last_name,
                      keyboardType: TextInputType.text,
                      validator: (value) {
                       return widget.readCubit.authValidator(value,'last name');
@@ -130,7 +130,7 @@ class _SignUpFormState extends State<SignUpForm> {
                    child:
                    CustomFormField(
                      sizedBoxHeight: 20,
-                     controller:widget.authControllers.passwordController!,
+                     controller:widget.authControllers.confirmPasswordController!,
                      border: 9.0,
                      hintTextFontSize: 25.0.sp,
                      outLineBorderColor: AppColor.loginOptionBorder,
@@ -140,7 +140,7 @@ class _SignUpFormState extends State<SignUpForm> {
                       : const Color(0xff1f222a),
                       isPassword: widget.readCubit.isPasswordVisible,
                      prefix:const Icon(Icons.lock_rounded),
-                     hintText: S.of(context).password,
+                     hintText: S.of(context).confirm_password,
                      suffix: GestureDetector(
                      child:widget.readCubit.isPasswordVisible
                           ? const Icon(Icons.visibility_off)
