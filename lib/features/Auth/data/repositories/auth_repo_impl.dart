@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:e_learning_app/core/error_handling.dart';
+import 'package:dio/dio.dart';
+import 'package:e_learning_app/core/failure_handling.dart';
 import 'package:e_learning_app/features/Auth/data/datasources/auth_datasource.dart';
 import 'package:e_learning_app/features/Auth/data/datasources/auth_local_datasource.dart';
 import 'package:e_learning_app/features/Auth/data/models/sign_in_model.dart';
@@ -16,28 +17,34 @@ class AuthRepository implements IAuthRepo{
   AuthRepository({required this.remoteDataSource,required this.localDataSource});
 
   @override
- Future<Either<Failure, UserDataEntity>> signIn({
+ Future<Either<FailureHandler, UserDataEntity>> signIn({
     required SignInModel signInModel
   })async{
     try{
        final response = await remoteDataSource.signIn(signInModel: signInModel);
        return right(response);
-     }catch(e){
-       return left(ServerFailure(message:e.toString()));
-     }
+     }catch(error){
+     if(error is DioException){
+      return left(ServerFailure.fromDiorError(error));
+    }else{
+      return left(ServerFailure(error.toString()));
+    }     }
   }
   
   @override
-   Future<Either<Failure, UserDataEntity>> signUp({
+   Future<Either<FailureHandler, UserDataEntity>> signUp({
    required SignUpModel signUpModel,
   })
    async {
      try{
        final response = await remoteDataSource.signUp(signUpModel: signUpModel);
        return right(response);
-     }catch(e){
-       return left(ServerFailure(message:e.toString()));
-     }
+     }catch(error){
+    if(error is DioException){
+      return left(ServerFailure.fromDiorError(error));
+    }else{
+      return left(ServerFailure(error.toString()));
+    }      }
   }
 
  @override

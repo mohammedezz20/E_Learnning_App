@@ -36,6 +36,7 @@ class DioHelper {
   }) async {
     dio.options.headers={
       'Content-Type':'application/json',
+      'Accept':'application/json',
       'Authorization':'Bearer $token',
     };
     return await dio.post(

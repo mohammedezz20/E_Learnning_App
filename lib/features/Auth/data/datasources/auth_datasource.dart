@@ -15,22 +15,19 @@ class RemoteDataSource implements IAuthDataSource{
         url: APIConstants.signIn,
         data: signInModel.toJson(),
       );
-      if (response.statusCode == 200) {
-        final data = response.data['data'];
-        print('sign in success ${data.toString()}');
+        final data = response.data['data']['student'];
         return UserDataEntity.fromJson(data);
-      } else {
-        throw Exception('Failed to sign in: ${response.statusCode}');
-      }
+      
   }
 
  @override
   Future<UserDataEntity> signUp({required SignUpModel signUpModel}) async {
+    print('signUpModel: ${signUpModel.toJson()}');
       final response = await DioHelper.post(
         url: APIConstants.signUp,
         data: signUpModel.toJson(),
       );
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         final data = response.data['data'];
         return UserDataEntity.fromJson(data);
       } else {

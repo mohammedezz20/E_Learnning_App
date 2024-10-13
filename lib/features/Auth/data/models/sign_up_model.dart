@@ -1,10 +1,12 @@
+import 'package:e_learning_app/core/utils/api_constants.dart';
+
 class SignUpModel {
   final String firstName;
   final String lastName;
   final String email;
   final String password;
   final int grade;
-  final String teacherId;
+   String teacherId=APIConstants.testTeacherId;
 
   SignUpModel({
     required this.firstName,
@@ -12,7 +14,6 @@ class SignUpModel {
     required this.email,
     required this.password,
     required this.grade,
-    required this.teacherId,
   });
 
   Map<String, dynamic> toJson() {
@@ -33,7 +34,6 @@ class SignUpModel {
       email: json['email'] as String,
       password: json['password'] as String,
       grade: json['grade'] as int,
-      teacherId: json['teacherId'] as String,
     );
   }
 }
