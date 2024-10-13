@@ -5,6 +5,7 @@ import 'package:e_learning_app/core/utils/widgets/CustomFormField.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
 import 'package:e_learning_app/features/Auth/presentation/pages/finger%20print/finger_print_screen.dart';
+import 'package:e_learning_app/features/Auth/presentation/pages/pin_pass_screen.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/app_bar.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/confirmation_dialog.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/reset_pass_image.dart';
@@ -131,7 +132,7 @@ class NewPasswordScreen extends StatelessWidget {
                           builder: (context) {
                             return BlocProvider.value(
                               value: context1.read<AuthCubit>(),
-                              child: FingerprintAuthScreen(),
+                              child: PinAuthScreen(),
                             );
                           },
                         ),
