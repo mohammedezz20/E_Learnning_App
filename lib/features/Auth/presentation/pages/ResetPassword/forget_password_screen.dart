@@ -33,7 +33,16 @@ class ForgetPasswordScreen extends StatelessWidget {
                     ),
                   );
          showSnackBar(context: context, message: state.message,);
-        }
+        }else{    Navigator.push(
+                   context2,
+                    MaterialPageRoute(
+                      builder: (context){ 
+                        return   BlocProvider.value(
+                       value: context2.read<AuthCubit>(),
+                       child:const VerifyCodeScreen()
+                      );}
+                    ),
+                  );}
       },
       builder: (context1,state){
             var watchCubit=context1.watch<AuthCubit>();

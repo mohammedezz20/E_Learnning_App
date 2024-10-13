@@ -18,6 +18,7 @@ class VerifyCodeScreen extends StatefulWidget {
 }
 
 class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
+  TextEditingController pinController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var formKey = GlobalKey<FormState>();
@@ -54,7 +55,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                                   ),
                             ),
                             const SizedBox(height: 30),
-                            const VerifyCodeFormField(),
+                            VerifyCodeFormField(length: 6,pinController:pinController ,),
                             const SizedBox(height: 20),
                             const TimerWidget(),
                           ],
