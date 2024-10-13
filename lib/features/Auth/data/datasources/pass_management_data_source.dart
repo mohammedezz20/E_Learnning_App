@@ -1,9 +1,10 @@
 import 'package:e_learning_app/core/dio_helper.dart';
 import 'package:e_learning_app/core/utils/api_constants.dart';
+import 'package:e_learning_app/features/Auth/data/models/reset_pass_model.dart';
 
 abstract class PassManagementDataSource {
   Future<String> forgetPassword({required String email});
-  Future<void> resetPassword({required String email,required String otp,required String newPassword});
+  Future<String> resetPassword({required RestPassModel restPassModel});
 }
 class PassManagementDataSourceImpl implements PassManagementDataSource {
   @override
@@ -25,8 +26,16 @@ class PassManagementDataSourceImpl implements PassManagementDataSource {
   }
   
   @override
-  Future<void> resetPassword({required String email, required String otp, required String newPassword}) {
-    // TODO: implement resetPassword
-    throw UnimplementedError();
-  }
+  Future<String> resetPassword({required RestPassModel restPassModel})async {
+   final response= await DioHelper.post(
+     url: APIConstants.forgetPass,
+     data:restPassModel.toJson()
+   );
+     if(response.statusCode == 200){
+     return response.data['data']['message'];
+     }else{
+      print( response.data);
+     return response.data['stack'];
+     }
+   }
 }
