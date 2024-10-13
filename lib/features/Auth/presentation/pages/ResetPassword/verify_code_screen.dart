@@ -6,6 +6,7 @@ import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%2
 import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/verify_code_form_field.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/verify_code_timer.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/reset_pass_image.dart';
+import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,14 +40,14 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                             const SizedBox(height: 10),
                             const ResetPassImage(image: 'assets/code.png'),
                             Text(
-                              'Email verification !',
+                              S.of(context).email_verify,
                               style: Theme.of(context1).textTheme.bodyMedium?.copyWith(
                                     fontSize: 35,
                                   ),
                             ),
                             const SizedBox(height: 15),
                             Text(
-                              'Code has been sent to 010******16',
+                              '${S.of(context).code_sent} 010******16',
                               textAlign: TextAlign.center,
                               style: Theme.of(context1).textTheme.bodySmall?.copyWith(
                                     fontSize: 20,
@@ -78,7 +79,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                         ),
                       );
                     },
-                    text: 'Verify',
+                    text:S.of(context).verify,
                     backgroundColor: AppColor.blueColor,
                     width: double.infinity,
                   ),

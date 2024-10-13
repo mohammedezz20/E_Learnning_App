@@ -1,3 +1,4 @@
+import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -25,7 +26,7 @@ class VerifyCodeFormField extends StatelessWidget {
                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                    validator: (v) {
                      if (v!.length < 4) {
-                       return "Code can not be empty !";
+                       return S.of(context).code_validate;
                      } else {
                        return null;
                      }

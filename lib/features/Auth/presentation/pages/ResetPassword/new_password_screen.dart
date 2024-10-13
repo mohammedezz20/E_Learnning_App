@@ -58,7 +58,7 @@ class NewPasswordScreen extends StatelessWidget {
                               height: 25,
                             ),
                             Text(
-                                'Enter New Password',
+                              S.of(context1).enter_new_password,
                                 style: Theme.of(context1).textTheme.bodySmall?.copyWith(
                                     fontSize: 20
                                 )
@@ -80,7 +80,7 @@ class NewPasswordScreen extends StatelessWidget {
                                    : const Color(0xff1f222a),
                                    isPassword: watchCubit.isPasswordVisible,
                                   prefix:const Icon(Icons.lock_rounded),
-                                  hintText:  S.of(context1).password,
+                                  hintText:  S.of(context1).new_password,
                                   suffix: GestureDetector(
                                   child:watchCubit.isPasswordVisible
                                        ? const Icon(Icons.visibility_off)
@@ -107,7 +107,7 @@ class NewPasswordScreen extends StatelessWidget {
                                    : const Color(0xff1f222a),
                                    isPassword: watchCubit.isPasswordVisible,
                                   prefix:const Icon(Icons.lock_rounded),
-                                  hintText:  S.of(context1).password,
+                                  hintText:  S.of(context1).confirm_password,
                                   suffix: GestureDetector(
                                   child:watchCubit.isPasswordVisible
                                        ? const Icon(Icons.visibility_off)
@@ -121,8 +121,8 @@ class NewPasswordScreen extends StatelessWidget {
                                    return watchCubit.passwordValidator(value);
                                   },                      
                                   ),
-                            const SizedBox(
-                              height: 15,
+                            SizedBox(
+                              height:MediaQuery.of(context).size.height*0.06 ,
                             ),
                            CustomButton(
                                 onPressed: () async {
@@ -167,7 +167,7 @@ class NewPasswordScreen extends StatelessWidget {
                                   //       newPass: newPasscontroller.text);
                                   // }
                                 },
-                                text:'Submit', backgroundColor: AppColor.blueColor, width: double.infinity,
+                                text:S.of(context).send, backgroundColor: AppColor.blueColor, width: double.infinity,
                               ),
                              
                     

@@ -63,7 +63,26 @@
   "all_reviews":"كل المراجعات",
   "see_all":"اظهار الكل",
   "course_details":"تفاصيل الدورة",
-  "hours":"ساعات"
+  "hours":"ساعات",
+  "first_name":"الاسم الاول",
+  "last_name":"اسم العائلة",
+  "confirm_password":"تاكيد كلمة المرور",
+  "enter_phone":"ادخل رقم الهاتف",
+  "enter_email": "ادخل البريد الالكترونى",
+  "phone":"رقم الهاتف",
+  "send":"ارسال",
+  "email_verify":"! التحقق من البريد الالكترونى",
+  "resend_code":"اعادة ارسال الكود",
+  "enter_code":"ادخل الكود",
+  "enter_new_password":"ادخل كلمة المرور الجديدة",
+  "new_password":"كلمة المرور الجديدة",
+  "code_valid_for":"الكود صالح لـ",
+  "seconds":"ثواني",
+  "reset_password":"اعادة تعيين كلمة المرور",
+  "code_sent":"تم ارسال الكود الى",
+  "verify":"تاكيد",
+  "code_validate":"! لا يمكن أن يكون الكود فارغا"
+
 
 
 

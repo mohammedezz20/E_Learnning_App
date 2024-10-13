@@ -39,7 +39,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                           ),
                           const ResetPassImage(image: 'assets/forgetpassword.png',),
                           Text(
-                              'Enter your phone number',textAlign: TextAlign.center,
+                            S.of(context1).enter_email,textAlign: TextAlign.center,
                               style: Theme.of(context1).textTheme.bodySmall?.copyWith(
                                   fontSize: 22.sp
                               )
@@ -60,11 +60,11 @@ class ForgetPasswordScreen extends StatelessWidget {
                                     backgroundColor: !CachHelper.getData(key: 'isDark')
                                      ? const Color(0xfffafafa)
                                      : const Color(0xff1f222a),
-                                    prefix:const Icon(Icons.phone),
-                                    hintText:  S.of(context1).password,
-                                    keyboardType: TextInputType.phone,
+                                    prefix:const Icon(Icons.email_outlined),
+                                    hintText:  S.of(context1).email,
+                                    keyboardType: TextInputType.emailAddress,
                                     validator: (value) {
-                                     return watchCubit.passwordValidator(value);
+                                     return watchCubit.authValidator(value,"email address");
                                     },                      
                                     )
                        ),
@@ -84,7 +84,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                                 ),
                               );
                             },
-                            text:'Send', backgroundColor: AppColor.blueColor, width: double.infinity,
+                            text:S.of(context).send, backgroundColor: AppColor.blueColor, width: double.infinity,
                           ),
                         ],
                       ),
