@@ -77,8 +77,9 @@ class _FingerprintAuthScreenState extends State<FingerprintAuthScreen> {
                 children: [
                   Expanded(
                     child: CustomButton(backgroundColor: AppColor.greyColor!,textColor:AppColor.blueColor,
-                     width: double.infinity, text: 'Skip' ),
-                  
+                     width: double.infinity, text: 'Skip' ,
+                     ),
+                    
                     // child: ElevatedButton(
                     //   onPressed: () {},
                     //   child: const Text('Skip'),
@@ -87,7 +88,11 @@ class _FingerprintAuthScreenState extends State<FingerprintAuthScreen> {
                   SizedBox(width: 20),
                   Expanded(
                     child: CustomButton(backgroundColor: AppColor.blueColor,
-                     width: double.infinity, text:_isFingerprintSet ? 'Continue' : 'Set' ),
+                     width: double.infinity, text:_isFingerprintSet ? 'Continue' : 'Set' ,
+                       onPressed: _isFingerprintSet ? () {
+                        Navigator.pop(context);
+                      } : _authenticate,
+                     ),
                     // child: ElevatedButton(
                     //   onPressed: _isFingerprintSet ? () {
                     //     Navigator.pop(context);
