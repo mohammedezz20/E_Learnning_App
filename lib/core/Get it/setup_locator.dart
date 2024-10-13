@@ -1,6 +1,9 @@
   import 'package:e_learning_app/features/Auth/data/datasources/auth_datasource.dart';
 import 'package:e_learning_app/features/Auth/data/datasources/auth_local_datasource.dart';
+import 'package:e_learning_app/features/Auth/data/datasources/pass_management_data_source.dart';
 import 'package:e_learning_app/features/Auth/data/repositories/auth_repo_impl.dart';
+import 'package:e_learning_app/features/Auth/data/repositories/pass_repo_impl.dart';
+import 'package:e_learning_app/features/Auth/domain/usecases/forget_pass_use_case.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/sign_in_use_case.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/signup_use_case.dart';
 import 'package:e_learning_app/features/Cources/data/data_sources/courses_local_datasource.dart';
@@ -19,6 +22,10 @@ void setupLocator(){
 
   getIt.registerSingleton<SignInUseCase>(SignInUseCase
     (authRepo: getIt.get<AuthRepository>()),);
+
+   getIt.registerSingleton<ForgetPassUseCase>(ForgetPassUseCase
+    ( passRepo: PasswordRepositoryImpl(passDataSource: PassManagementDataSourceImpl
+    ())),);
 
 
   getIt.registerSingleton<CourseUseCase>(CourseUseCase

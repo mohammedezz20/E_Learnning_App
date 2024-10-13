@@ -30,6 +30,15 @@ class AuthSignInSuccessState extends AuthState{
   AuthSignInSuccessState({required this.userData});
 }
 
+class ForgetPasswordLoadingState extends AuthState{}
+class ForgetPasswordErrorState extends AuthState{
+  final String errorMessage;
+  ForgetPasswordErrorState({required this.errorMessage});
+}
+class ForgetPasswordSuccessState extends AuthState{
+  final String message;
+  ForgetPasswordSuccessState({required this.message});
+}
 
 class FetchUserDataLoadingState extends AuthState{}
 class FetchUserDataErrorState extends AuthState{

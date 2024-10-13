@@ -3,6 +3,7 @@ import 'package:e_learning_app/config/themes/colors.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:e_learning_app/core/utils/widgets/CustomFormField.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
+import 'package:e_learning_app/core/utils/widgets/custom_snack_bar.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
 import 'package:e_learning_app/features/Auth/presentation/pages/ResetPassword/verify_code_screen.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/reset%20pass%20widgets/app_bar.dart';
@@ -16,10 +17,23 @@ class ForgetPasswordScreen extends StatelessWidget {
   const ForgetPasswordScreen({super.key});
   @override
   Widget build(BuildContext context) {
-  var phoneController = TextEditingController();
+  var emailController = TextEditingController();
   var formKey = GlobalKey<FormState>();
      return BlocConsumer<AuthCubit,AuthState>(
-      listener: (context,state){
+      listener: (context2,state){
+        if(state is ForgetPasswordSuccessState){
+                Navigator.push(
+                   context2,
+                    MaterialPageRoute(
+                      builder: (context){ 
+                        return   BlocProvider.value(
+                       value: context2.read<AuthCubit>(),
+                       child:const VerifyCodeScreen()
+                      );}
+                    ),
+                  );
+         showSnackBar(context: context, message: state.message,);
+        }
       },
       builder: (context1,state){
             var watchCubit=context1.watch<AuthCubit>();
@@ -52,7 +66,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                               const EdgeInsets.symmetric(horizontal: 8.0),
                               child:CustomFormField(
                                     sizedBoxHeight: 20,
-                                    controller:phoneController,
+                                    controller:emailController,
                                     border: 9.0,
                                     hintTextFontSize: 25.0.sp,
                                     outLineBorderColor: AppColor.loginOptionBorder,
@@ -73,16 +87,10 @@ class ForgetPasswordScreen extends StatelessWidget {
                           ),
                           CustomButton(
                             onPressed: (){
-                             Navigator.push(
-                                context1,
-                                MaterialPageRoute(
-                                  builder: (context){ 
-                                    return   BlocProvider.value(
-                                   value: context1.read<AuthCubit>(),
-                                   child:const VerifyCodeScreen()
-                                  );}
-                                ),
-                              );
+                              if(formKey.currentState!.validate()){
+                                context1.read<AuthCubit>().forgetPassword(email:emailController.text);
+                              }
+                       
                             },
                             text:S.of(context).send, backgroundColor: AppColor.blueColor, width: double.infinity,
                           ),
