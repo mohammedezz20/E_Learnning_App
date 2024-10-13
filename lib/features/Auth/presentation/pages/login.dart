@@ -5,6 +5,8 @@ import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_snack_bar.dart';
 import 'package:e_learning_app/features/Auth/data/models/auth_controllers_model.dart';
 import 'package:e_learning_app/features/Auth/data/models/sign_in_model.dart';
+import 'package:e_learning_app/features/Auth/domain/usecases/forget_pass_use_case.dart';
+import 'package:e_learning_app/features/Auth/domain/usecases/reset_pass_use_case.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/sign_in_use_case.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/signup_use_case.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
@@ -28,7 +30,8 @@ class LoginScreen extends StatelessWidget {
   final GlobalKey<FormState> signInFormKey = GlobalKey();
   
 
-    return BlocProvider(create: (context)=>AuthCubit(getIt.get<SignUpUseCase>(),getIt.get<SignInUseCase>()),
+    return BlocProvider(create: (context)=>AuthCubit(getIt.get<SignUpUseCase>(),
+    getIt.get<SignInUseCase>(),getIt.get<ForgetPassUseCase>(),getIt.get<ResetPassUseCase>()),
     child: BlocConsumer<AuthCubit,AuthState>(
       listener: (context,state){
         if(state is AuthSignInSuccessState){

@@ -1,18 +1,21 @@
 import 'package:bloc/bloc.dart';
+import 'package:e_learning_app/features/Auth/data/models/reset_pass_model.dart';
 import 'package:e_learning_app/features/Auth/data/models/sign_in_model.dart';
 import 'package:e_learning_app/features/Auth/data/models/sign_up_model.dart';
 import 'package:e_learning_app/features/Auth/data/models/user_model.dart';
 import 'package:e_learning_app/features/Auth/domain/entities/user_entity.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/forget_pass_use_case.dart';
+import 'package:e_learning_app/features/Auth/domain/usecases/reset_pass_use_case.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/sign_in_use_case.dart';
 import 'package:e_learning_app/features/Auth/domain/usecases/signup_use_case.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit(this.signUpUseCase, this.signInUseCase, this.forgetPassUseCase) : super(AuthInitial());
+  AuthCubit(this.signUpUseCase, this.signInUseCase, this.forgetPassUseCase, this.resetPassUseCase) : super(AuthInitial());
   final SignUpUseCase signUpUseCase;
   final SignInUseCase signInUseCase;
   final ForgetPassUseCase forgetPassUseCase;
+  final ResetPassUseCase resetPassUseCase;
 
 
   bool isChecked = false;
@@ -88,5 +91,15 @@ String? authValidator(String? value, String label) {
       (msg) => emit(ForgetPasswordSuccessState(message: msg)),
     );
   } 
+
+  Future<void>resetPassword({required RestPassModel resetPassModel})async{
+    emit(ForgetPasswordLoadingState());
+    final response = await resetPassUseCase.call(resetPassModel);
+    response.fold(
+      (errMessage) => emit(ForgetPasswordErrorState(errorMessage: errMessage.toString())),
+      (msg) => emit(ForgetPasswordSuccessState(message: msg)),
+    );
+  } 
+
 }
 
