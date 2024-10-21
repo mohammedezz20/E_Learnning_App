@@ -40,7 +40,7 @@
   "logout_sentence": "Are you sure you want to logout?",
   "yes_logout": "Yes, Logout",
   "no_cancel": "No, Cancel",
-  "new word": "New Word",
+  "new_word": "New Word",
   "email": "Email",
   "password": "Password",
   "word": "Word",
@@ -49,7 +49,7 @@
   "sign_in": "Sign in",
   "sign_up": "Sign up",
   "forgot_password": "Forgot the password?",
-  "not_have_account": "Don\\'t have an account?",
+  "not_have_account": "Don not have an account?",
   "create_account": "Create Your account",
   "all_courses": "All Courses",
   "courses_found": "Courses Found",
@@ -82,5 +82,6 @@
   "reset_password": "Reset Password",
   "code_sent": "Code has been sent to",
   "verify": "Verify",
-  "code_validate": "Code can not be empty !"
+  "code_validate": "Code can not be empty !",
+  "my_courses": "My Courses"
 }

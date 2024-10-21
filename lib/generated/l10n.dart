@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -461,7 +460,15 @@ class S {
     );
   }
 
-  // skipped getter for the 'new word' key
+  /// `New Word`
+  String get new_word {
+    return Intl.message(
+      'New Word',
+      name: 'new_word',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Email`
   String get email {
@@ -543,10 +550,10 @@ class S {
     );
   }
 
-  /// `Don\'t have an account?`
+  /// `Don not have an account?`
   String get not_have_account {
     return Intl.message(
-      'Don\\\'t have an account?',
+      'Don not have an account?',
       name: 'not_have_account',
       desc: '',
       args: [],
@@ -878,6 +885,16 @@ class S {
     return Intl.message(
       'Code can not be empty !',
       name: 'code_validate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Courses`
+  String get my_courses {
+    return Intl.message(
+      'My Courses',
+      name: 'my_courses',
       desc: '',
       args: [],
     );

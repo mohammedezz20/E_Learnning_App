@@ -1,5 +1,5 @@
 import 'package:e_learning_app/core/utils/extensions/build_context_extensions.dart';
-import 'package:e_learning_app/features/Cources/presentation/widgets/about_tab_widget.dart';
+import 'package:e_learning_app/features/Cources/presentation/widgets/about%20course%20widgets/about_tab_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

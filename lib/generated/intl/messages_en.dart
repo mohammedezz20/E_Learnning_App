@@ -92,14 +92,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout_sentence": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to logout?"),
         "message": MessageLookupByLibrary.simpleMessage("Message"),
+        "my_courses": MessageLookupByLibrary.simpleMessage("My Courses"),
         "new_password": MessageLookupByLibrary.simpleMessage("New password"),
         "new_service_available":
             MessageLookupByLibrary.simpleMessage("New Service Available"),
         "new_tips_available":
             MessageLookupByLibrary.simpleMessage("New Tips Available"),
+        "new_word": MessageLookupByLibrary.simpleMessage("New Word"),
         "no_cancel": MessageLookupByLibrary.simpleMessage("No, Cancel"),
         "not_have_account":
-            MessageLookupByLibrary.simpleMessage("Don\\\'t have an account?"),
+            MessageLookupByLibrary.simpleMessage("Don not have an account?"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "payment": MessageLookupByLibrary.simpleMessage("Payment"),
