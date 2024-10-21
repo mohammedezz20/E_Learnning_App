@@ -701,6 +701,186 @@ class S {
       args: [],
     );
   }
+
+  /// `First Name`
+  String get first_name {
+    return Intl.message(
+      'First Name',
+      name: 'first_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last Name`
+  String get last_name {
+    return Intl.message(
+      'Last Name',
+      name: 'last_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get confirm_password {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirm_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter phone number`
+  String get enter_phone {
+    return Intl.message(
+      'Enter phone number',
+      name: 'enter_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email address`
+  String get enter_email {
+    return Intl.message(
+      'Enter your email address',
+      name: 'enter_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone number`
+  String get phone {
+    return Intl.message(
+      'Phone number',
+      name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send`
+  String get send {
+    return Intl.message(
+      'Send',
+      name: 'send',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email verification !`
+  String get email_verify {
+    return Intl.message(
+      'Email verification !',
+      name: 'email_verify',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resend code`
+  String get resend_code {
+    return Intl.message(
+      'Resend code',
+      name: 'resend_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter code`
+  String get enter_code {
+    return Intl.message(
+      'Enter code',
+      name: 'enter_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter new password`
+  String get enter_new_password {
+    return Intl.message(
+      'Enter new password',
+      name: 'enter_new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New password`
+  String get new_password {
+    return Intl.message(
+      'New password',
+      name: 'new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code valid for`
+  String get code_valid_for {
+    return Intl.message(
+      'Code valid for',
+      name: 'code_valid_for',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Seconds`
+  String get seconds {
+    return Intl.message(
+      'Seconds',
+      name: 'seconds',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Password`
+  String get reset_password {
+    return Intl.message(
+      'Reset Password',
+      name: 'reset_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code has been sent to`
+  String get code_sent {
+    return Intl.message(
+      'Code has been sent to',
+      name: 'code_sent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify`
+  String get verify {
+    return Intl.message(
+      'Verify',
+      name: 'verify',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code can not be empty !`
+  String get code_validate {
+    return Intl.message(
+      'Code can not be empty !',
+      name: 'code_validate',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

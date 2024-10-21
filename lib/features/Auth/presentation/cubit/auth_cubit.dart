@@ -1,12 +1,22 @@
 import 'package:bloc/bloc.dart';
+import 'package:e_learning_app/features/Auth/data/models/reset_pass_model.dart';
+import 'package:e_learning_app/features/Auth/data/models/sign_in_model.dart';
+import 'package:e_learning_app/features/Auth/data/models/sign_up_model.dart';
 import 'package:e_learning_app/features/Auth/data/models/user_model.dart';
-import 'package:e_learning_app/features/Auth/data/repositories/auth_repo_impl.dart';
-
+import 'package:e_learning_app/features/Auth/domain/entities/user_entity.dart';
+import 'package:e_learning_app/features/Auth/domain/usecases/forget_pass_use_case.dart';
+import 'package:e_learning_app/features/Auth/domain/usecases/reset_pass_use_case.dart';
+import 'package:e_learning_app/features/Auth/domain/usecases/sign_in_use_case.dart';
+import 'package:e_learning_app/features/Auth/domain/usecases/signup_use_case.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit(this.userRepository) : super(AuthInitial());
-  final AuthRepository userRepository;
+  AuthCubit(this.signUpUseCase, this.signInUseCase, this.forgetPassUseCase, this.resetPassUseCase) : super(AuthInitial());
+  final SignUpUseCase signUpUseCase;
+  final SignInUseCase signInUseCase;
+  final ForgetPassUseCase forgetPassUseCase;
+  final ResetPassUseCase resetPassUseCase;
+
 
   bool isChecked = false;
 
@@ -25,66 +35,71 @@ class AuthCubit extends Cubit<AuthState> {
     return null;
   }
 
-
-  String? emailValidator(value) {
-    if (value!.isEmpty) {
-      return 'Please enter your Email';
-    } else if (!RegExp(r'^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$').hasMatch(value)) {
-      return 'Please enter a valid email address';
-    }
-    return null;
+String? authValidator(String? value, String label) {
+  if (value!.isEmpty || (!label.contains('email address') && !label.contains('name'))) {
+    return 'Please enter your $label';
+  } else if (label.contains('email address') && !RegExp(r'^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$').hasMatch(value)) {
+    return 'Please enter a valid $label';
   }
+  return null;
+}
+
 
   void rememberUserCheck(value) {
     isChecked = value;
     emit(AuthRememberUserState());
   }
 
-
-
   Future<void> signIn({
-      required String email,
-      required String pass,
+  required SignInModel signInModel
    }
    ) async {
-    emit(AuthLoginLoadingState());
-    final response = await userRepository.signIn(
-      email:  email,  
-      password: pass
-    );
+    emit(AuthSignInLoadingState());
+    final response = await signInUseCase.call(signInModel);
     response.fold(
-      (errMessage) => emit(AuthLoginErrorState(errorMessage: errMessage)),
-      (signInModel) => emit(AuthLoginSuccessState()),
+      (errMessage){
+          emit(AuthSignInErrorState(errorMessage: errMessage.message));},
+      (userData) => emit(AuthSignInSuccessState(userData:userData )),
     );
-
-    //TODO manage sign in states
   }
-
   Future<void> signUp({
-    required String email,
-    required String pass,
+    required SignUpModel signUpModel,
    }) async {
-    emit(AuthLoginLoadingState());
-    final response = await userRepository.signUp(
-      email: email,
-      password:pass,
-    );
+    emit(AuthSignUpLoadingState());
+    final response = await signUpUseCase.call(signUpModel);
     response.fold(
-      (errMessage) => emit(AuthLoginErrorState(errorMessage: errMessage)),
-      (signInModel) => emit(AuthLoginSuccessState()),
+      (errMessage) => emit(AuthSignUpErrorState(errorMessage: errMessage.toString())),
+      (userData) => emit(AuthSignUpSuccessState(userData:userData )),
     );
-
-    //TODO manage sign up states
   }
 
   Future<void> getUserData({required String token})async{
-    emit(FetchUserDataLoadingState());
-     final response = await userRepository.getUserProfile();
-      response.fold(
-      (errMessage) => emit(FetchUserDataErrorState(errorMessage: errMessage)),
-      (signInModel) => emit(FetchUserDataSuccessState(signInModel)),
-    );
+    // emit(FetchUserDataLoadingState());
+    //  final response = await userRepository.getUserProfile();
+    //   response.fold(
+    //   (errMessage) => emit(FetchUserDataErrorState(errorMessage: errMessage)),
+    //   (signInModel) => emit(FetchUserDataSuccessState(signInModel)),
+    // );
 
   }
+
+  Future<void>forgetPassword({required String email})async{
+    emit(ForgetPasswordLoadingState());
+    final response = await forgetPassUseCase.call(email);
+    response.fold(
+      (errMessage) => emit(ForgetPasswordErrorState(errorMessage: errMessage.toString())),
+      (msg) => emit(ForgetPasswordSuccessState(message: msg)),
+    );
+  } 
+
+  Future<void>resetPassword({required RestPassModel resetPassModel})async{
+    emit(ForgetPasswordLoadingState());
+    final response = await resetPassUseCase.call(resetPassModel);
+    response.fold(
+      (errMessage) => emit(ForgetPasswordErrorState(errorMessage: errMessage.toString())),
+      (msg) => emit(ForgetPasswordSuccessState(message: msg)),
+    );
+  } 
+
 }
 

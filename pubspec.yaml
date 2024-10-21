@@ -36,6 +36,11 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   dio: ^5.4.0
+  pin_code_fields: ^8.0.1
+  simple_animations: ^4.0.0
+  local_auth: ^2.1.4
+  flutter_secure_storage: ^9.2.2
+
 
 
 

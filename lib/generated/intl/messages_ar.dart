@@ -40,6 +40,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "change_password":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "change_pin": MessageLookupByLibrary.simpleMessage("تغيير PIN"),
+        "code_sent": MessageLookupByLibrary.simpleMessage("تم ارسال الكود الى"),
+        "code_valid_for": MessageLookupByLibrary.simpleMessage("الكود صالح لـ"),
+        "code_validate": MessageLookupByLibrary.simpleMessage(
+            "! لا يمكن أن يكون الكود فارغا"),
+        "confirm_password":
+            MessageLookupByLibrary.simpleMessage("تاكيد كلمة المرور"),
         "connected": MessageLookupByLibrary.simpleMessage("متصل"),
         "course_details": MessageLookupByLibrary.simpleMessage("تفاصيل الدورة"),
         "courses": MessageLookupByLibrary.simpleMessage("الدورات"),
@@ -51,10 +57,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "disconnected": MessageLookupByLibrary.simpleMessage("غير متصل"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("تعديل الحساب"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الالكترونى"),
+        "email_verify": MessageLookupByLibrary.simpleMessage(
+            "! التحقق من البريد الالكترونى"),
         "english": MessageLookupByLibrary.simpleMessage("الانجليزية"),
         "enroll": MessageLookupByLibrary.simpleMessage("تسجيل"),
+        "enter_code": MessageLookupByLibrary.simpleMessage("ادخل الكود"),
+        "enter_email":
+            MessageLookupByLibrary.simpleMessage("ادخل البريد الالكترونى"),
+        "enter_new_password":
+            MessageLookupByLibrary.simpleMessage("ادخل كلمة المرور الجديدة"),
+        "enter_phone": MessageLookupByLibrary.simpleMessage("ادخل رقم الهاتف"),
         "expiry_date": MessageLookupByLibrary.simpleMessage("تاريخ الانتهاء"),
         "face_id": MessageLookupByLibrary.simpleMessage("Face ID"),
+        "first_name": MessageLookupByLibrary.simpleMessage("الاسم الاول"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("نسيت كلمه السر؟"),
         "general_notifications":
@@ -65,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "hours": MessageLookupByLibrary.simpleMessage("ساعات"),
         "invite_friends": MessageLookupByLibrary.simpleMessage("دعوة الأصدقاء"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "last_name": MessageLookupByLibrary.simpleMessage("اسم العائلة"),
         "lessons": MessageLookupByLibrary.simpleMessage("الدروس"),
         "login_to_Account":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول إلى حسابك"),
@@ -72,6 +88,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout_sentence": MessageLookupByLibrary.simpleMessage(
             "هل أنت متاكد من أنك تريد تسجيل الخروج ؟"),
         "message": MessageLookupByLibrary.simpleMessage("رسالة"),
+        "new_password":
+            MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
         "new_service_available":
             MessageLookupByLibrary.simpleMessage("خدمة جديدة متاحة"),
         "new_tips_available":
@@ -82,21 +100,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "password": MessageLookupByLibrary.simpleMessage("كلمه السرى"),
         "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
+        "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
         "profile": MessageLookupByLibrary.simpleMessage("الحساب"),
         "promo_discount":
             MessageLookupByLibrary.simpleMessage("الخصم والتخفيض"),
         "remember_me": MessageLookupByLibrary.simpleMessage("تذكرني"),
+        "resend_code":
+            MessageLookupByLibrary.simpleMessage("اعادة ارسال الكود"),
+        "reset_password":
+            MessageLookupByLibrary.simpleMessage("اعادة تعيين كلمة المرور"),
         "reviews": MessageLookupByLibrary.simpleMessage("المراجعات"),
+        "seconds": MessageLookupByLibrary.simpleMessage("ثواني"),
         "security": MessageLookupByLibrary.simpleMessage("الأمان"),
         "see_all": MessageLookupByLibrary.simpleMessage("اظهار الكل"),
+        "send": MessageLookupByLibrary.simpleMessage("ارسال"),
         "sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "sign_up": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "sound": MessageLookupByLibrary.simpleMessage("الصوت"),
         "special_offers": MessageLookupByLibrary.simpleMessage("العروض الخاصة"),
         "student": MessageLookupByLibrary.simpleMessage("طلاب"),
         "update": MessageLookupByLibrary.simpleMessage("تحديث"),
+        "verify": MessageLookupByLibrary.simpleMessage("تاكيد"),
         "vibrate": MessageLookupByLibrary.simpleMessage("التنبيهات"),
         "website": MessageLookupByLibrary.simpleMessage("الموقع"),
         "word": MessageLookupByLibrary.simpleMessage("كلمه"),

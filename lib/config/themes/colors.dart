@@ -17,5 +17,7 @@ class AppColor {
   static const Color schedulemeetingColor = Color(0xffff8093);
   static Color lightBlueColor = Colors.lightBlue[50]!;
   static const Color blueColor=Colors.blue;
+  static Color? greyColor=Colors.grey[300];
+
 
 }

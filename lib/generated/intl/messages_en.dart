@@ -39,6 +39,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "change_password":
             MessageLookupByLibrary.simpleMessage("Change Password"),
         "change_pin": MessageLookupByLibrary.simpleMessage("Change PIN"),
+        "code_sent":
+            MessageLookupByLibrary.simpleMessage("Code has been sent to"),
+        "code_valid_for":
+            MessageLookupByLibrary.simpleMessage("Code valid for"),
+        "code_validate":
+            MessageLookupByLibrary.simpleMessage("Code can not be empty !"),
+        "confirm_password":
+            MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "connected": MessageLookupByLibrary.simpleMessage("Connected"),
         "course_details":
             MessageLookupByLibrary.simpleMessage("Course Details"),
@@ -51,10 +59,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "disconnected": MessageLookupByLibrary.simpleMessage("Disconnected"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "email_verify":
+            MessageLookupByLibrary.simpleMessage("Email verification !"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
         "enroll": MessageLookupByLibrary.simpleMessage("Enroll"),
+        "enter_code": MessageLookupByLibrary.simpleMessage("Enter code"),
+        "enter_email":
+            MessageLookupByLibrary.simpleMessage("Enter your email address"),
+        "enter_new_password":
+            MessageLookupByLibrary.simpleMessage("Enter new password"),
+        "enter_phone":
+            MessageLookupByLibrary.simpleMessage("Enter phone number"),
         "expiry_date": MessageLookupByLibrary.simpleMessage("Expiry Date"),
         "face_id": MessageLookupByLibrary.simpleMessage("Face ID"),
+        "first_name": MessageLookupByLibrary.simpleMessage("First Name"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("Forgot the password?"),
         "general_notifications":
@@ -66,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "invite_friends":
             MessageLookupByLibrary.simpleMessage("Invite Friends"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "last_name": MessageLookupByLibrary.simpleMessage("Last Name"),
         "lessons": MessageLookupByLibrary.simpleMessage("Lessons"),
         "login_to_Account":
             MessageLookupByLibrary.simpleMessage("Login to Your Account"),
@@ -73,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout_sentence": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to logout?"),
         "message": MessageLookupByLibrary.simpleMessage("Message"),
+        "new_password": MessageLookupByLibrary.simpleMessage("New password"),
         "new_service_available":
             MessageLookupByLibrary.simpleMessage("New Service Available"),
         "new_tips_available":
@@ -83,15 +103,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "payment": MessageLookupByLibrary.simpleMessage("Payment"),
+        "phone": MessageLookupByLibrary.simpleMessage("Phone number"),
         "privacy_policy":
             MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "promo_discount":
             MessageLookupByLibrary.simpleMessage("Promo & Discount"),
         "remember_me": MessageLookupByLibrary.simpleMessage("Remember Me"),
+        "resend_code": MessageLookupByLibrary.simpleMessage("Resend code"),
+        "reset_password":
+            MessageLookupByLibrary.simpleMessage("Reset Password"),
         "reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
+        "seconds": MessageLookupByLibrary.simpleMessage("Seconds"),
         "security": MessageLookupByLibrary.simpleMessage("Security"),
         "see_all": MessageLookupByLibrary.simpleMessage("See All"),
+        "send": MessageLookupByLibrary.simpleMessage("Send"),
         "sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
         "sound": MessageLookupByLibrary.simpleMessage("Sound"),
@@ -99,6 +125,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Special Offers"),
         "student": MessageLookupByLibrary.simpleMessage("Students"),
         "update": MessageLookupByLibrary.simpleMessage("Update"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
         "vibrate": MessageLookupByLibrary.simpleMessage("Vibrate"),
         "website": MessageLookupByLibrary.simpleMessage("website"),
         "word": MessageLookupByLibrary.simpleMessage("Word"),
