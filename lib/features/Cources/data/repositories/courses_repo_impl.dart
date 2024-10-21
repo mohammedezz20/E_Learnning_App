@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:e_learning_app/core/failure_handling.dart';
+import 'package:e_learning_app/core/error_handling.dart';
 import 'package:e_learning_app/features/Cources/data/data_sources/courses_local_datasource.dart';
 import 'package:e_learning_app/features/Cources/data/data_sources/courses_remote_datasource.dart';
 import 'package:e_learning_app/features/Cources/domain/entities/all_courses_entity.dart';
@@ -11,7 +11,7 @@ class CoursesRepository extends CoursesRepo{
   final CoursesLocalDataSource coursesLocalDatasource;
   CoursesRepository({required this.coursesRemoteDataSource,required this.coursesLocalDatasource});
   @override
-  Future<Either<FailureHandler, List<CourseEntity>>> getAllCourses() async{
+  Future<Either<Failure, List<CourseEntity>>> getAllCourses() async{
   try{
     //  List<CoursesModel>cachedCourses = await coursesLocalDatasource
     //      .fetchCoursesFromHive();
@@ -26,13 +26,13 @@ class CoursesRepository extends CoursesRepo{
     // if(error is DioException){
     //   return left(ServerFailure.fromDiorError(error));
     // }else{
-      return left(ServerFailure(error.toString()));
+      return left(ServerFailure(message:error.toString()));
   //   }
    }
   }
 
   @override
-  Future<Either<FailureHandler, CourseDetailsEntity>> getCourseDetails({required String courseId}) {
+  Future<Either<Failure, CourseDetailsEntity>> getCourseDetails({required String courseId}) {
     // TODO: implement getCourseDetails
     throw UnimplementedError();
   }

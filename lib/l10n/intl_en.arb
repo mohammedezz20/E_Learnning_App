@@ -64,27 +64,7 @@
   "all_reviews":"All Reviews",
   "see_all":"See All",
   "course_details":"Course Details",
-  "hours":"Hours",
-  "first_name":"First Name",
-  "last_name":"Last Name",
-  "confirm_password":"Confirm Password",
-  "enter_phone": "Enter phone number",
-  "enter_email": "Enter your email address",
-  "phone": "Phone number",
-  "send": "Send",
-  "email_verify": "Email verification !",
-  "resend_code": "Resend code",
-  "enter_code": "Enter code",
-  "enter_new_password": "Enter new password",
-  "new_password": "New password",
-  "code_valid_for": "Code valid for",
-  "seconds": "Seconds",
-  "reset_password": "Reset Password",
-  "code_sent":"Code has been sent to",
-  "verify":"Verify",
-  "code_validate":"Code can not be empty !"
-  
-  
+  "hours":"Hours"
 
   
 }

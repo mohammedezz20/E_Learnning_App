@@ -1,7 +1,6 @@
 import 'package:e_learning_app/bloc_observer.dart';
 import 'package:e_learning_app/core/Get%20it/setup_locator.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
-import 'package:e_learning_app/core/dio_helper.dart';
 import 'package:e_learning_app/runapp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,7 +12,6 @@ Future<void> main() async {
   await di.init();
   setupLocator();
   await CachHelper.init();
-  await DioHelper.init();
   bool isLogin = CachHelper.getData(key: 'isLogin') ?? false;
   bool isArabic = CachHelper.getData(key: 'isArabic') ?? false;
   bool isDark = CachHelper.getData(key: 'isDark') ?? false;

@@ -2,14 +2,14 @@ import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class RememberMe extends StatelessWidget {
-
-  const RememberMe({
+class RemeberMe extends StatelessWidget {
+  final bool value;
+  final Function onChanged;
+  const RemeberMe({
     required this.value,
     required this.onChanged,
     super.key});
-  final bool value;
-  final Function onChanged;
+
   @override
   Widget build(BuildContext context) {
     return    Padding(
@@ -25,7 +25,7 @@ class RememberMe extends StatelessWidget {
                    onChanged(value);
                    },                
               ),
-               SizedBox(height: 50.h,),
+               SizedBox(height: 100.h,),
                Text(
                S.of(context).remember_me,
                 style: TextStyle(

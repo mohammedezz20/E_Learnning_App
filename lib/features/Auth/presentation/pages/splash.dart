@@ -76,7 +76,7 @@ class CircleProgressPainter extends CustomPainter {
 
     // Draw background circle
     final Paint backgroundPaint = Paint()
-      ..color = Colors.white
+      ..color = Colors.white!
       ..style = PaintingStyle.fill;
     canvas.drawCircle(Offset(radius, radius), radius, backgroundPaint);
 

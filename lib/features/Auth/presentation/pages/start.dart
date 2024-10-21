@@ -209,7 +209,7 @@ class _startState extends State<start> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => LoginScreen()),
+                                        builder: (context) => Login()),
                                   );
                                 },
                               ),

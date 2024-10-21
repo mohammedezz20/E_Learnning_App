@@ -95,7 +95,6 @@ class CustomFormField extends StatelessWidget {
             ),
             suffixIcon: suffix,
             prefixIcon: prefix,
-             errorMaxLines: 2
           ),
         
         ),

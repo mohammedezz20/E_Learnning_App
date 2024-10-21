@@ -1,51 +1,31 @@
 import 'package:e_learning_app/config/themes/colors.dart';
 import 'package:e_learning_app/core/Get%20it/setup_locator.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
+import 'package:e_learning_app/core/utils/widgets/CustomFormField.dart';
 import 'package:e_learning_app/core/utils/widgets/custom_button.dart';
-import 'package:e_learning_app/core/utils/widgets/custom_snack_bar.dart';
-import 'package:e_learning_app/features/Auth/data/models/auth_controllers_model.dart';
-import 'package:e_learning_app/features/Auth/data/models/sign_up_model.dart';
-import 'package:e_learning_app/features/Auth/domain/usecases/forget_pass_use_case.dart';
-import 'package:e_learning_app/features/Auth/domain/usecases/reset_pass_use_case.dart';
-import 'package:e_learning_app/features/Auth/domain/usecases/sign_in_use_case.dart';
-import 'package:e_learning_app/features/Auth/domain/usecases/signup_use_case.dart';
+import 'package:e_learning_app/features/Auth/data/repositories/auth_repo_impl.dart';
 import 'package:e_learning_app/features/Auth/presentation/cubit/auth_cubit.dart';
-import 'package:e_learning_app/features/Auth/presentation/widgets/signup_widgets.dart/signup_form.dart';
 import 'package:e_learning_app/features/Auth/presentation/widgets/text_button_auth_account.dart';
-import 'package:e_learning_app/features/Auth/presentation/widgets/login%20widgets/remeber_me_custom_widget.dart';
+import 'package:e_learning_app/features/Auth/presentation/widgets/remeber_me_custom_widget.dart';
 import 'package:e_learning_app/generated/l10n.dart';
 import 'package:e_learning_app/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'login.dart';
 
 class SignUp  extends StatelessWidget {
-   final GlobalKey<FormState> signUpFormKey = GlobalKey();
-   final TextEditingController firstNameController = TextEditingController();
-   final TextEditingController lastNameController = TextEditingController();
-   final TextEditingController emailController = TextEditingController();
+   final GlobalKey<FormState> _signUpFormKey = GlobalKey();
+   
+  final TextEditingController emailController = TextEditingController();
    final TextEditingController passwordController = TextEditingController();
-   final TextEditingController confirmPasswordController = TextEditingController();
-   SignUp({super.key});
+    SignUp({super.key});
   @override
   Widget build(BuildContext context) {
-
-    return BlocProvider(create: (context)=>AuthCubit(getIt.get<SignUpUseCase>(),getIt.get<SignInUseCase>(),
-    getIt.get<ForgetPassUseCase>(),getIt.get<ResetPassUseCase>()),
+    return BlocProvider(create: (context)=>AuthCubit(getIt.get<AuthRepository>()),
     child: BlocConsumer<AuthCubit,AuthState>(
       listener: (context,state){
-        if(state is AuthSignUpSuccessState){  
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>  HomeScreen(),
-                ),
-                );
-        }
-        else if (state is AuthSignUpErrorState){
-         showSnackBar(context:context,message: state.errorMessage,);
-        }
       },
       builder: (context,state){
             var readCubit=context.read<AuthCubit>();
@@ -57,6 +37,7 @@ class SignUp  extends StatelessWidget {
           color: CachHelper.getData(key: 'isDark')
              ?  const Color(0xfffafafa)
              :  const Color(0xff1f222a),
+          
           ),
           onPressed: () {
            Navigator.of(context).pop();
@@ -85,49 +66,99 @@ class SignUp  extends StatelessWidget {
                               
                         ),
                    
-               SignUpForm(readCubit: readCubit, authControllers:
-               AuthFormModel(
-                 firstNameController: firstNameController,
-                 lastNameController:  lastNameController,
-                 emailController: emailController,
-                 passwordController: passwordController,
-                 confirmPasswordController: confirmPasswordController,
-                 authFormKey: signUpFormKey
-               ),
-               ),
-                   RememberMe(
+                      Form(
+                        key: _signUpFormKey,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                               width: double.infinity,
+                              child: CustomFormField(
+                                sizedBoxHeight: 20,
+                                    hintTextFontSize: 25.0.sp,
+                                 outLineBorderColor: AppColor.loginOptionBorder,
+                                focusedBorderColor: AppColor.buttonColor,
+                                  backgroundColor: !CachHelper.getData(key: 'isDark')
+                                 ? const Color(0xfffafafa)
+                                 : const Color(0xff1f222a),
+                                border:9.0,
+                                prefix:const Icon( Icons.email),
+                                controller: emailController,
+                                hintText: S.of(context).email,
+                                keyboardType: TextInputType.emailAddress,
+                                validator: (value) {
+                                  return watchCubit.emailValidator(value);
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                                width: double.infinity,
+                              child:
+                              CustomFormField(
+                                sizedBoxHeight: 20,
+                                controller:passwordController,
+                                border: 9.0,
+                                hintTextFontSize: 25.0.sp,
+                                outLineBorderColor: AppColor.loginOptionBorder,
+                                focusedBorderColor: AppColor.buttonColor,
+                                backgroundColor: !CachHelper.getData(key: 'isDark')
+                                 ? const Color(0xfffafafa)
+                                 : const Color(0xff1f222a),
+                                 isPassword: watchCubit.isPasswordVisible,
+                                prefix:const Icon(Icons.lock_rounded),
+                                hintText: S.of(context).password,
+                                suffix: GestureDetector(
+                                child:watchCubit.isPasswordVisible
+                                     ? const Icon(Icons.visibility_off)
+                                     : const Icon(Icons.visibility),
+                                     onTap: (){
+                                    readCubit.changePassVisibility();
+                                    },
+                                ),
+                                keyboardType: TextInputType.visiblePassword,
+                                validator: (value) {
+                                 return watchCubit.passwordValidator(value);
+                                },                      
+                                )
+                            ),
+                          ],
+                        ),
+                      ),
+                   RemeberMe(
                     value: watchCubit.isChecked,
                     onChanged: (value){
                       readCubit.rememberUserCheck(value);
                     },
                    ),      
                      Padding(
-                        padding: EdgeInsets.fromLTRB(0, MediaQuery.of(context).size.height*0.04, 0, 15.h),
+                        padding: EdgeInsets.fromLTRB(0, 0, 0, 85.h),
                       child: CustomButton(
                         backgroundColor: AppColor.buttonColor,
                          width:MediaQuery.of(context).size.width,
                           text: S.of(context).sign_in,
                           onPressed: () {
-                              if (signUpFormKey.currentState!.validate()) {
-                                readCubit.signUp(
-                                 signUpModel: SignUpModel(
-                                   firstName: firstNameController.text,
-                                    lastName: lastNameController.text,
-                                    email: emailController.text,
-                                   password: passwordController.text,
-                                    grade: 0, 
-                                 )
-                                );
+                              if (_signUpFormKey.currentState!.validate()) {
+                                // readCubit.signUp(
+                                //   email: emailController.text,
+                                //   pass: passwordController.text
+                                // );
+                                 Navigator.push(
+                               context,
+                               MaterialPageRoute(
+                                 builder: (context) =>  HomeScreen(),
+                               ),
+                               );
+                                print('form submiitted');
                               }
                             },
                                     
                       ),),
-                        Center(
+                                     Center(
                         child:TextButtonAuthAccount(
                           size: MediaQuery.of(context).size,
                           text: S.of(context).already_have_account,
                           textButton: S.of(context).sign_in,
-                          navigationScreen:  LoginScreen(),
+                          navigationScreen: Login(),
                         )
                      )
                   

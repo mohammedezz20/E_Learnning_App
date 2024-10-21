@@ -1,40 +1,18 @@
-import 'package:e_learning_app/core/dio_helper.dart';
-import 'package:e_learning_app/core/utils/api_constants.dart';
-import 'package:e_learning_app/features/Auth/data/models/sign_in_model.dart';
-import 'package:e_learning_app/features/Auth/data/models/sign_up_model.dart';
-import 'package:e_learning_app/features/Auth/domain/entities/user_entity.dart';
-
-abstract class IAuthDataSource{
-  Future<UserDataEntity>signIn({required SignInModel signInModel});
-  Future<UserDataEntity>signUp({required SignUpModel signUpModel});
+abstract class IAuthDatasource{
+  Future<void>signIn({required email,required password});
+  Future<void>register({required email,required password});
 }
-class RemoteDataSource implements IAuthDataSource{
+class RemoteDataSource implements IAuthDatasource{
   @override
- Future<UserDataEntity> signIn({required SignInModel signInModel}) async{
-         final response = await DioHelper.post(
-        url: APIConstants.signIn,
-        data: signInModel.toJson(),
-      );
-        final data = response.data['data']['student'];
-        return UserDataEntity.fromJson(data);
-      
+  Future<void> signIn({required email, required password}) async{
+    //TODO implement sign in From API
+    //TODO save user data to local
+    throw UnimplementedError();
   }
-
- @override
-  Future<UserDataEntity> signUp({required SignUpModel signUpModel}) async {
-    print('signUpModel: ${signUpModel.toJson()}');
-      final response = await DioHelper.post(
-        url: APIConstants.signUp,
-        data: signUpModel.toJson(),
-      );
-      if (response.statusCode == 201) {
-        final data = response.data['data'];
-        return UserDataEntity.fromJson(data);
-      } else {
-        throw Exception('Failed to sign up: ${response.statusCode}');
-      }
+  @override
+  Future<void> register({required email, required password})async {
+    // TODO: implement signUp From API
+    // TODO save user data to local
+    throw UnimplementedError();
   }
-
-
-
 }
