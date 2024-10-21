@@ -52,9 +52,9 @@ class ChatModel {
   /// Returns a list of maps representing the JSON objects.
   static List<Map<String, dynamic>> toJsonList(List<ChatModel> list) {
     List<Map<String, dynamic>> listJson = [];
-    list.forEach((element) {
+    for (var element in list) {
       listJson.add(element.toJson());
-    });
+    }
     return listJson;
   }
 }

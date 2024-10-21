@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class GenderPickerContainer extends StatefulWidget {
-  const GenderPickerContainer({super.key, required this.backgroundColor});
+class GenderPickerContainer extends StatelessWidget {
+  const GenderPickerContainer(
+      {super.key,
+      required this.backgroundColor,
+      required this.selectedValue,
+      required this.onChanged});
 
   final Color backgroundColor;
 
-  @override
-  State<GenderPickerContainer> createState() => _GenderPickerContainerState();
-}
+  final String selectedValue;
 
-class _GenderPickerContainerState extends State<GenderPickerContainer> {
-  String? selectedValue = 'Male';
+  final void Function(String) onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +23,9 @@ class _GenderPickerContainerState extends State<GenderPickerContainer> {
         horizontal: 10,
       ),
       decoration: BoxDecoration(
-          color: widget.backgroundColor,
-          borderRadius: BorderRadius.circular(12)),
+          color: backgroundColor, borderRadius: BorderRadius.circular(12)),
       child: DropdownButton<String>(
-        dropdownColor: widget.backgroundColor,
+        dropdownColor: backgroundColor,
         iconEnabledColor: Theme.of(context).iconTheme.color,
         borderRadius: BorderRadius.circular(12),
         style: Theme.of(context).textTheme.bodyMedium,
@@ -35,8 +35,7 @@ class _GenderPickerContainerState extends State<GenderPickerContainer> {
         padding: const EdgeInsets.symmetric(horizontal: 10),
         underline: Container(),
         onChanged: (newValue) {
-          selectedValue = newValue;
-          setState(() {});
+          onChanged(newValue!);
         },
         items: <String>['Female', 'Male']
             .map<DropdownMenuItem<String>>((String value) {

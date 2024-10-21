@@ -5,6 +5,6 @@ class HelpCenterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Help Center Screen'));
+    return const Center(child: Text('Help Center Screen'));
   }
 }

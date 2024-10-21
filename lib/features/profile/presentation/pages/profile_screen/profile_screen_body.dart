@@ -9,7 +9,7 @@ class ProfileScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var pickedImage;
+    // TODO:add profile photo, name and email.
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),

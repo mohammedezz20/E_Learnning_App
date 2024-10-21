@@ -6,7 +6,6 @@ import 'package:e_learning_app/features/Auth/presentation/pages/on_boarding.dart
 import 'package:e_learning_app/features/Auth/presentation/pages/signup.dart';
 import 'package:e_learning_app/features/Auth/presentation/pages/start.dart';
 import 'package:e_learning_app/features/profile/presentation/cubit/cubit.dart';
-import 'package:e_learning_app/features/profile/presentation/pages/profile_screen/profile_screen.dart';
 import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -70,7 +69,7 @@ class MainApp extends StatelessWidget {
                       GlobalCupertinoLocalizations.delegate,
                     ],
                     supportedLocales: S.delegate.supportedLocales,
-                    home:  Login()),
+                    home: Login()),
               );
             },
           );

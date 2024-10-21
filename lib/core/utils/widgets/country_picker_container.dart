@@ -1,18 +1,15 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:e_learning_app/core/cach_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class CountryPickerContainer extends StatefulWidget {
-  CountryPickerContainer({super.key, this.country = 'Egypt'});
+class CountryPickerContainer extends StatelessWidget {
+  const CountryPickerContainer(
+      {super.key, this.country = 'Egypt', required this.onSelect});
 
-  String country;
-
-  @override
-  State<CountryPickerContainer> createState() => _CountryPickerContainerState();
-}
-
-class _CountryPickerContainerState extends State<CountryPickerContainer> {
+  final String country;
+  final void Function(Country) onSelect;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,13 +17,13 @@ class _CountryPickerContainerState extends State<CountryPickerContainer> {
         showCountryPicker(
           context: context,
           countryListTheme: CountryListThemeData(
-            flagSize: 25,
+            flagSize: 25.r,
             backgroundColor: Colors.white,
-            textStyle: const TextStyle(fontSize: 16, color: Colors.blueGrey),
-            bottomSheetHeight: 500,
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(20.0),
-              topRight: Radius.circular(20.0),
+            textStyle: TextStyle(fontSize: 16.sp, color: Colors.blueGrey),
+            bottomSheetHeight: 500.h,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20.0.r),
+              topRight: Radius.circular(20.0.r),
             ),
             //Optional. Styles the search field.
             searchTextStyle: Theme.of(context).textTheme.bodySmall,
@@ -41,10 +38,8 @@ class _CountryPickerContainerState extends State<CountryPickerContainer> {
               ),
             ),
           ),
-          onSelect: (Country c) {
-            widget.country = c.displayName;
-            print('Select country: ${c.displayNameNoCountryCode}');
-            setState(() {});
+          onSelect: (Country country) {
+            onSelect(country);
           },
         );
       },
@@ -54,12 +49,12 @@ class _CountryPickerContainerState extends State<CountryPickerContainer> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: CachHelper.getData(key: 'isDark')
-              ? Color(0xff1f222a)
+              ? const Color(0xff1f222a)
               : const Color(0xfffafafa),
         ),
         child: Row(
           children: [
-            Text(widget.country, style: Theme.of(context).textTheme.bodyMedium),
+            Text(country, style: Theme.of(context).textTheme.bodyMedium),
             const Spacer(),
             const Icon(FontAwesomeIcons.caretDown),
           ],
